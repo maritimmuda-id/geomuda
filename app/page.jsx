@@ -1,4 +1,5 @@
 // ** Import Components
+import About from "@/components/About/About";
 import Banner from "@/components/Banner/Banner";
 import Navbar from "@/components/navbar/Navbar";
 
@@ -7,9 +8,9 @@ const LandingPage = () => {
     <main>
       <div className="relative">
         <Navbar />
-
-        <Banner />
+        <Banner />  
       </div>
+      <About />
     </main>
   );
 };
