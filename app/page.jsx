@@ -2,6 +2,7 @@
 import About from "@/components/About/About";
 import Activity from "@/components/Activity/Activity";
 import Banner from "@/components/Banner/Banner";
+import Powered from "@/components/Powered/Powered";
 import Navbar from "@/components/navbar/Navbar";
 
 const LandingPage = () => {
@@ -14,7 +15,7 @@ const LandingPage = () => {
 
       <About />
       <Activity />
-
+      <Powered />
 </main>
   );
 };
