@@ -4,7 +4,9 @@ import Image from "next/image";
 const About = () => {
   return (
     <div className="p-20">
-      <h1 className="text-center text-4xl">About Us</h1>
+      <h1 className="text-center text-5xl text-green-700 font-medium">
+        About Us
+      </h1>
       <div className="flex px-40 justify-center items-center gap-20">
         <Image src={assets.tree} alt="tree" />
         <p>
