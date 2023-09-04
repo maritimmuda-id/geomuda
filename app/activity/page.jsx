@@ -26,7 +26,7 @@ const ActivityPage = () => {
                   index % 2 === 1 && "flex-row-reverse"
                 } `}
               >
-                <Image src={content.image} />
+                <Image src={content.image} alt={content.alt}/>
 
                 <div className="space-y-6">
                   <h1 className="text-2xl font-bold">{content.title}</h1>

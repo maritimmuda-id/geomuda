@@ -13,7 +13,7 @@ const Activity = () => {
       <div className="grid grid-cols-4 gap-8">
         {activities.map((activiti) => (
           <div className="rounded-xl">
-            <Image src={activiti.image} className="w-full" />
+            <Image src={activiti.image} alt={activiti.alt} className="w-full" />
           </div>
         ))}
       </div>
