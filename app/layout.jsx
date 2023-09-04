@@ -1,8 +1,11 @@
 // ** Import CSS
 import "./globals.css";
-import { Inter } from "next/font/google";
+import { Inter, Poppins } from "next/font/google";
 
-const inter = Inter({ subsets: ["latin"] });
+const poppins = Poppins({
+  weight: "500",
+  subsets: ["devanagari"],
+});
 
 export const metadata = {
   title: "Geomuda",
@@ -12,7 +15,7 @@ export const metadata = {
 export default function RootLayout({ children }) {
   return (
     <html lang="en">
-      <body className={inter.className}>{children}</body>
+      <body className={poppins.className}>{children}</body>
     </html>
   );
 }

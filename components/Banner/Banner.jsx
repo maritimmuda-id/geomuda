@@ -18,7 +18,7 @@ const Banner = () => {
         </div>
 
         <div className="flex justify-start flex-col items-center gap-10">
-          <h1 className="text-[48px] max-w-3xl font-bold text-center font-serif uppercase">
+          <h1 className="text-[48px] max-w-3xl font-bold text-center uppercase">
             Lorem ipsum dolor sit amet consectetur.
           </h1>
 
