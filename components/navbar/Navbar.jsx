@@ -1,10 +1,16 @@
 "use client";
 
-import assets from "@/assets/assets";
 // ** Import Assets
+import assets from "@/assets/assets";
+
+// ** Import Constans
 import { navItems } from "@/constanst/navItems";
+
+// ** Import Next
 import Image from "next/image";
 import Link from "next/link";
+
+// ** Import React
 import { useEffect, useState } from "react";
 
 const Navbar = () => {
@@ -32,17 +38,22 @@ const Navbar = () => {
     >
       <Image src={assets.logoGmiWhite} className="w-32"></Image>
 
-      <div className="flex gap-5">
+      <div className="flex items-center gap-5">
         {navItems.map((item, index) => (
           <div
             key={index}
             // href={item.location}
-            className="border cursor-pointer border-white px-4 py-2 rounded-xl"
+            className="cursor-pointer hover:text-red-400 rounded-xl"
           >
             {item.name}
           </div>
         ))}
-        <Link href="/login" className="border cursor-pointer border-white px-4 py-2 rounded-xl">Membership</Link>
+        <Link
+          href="/login"
+          className=" cursor-pointer py-2 hover:text-red-400 rounded-xl"
+        >
+          Membership
+        </Link>
       </div>
     </nav>
   );
