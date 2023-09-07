@@ -1,18 +1,28 @@
 // Landing Page
-import banner from "./landing-page/banner.png";
+import banner from "./landing-page/banner.svg";
 import banner2 from "./landing-page/banner2.svg";
-import tree from "./landing-page/tree.svg";
-import activity from "./landing-page/activity.svg";
-import activity2 from "./landing-page/activity2.svg";
-import activity3 from "./landing-page/activity3.svg";
+import program1 from "./landing-page/program1.svg";
+import program2 from "./landing-page/program2.svg";
+import program3 from "./landing-page/program3.svg";
+import program4 from "./landing-page/program4.svg";
 import logoMaritim from "./landing-page/logo-maritim.svg";
+import logoGmi from "./landing-page/logo-gmi.svg";
+import logoGmiWhite from "./landing-page/logo-gmi-white.svg";
+import logoGmiTextWhite from "./landing-page/logo-gmi-text-white.svg";
+import aboutContent from "./landing-page/aboutContent.svg";
+import aboutContent2 from "./landing-page/aboutContent2.svg";
 
 export default {
   banner,
   banner2,
-  tree,
-  activity,
-  activity2,
+  program1,
+  program2,
+  program3,
+  program4,
+  logoGmi,
+  logoGmiWhite,
+  logoGmiTextWhite,
   logoMaritim,
-  activity3,
+  aboutContent,
+  aboutContent2,
 };
