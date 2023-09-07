@@ -2,7 +2,11 @@
 import BannerActivity from "@/components/BannerActivity/BannerActivity";
 import Footer from "@/components/Footer/Footer";
 import Navbar from "@/components/navbar/Navbar";
+
+// ** Import Constans
 import { contentActivity } from "@/constanst/content-activity";
+
+// ** Import Next
 import Image from "next/image";
 
 const ActivityPage = () => {
@@ -21,7 +25,7 @@ const ActivityPage = () => {
             <div
               className={`flex justify-between mx-32 gap-16 ${
                 index % 2 === 1 && "flex-row-reverse"
-              } pb-20 border-b-4  last:border-b-0 border-black`}
+              } pb-20 border-b-4 last:border-b-0 border-black`}
             >
               <Image src={content.image} alt={content.title} />
 
@@ -41,7 +45,6 @@ const ActivityPage = () => {
                 )}
               </div>
             </div>
-            // <div className="py-[1.5px] rounded-xl w-[80%] mx-auto bg-black"></div>
           ))}
         </div>
       </article>

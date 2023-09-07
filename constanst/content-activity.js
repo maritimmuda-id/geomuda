@@ -4,7 +4,7 @@ export const contentActivity = [
   {
     title: "Data, Riset, dan Advokasi Kebumian",
     desc: "Penelitian, survei, dan pengelolaan data sumber daya alam, bumi, air, energi dan kebencanaan dan Advokasi aspirasi pemuda dan masyarakat terkait kebijakan bidang sumber daya alam dan kebencanaan berbasis ilmu pengetahuan kepada pemerintah daerah dan pemerintah pusat.",
-    image: assets.activity,
+    image: assets.program1,
   },
   {
     title:
@@ -17,16 +17,16 @@ export const contentActivity = [
       "Pendelegasian pemuda Indonesia dalam kegiatan terkait -kebumian dan kebencanaan tingkat daerah, nasional, dan internasional.",
       "Peningkatan wawasan dan lingkungan.",
     ],
-    image: assets.activity2,
+    image: assets.program2,
   },
   {
     title: "Konservasi dan Pariwisata Kebumian",
-    desc: "Pelestarian ekosistem, Konservasi sumber daya alam, Adaptasi dan mitigasi perubahan iklim, Pengembangan kegiatan olahraga dan cinta alam, Pengembangan pariwisata kebumian berkelanjutan.",
-    image: assets.activity3,
+    desc: "Pel  estarian ekosistem, Konservasi sumber daya alam, Adaptasi dan mitigasi perubahan iklim, Pengembangan kegiatan olahraga dan cinta alam, Pengembangan pariwisata kebumian berkelanjutan.",
+    image: assets.program3,
   },
   {
     title: "Kewirausahaan dan Inovasi Teknologi Kebumian",
     desc: "Pengembangan kewirausahaan kebumian pemuda dan usaha --kebumian masyarakat dan Pengembangan inovasi teknologi kebumian.",
-    image: assets.activity3,
+    image: assets.program4,
   },
 ];
