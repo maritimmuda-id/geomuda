@@ -6,7 +6,7 @@ const LoginPage = () => {
   return (
     <div className='p-4 w-screen'>
       <div className='p-6 md:p-10 max-w-md shadow-2xl rounded-xl bg-slate-300 mx-auto'>
-        <Image src={assets.logoGmi} className="w-32 mx-auto "/>
+        <Image src={assets.logoGmi} className="w-32 mx-auto" alt="logo geomuda indonesia"/>
         <h2 className='text-2xl text-center my-5 font-semibold'>Login</h2>
         <form className='flex justify-center flex-col mx-auto'>
           <label className='mb-1'>Email</label>

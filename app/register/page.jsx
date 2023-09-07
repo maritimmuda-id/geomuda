@@ -6,7 +6,7 @@ const RegisterPage = () => {
   return (
     <div className='p-14 w-screen'>
       <div className='p-10 w-5/12 shadow-2xl rounded-xl bg-slate-300 mx-auto'>
-        <Image src={assets.logoGmi} className="w-32 mx-auto "/>
+        <Image src={assets.logoGmi} className="w-32 mx-auto" alt="logo geomuda indonesia"/>
         <h2 className='text-2xl text-center my-5 font-semibold'>Register</h2>
         <form className='flex justify-center flex-col mx-auto'>
         <label className='mb-1'>Full Name</label>

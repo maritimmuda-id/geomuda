@@ -36,7 +36,7 @@ const Navbar = () => {
           : "bg-transparent duration-500"
       }`}
     >
-      <Image src={assets.logoGmiWhite} className="w-32"></Image>
+      <Image src={assets.logoGmiWhite} className="w-32" alt="logo geomuda indonesia white"></Image>
 
       <div className="flex items-center gap-5">
         {navItems.map((item, index) => (

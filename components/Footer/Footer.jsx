@@ -6,7 +6,7 @@ const Footer = () => {
     <div className="bg-gray-900 py-20 px-10 text-white space-y-16">
     <div className="grid grid-cols-3 gap-10 text-center">
       <div>
-        <Image src={assets.logoGmiTextWhite} className="w-10 mx-auto"/>
+        <Image src={assets.logoGmiTextWhite} className="w-10 mx-auto" alt="logo geomuda indonesia text white"/>
         <div className="py-[1px] bg-white my-4"></div>
         <ul>
           <li>Home</li>
