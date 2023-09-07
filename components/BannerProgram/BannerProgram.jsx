@@ -22,8 +22,8 @@ const BannerActivity = () => {
 
         <div className="flex justify-start flex-col items-center gap-10 py-5">
           <Link href="/">
-            <button className="border border-white px-32 rounded-full py-3">
-              Home
+            <button className="border font-medium border-white px-32 rounded-full py-3">
+              HOME
             </button>
           </Link>
         </div>

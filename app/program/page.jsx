@@ -1,5 +1,5 @@
 // ** Import Components
-import BannerActivity from "@/components/BannerActivity/BannerActivity";
+import BannerProgram from "@/components/BannerProgram/BannerProgram";
 import Footer from "@/components/Footer/Footer";
 import Navbar from "@/components/navbar/Navbar";
 
@@ -14,7 +14,7 @@ const ActivityPage = () => {
     <main>
       <div className="relative">
         <Navbar />
-        <BannerActivity />
+        <BannerProgram />
       </div>
 
       <article className="p-20 space-y-20">

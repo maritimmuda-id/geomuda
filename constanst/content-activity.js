@@ -21,12 +21,12 @@ export const contentActivity = [
   },
   {
     title: "Konservasi dan Pariwisata Kebumian",
-    desc: "Pel  estarian ekosistem, Konservasi sumber daya alam, Adaptasi dan mitigasi perubahan iklim, Pengembangan kegiatan olahraga dan cinta alam, Pengembangan pariwisata kebumian berkelanjutan.",
+    desc: "Pelestarian ekosistem, Konservasi sumber daya alam, Adaptasi dan mitigasi perubahan iklim, Pengembangan kegiatan olahraga dan cinta alam, Pengembangan pariwisata kebumian berkelanjutan.",
     image: assets.program3,
   },
   {
     title: "Kewirausahaan dan Inovasi Teknologi Kebumian",
-    desc: "Pengembangan kewirausahaan kebumian pemuda dan usaha --kebumian masyarakat dan Pengembangan inovasi teknologi kebumian.",
+    desc: "Pengembangan kewirausahaan kebumian pemuda dan usaha kebumian masyarakat dan Pengembangan inovasi teknologi kebumian.",
     image: assets.program4,
   },
 ];
