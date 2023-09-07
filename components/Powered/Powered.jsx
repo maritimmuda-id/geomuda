@@ -3,10 +3,18 @@ import Image from "next/image";
 
 const Powered = () => {
   return (
-    <div className="py-20 pt-16 pb-20 space-y-20">
-    <h1 className="text-center text-4xl">Powered By</h1>
-    <Image className="flex mx-auto" src={assets.logoMaritim} alt="Logo maritim muda" />
-  </div>
+    <div>
+      <Image
+        src={assets.poweredBackground}
+        alt="great canyon black and white colour"
+        className="w-full object-cover object-center"
+      />
+
+      <div className="absolute mt-5 top-0 right-0 bottom-0 left-0 flex justify-center items-center flex-col space-y-20">
+        <h1 className="text-center text-4xl">Powered By</h1>
+        <Image className="flex mx-auto" src={assets.logoMaritim} alt="Logo maritim muda" />
+      </div>
+    </div>
   )
 }
 

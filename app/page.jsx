@@ -16,7 +16,11 @@ const LandingPage = () => {
 
       <About />
       <Program />
-      <Powered />
+
+      <div className="relative">
+        <Powered />
+      </div>
+
       <Footer />
 </main>
   );

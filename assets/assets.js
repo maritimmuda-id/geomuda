@@ -11,6 +11,7 @@ import logoGmiWhite from "./landing-page/logo-gmi-white.svg";
 import logoGmiTextWhite from "./landing-page/logo-gmi-text-white.svg";
 import aboutContent from "./landing-page/aboutContent.svg";
 import aboutContent2 from "./landing-page/aboutContent2.svg";
+import poweredBackground from "./landing-page/powered-bg.svg";
 
 export default {
   banner,
@@ -25,4 +26,5 @@ export default {
   logoMaritim,
   aboutContent,
   aboutContent2,
+  poweredBackground,
 };
