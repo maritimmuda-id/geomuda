@@ -1,6 +1,14 @@
 export const navItems = [
-  { name: "Home" },
-  { name: "About Us" },
-  { name: "Activity" },
-  { name: "Membership" },
+  {
+    name: "Home",
+    location: "/",
+  },
+  {
+    name: "About Us",
+    location: "/about",
+  },
+  {
+    name: "Program",
+    location: "/program",
+  },
 ];
