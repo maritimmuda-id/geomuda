@@ -1,7 +1,16 @@
 "use client";
 
 // ** Import Assets
+import assets from "@/assets/assets";
+
+// ** Import Constans
 import { navItems } from "@/constanst/navItems";
+
+// ** Import Next
+import Image from "next/image";
+import Link from "next/link";
+
+// ** Import React
 import { useEffect, useState } from "react";
 
 const Navbar = () => {
@@ -21,23 +30,30 @@ const Navbar = () => {
 
   return (
     <nav
-      className={`flex fixed top-0 w-full text-white items-center justify-between py-8 px-32 ${
+      className={`flex fixed top-0 w-full text-white items-center justify-between py-1 px-32 ${
         scroll > 0
-          ? "bg-green-600 z-50 transition duration-1000"
+          ? "bg-gray-900 z-50 transition duration-1000"
           : "bg-transparent duration-500"
       }`}
     >
-      <h1 className="text-3xl font-bold">Logo</h1>
+      <Image src={assets.logoGmiWhite} className="w-32"></Image>
 
-      <div className="flex gap-5">
+      <div className="flex items-center gap-5">
         {navItems.map((item, index) => (
           <div
             key={index}
-            className="border cursor-pointer border-white px-4 py-2 rounded-xl"
+            // href={item.location}
+            className="cursor-pointer hover:text-red-400 rounded-xl"
           >
             {item.name}
           </div>
         ))}
+        <Link
+          href="/login"
+          className=" cursor-pointer py-2 hover:text-red-400 rounded-xl"
+        >
+          Membership
+        </Link>
       </div>
     </nav>
   );

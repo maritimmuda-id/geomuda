@@ -1,14 +1,17 @@
+import assets from "@/assets/assets"
+import Image from "next/image"
+
 const Footer = () => {
   return (
-    <div className="bg-[#0D6630] py-20 px-10 text-white space-y-16">
+    <div className="bg-gray-900 py-20 px-10 text-white space-y-16">
     <div className="grid grid-cols-3 gap-10 text-center">
       <div>
-        <h4 className="font-bold text-xl">GeoMuda.id</h4>
+        <Image src={assets.logoGmiTextWhite} className="w-10 mx-auto"/>
         <div className="py-[1px] bg-white my-4"></div>
         <ul>
           <li>Home</li>
           <li>About Us</li>
-          <li>Activity</li>
+          <li>Program</li>
           <li>Membership</li>
         </ul>
       </div>

@@ -13,16 +13,16 @@ const Banner = () => {
 
       <div className="absolute mt-20 top-0 right-0 bottom-0 left-0 flex justify-center items-center text-white flex-col space-y-6">
         <div className="space-y-7">
-          <h5 className="text-5xl text-center font-light">Geomuda Indonesia</h5>
-          <div className="py-[1px] bg-white w-[40rem]"></div>
+          <h5 className="text-5xl text-center font-semibold uppercase">Asosiasi Geomuda Indonesia</h5>
+          <div className="py-[1px] bg-white w-[48rem] mx-auto"></div>
         </div>
 
         <div className="flex justify-start flex-col items-center gap-10">
-          <h1 className="text-[48px] max-w-3xl font-bold text-center uppercase">
+          {/* <h1 className="text-[48px] max-w-3xl font-bold text-center uppercase">
             Lorem ipsum dolor sit amet consectetur.
-          </h1>
+          </h1> */}
 
-          <button className="border border-white px-36 rounded-lg py-3">
+          <button className="border border-white px-32 rounded-lg py-3">
             Join Us
           </button>
         </div>
