@@ -1,9 +1,8 @@
 // ** Import Components
-import About from "@/components/About/About";
-import Banner from "@/components/Banner/Banner";
-import Footer from "@/components/landing-page/Footer/Footer";
-import Powered from "@/components/Powered/Powered";
-import Program from "@/components/Program/Program";
+import About from "@/components/landing-page/About/About";
+import Banner from "@/components/landing-page/Banner/Banner";
+import Powered from "@/components/landing-page/Powered/Powered";
+import Program from "@/components/landing-page/Program/Program";
 
 const LandingPage = () => {
   return (

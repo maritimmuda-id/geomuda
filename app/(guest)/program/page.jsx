@@ -1,5 +1,5 @@
 // ** Import Components
-import BannerProgram from "@/components/BannerProgram/BannerProgram";
+import BannerProgram from "@/components/landing-page/Banner/BannerProgram";
 
 // ** Import Constans
 import { contentActivity } from "@/constanst/content-activity";
