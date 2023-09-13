@@ -12,6 +12,7 @@ import logoGmiTextWhite from "./landing-page/logo-gmi-text-white.svg";
 import aboutContent from "./landing-page/aboutContent.svg";
 import aboutContent2 from "./landing-page/aboutContent2.svg";
 import poweredBackground from "./landing-page/powered-bg.svg";
+import banner3 from "./landing-page/aboutus.svg";
 
 export default {
   banner,
@@ -27,4 +28,5 @@ export default {
   aboutContent,
   aboutContent2,
   poweredBackground,
+  banner3,
 };
