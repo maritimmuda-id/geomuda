@@ -22,7 +22,7 @@ const Banner = () => {
             Lorem ipsum dolor sit amet consectetur.
           </h1> */}
 
-          <button className="border border-white px-32 rounded-lg py-3">
+          <button className="border border-white px-32 rounded-lg py-3 hover:bg-white hover:text-black hover:ease-in-out">
             Join Us
           </button>
         </div>
