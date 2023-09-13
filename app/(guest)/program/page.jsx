@@ -1,7 +1,5 @@
 // ** Import Components
 import BannerProgram from "@/components/BannerProgram/BannerProgram";
-import Footer from "@/components/Footer/Footer";
-import Navbar from "@/components/navbar/Navbar";
 
 // ** Import Constans
 import { contentActivity } from "@/constanst/content-activity";
@@ -12,10 +10,7 @@ import Image from "next/image";
 const ActivityPage = () => {
   return (
     <main>
-      <div className="relative">
-        <Navbar />
-        <BannerProgram />
-      </div>
+      <BannerProgram />
 
       <article className="p-20 space-y-20">
         <h1 className="text-center text-5xl font-medium">Program</h1>
@@ -48,8 +43,6 @@ const ActivityPage = () => {
           ))}
         </div>
       </article>
-
-      <Footer />
     </main>
   );
 };

@@ -36,17 +36,21 @@ const Navbar = () => {
           : "bg-transparent duration-500"
       }`}
     >
-      <Image src={assets.logoGmiWhite} className="w-32" alt="logo geomuda indonesia white"></Image>
+      <Image
+        src={assets.logoGmiWhite}
+        className="w-32"
+        alt="logo geomuda indonesia white"
+      ></Image>
 
       <div className="flex items-center gap-5">
         {navItems.map((item, index) => (
-          <div
+          <Link
             key={index}
-            // href={item.location}
+            href={item.location}
             className="cursor-pointer hover:text-red-400 rounded-xl"
           >
             {item.name}
-          </div>
+          </Link>
         ))}
         <Link
           href="/login"
