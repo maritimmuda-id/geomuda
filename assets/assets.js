@@ -13,8 +13,11 @@ import logoGmiDefault from "./landing-page/logo-gmi-default.svg";
 import aboutContent from "./landing-page/aboutContent.svg";
 import aboutContent2 from "./landing-page/aboutContent2.svg";
 import poweredBackground from "./landing-page/powered-bg.svg";
-import sideImage from "./auth/side-image.svg";
+import sideImage from "./auth/side-image.jpg";
 import banner3 from "./landing-page/aboutus.svg";
+import banner4 from "./landing-page/pengurus.svg";
+import maleProfile from "./landing-page/male-profile.jpg";
+import femaleProfile from "./landing-page/female-profile.jpg";
 
 export default {
   banner,
@@ -33,4 +36,7 @@ export default {
   poweredBackground,
   banner3,
   sideImage,
+  banner4,
+  maleProfile,
+  femaleProfile,
 };
