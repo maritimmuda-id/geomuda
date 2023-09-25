@@ -33,8 +33,8 @@ const ActivityPage = () => {
                   </p>
                 ) : (
                   <ul className="list-disc space-y-2 pl-5">
-                    {content.desc.map((desc) => (
-                      <li>{desc}</li>
+                    {content.desc.map((desc, index) => (
+                      <li key={index}>{desc}</li>
                     ))}
                   </ul>
                 )}

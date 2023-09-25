@@ -1,14 +1,13 @@
-// import { Poppins } from "next/font/google";
+// ** Import Components
+import AsideAuth from "@/components/auth/aside-auth/AsideAuth";
 
-// const poppins = Poppins({
-//   weight: "500",
-//   subsets: ["devanagari"],
-// });
-
-export default function AuthLayout({ children }) {
+const AuthLayout = ({ children }) => {
   return (
-    <>
+    <div className="flex justify-center items-center h-screen bg-slate-100">
+      <AsideAuth />
       {children}
-    </>
-  )
-}
+    </div>
+  );
+};
+
+export default AuthLayout;

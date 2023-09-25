@@ -11,8 +11,8 @@ const Program = () => {
       <h1 className="text-center text-4xl">Our Program</h1>
 
       <div className="grid grid-cols-4 gap-8">
-        {programs.map((program) => (
-          <div className="rounded-xl">
+        {programs.map((program, index) => (
+          <div key={index} className="rounded-xl">
             <Image src={program.image} alt={program.alt} className="w-full" />
             <p className="text-center p-5">{program.title}</p>
           </div>
