@@ -1,10 +1,6 @@
 // ** Import CSS
 import "./globals.css";
 
-// ** Import Components
-import Navbar from "@/components/landing-page/navbar/Navbar";
-import Footer from "@/components/landing-page/Footer/Footer";
-
 import { Inter, Poppins } from "next/font/google";
 
 const poppins = Poppins({
