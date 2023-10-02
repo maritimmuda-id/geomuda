@@ -6,8 +6,8 @@ import Image from "next/image";
 
 const About = () => {
   return (
-    <div className="px-14 py-20 space-y-20 md:space-y-10">
-      <h1 className="text-center text-4xl text-black font-medium mb-10">
+    <div className="px-14 py-20 space-y-16 md:space-y-10">
+      <h1 className="text-center text-3xl md:text-4xl text-black font-medium mb-10">
         About Us
       </h1>
 

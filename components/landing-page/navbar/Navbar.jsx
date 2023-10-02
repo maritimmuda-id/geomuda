@@ -5,6 +5,7 @@ import assets from "@/assets/assets";
 
 // ** Import Icons
 import { GiHamburgerMenu } from "react-icons/gi";
+import { AiOutlineClose } from "react-icons/ai";
 
 // ** Import Constans
 import { navItems } from "@/constanst/navItems";
@@ -44,7 +45,7 @@ const Navbar = () => {
       >
         <Image
           src={assets.logoGmiWhite}
-          className="w-32"
+          className="w-24 md:w-32"
           alt="logo geomuda indonesia white"
         ></Image>
 
@@ -67,10 +68,17 @@ const Navbar = () => {
             </Link>
           </div>
 
-          <GiHamburgerMenu
-            onClick={() => setOpen(!open)}
-            className="w-7 h-10 md:hidden cursor-pointer"
-          />
+          {!open ? (
+            <GiHamburgerMenu
+              onClick={() => setOpen(true)}
+              className="w-7 h-10 md:hidden cursor-pointer"
+            />
+          ) : (
+            <AiOutlineClose
+              onClick={() => setOpen(false)}
+              className="w-7 h-10 md:hidden cursor-pointer"
+            />
+          )}
         </div>
       </nav>
 
