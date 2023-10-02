@@ -7,7 +7,7 @@ import Link from "next/link";
 
 const LoginPage = () => {
   return (
-    <div className="basis-8/12">
+    <div className="lg:basis-8/12">
       <div className="p-6 md:p-10 max-w-lg shadow-2xl rounded-xl bg-slate-50 mx-auto">
         <Image
           src={assets.logoGmiDefault}

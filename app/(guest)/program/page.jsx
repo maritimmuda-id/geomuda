@@ -12,7 +12,7 @@ const ActivityPage = () => {
     <main>
       <BannerProgram />
 
-      <article className="p-8 md:p-24 space-y-20">
+      <article className="p-8 md:p-20 space-y-20">
         <h1 className="text-center text-3xl md:text-5xl font-medium py-8">Program</h1>
 
         <div className="space-y-20">
