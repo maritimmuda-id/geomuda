@@ -3,6 +3,7 @@ import assets from "@/assets/assets";
 
 // ** Import Next
 import Image from "next/image";
+import Link from "next/link";
 
 const Banner = () => {
   return (
@@ -22,9 +23,11 @@ const Banner = () => {
         </div>
 
         <div className="flex justify-start flex-col items-center gap-10">
-          <button className="border border-white px-24 md:px-32 rounded-lg py-2 md:py-3">
-            Join Us
-          </button>
+          <Link href="/login">
+            <button className="border border-white px-24 md:px-32 rounded-lg py-2 md:py-3">
+              Join Us
+            </button>
+          </Link>
         </div>
       </div>
     </>
