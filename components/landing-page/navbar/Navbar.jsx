@@ -5,7 +5,11 @@ import assets from "@/assets/assets";
 
 // ** Import Icons
 import { GiHamburgerMenu } from "react-icons/gi";
-import { AiOutlineClose } from "react-icons/ai";
+import {
+  AiOutlineClose,
+  AiOutlineArrowDown,
+  AiOutlineArrowUp,
+} from "react-icons/ai";
 
 // ** Import Constans
 import { navItems } from "@/constanst/navItems";
@@ -21,6 +25,7 @@ const Navbar = () => {
   // ** Local State
   const [scroll, setScroll] = useState(0);
   const [open, setOpen] = useState(false);
+  const [dropdown, setDropdown] = useState(false);
 
   const handleScroll = () => {
     setScroll(window.scrollY);
@@ -35,9 +40,9 @@ const Navbar = () => {
   }, []);
 
   return (
-    <>
+    <div>
       <nav
-        className={`flex fixed top-0 w-full text-white items-center justify-between py-1 px-10 md:px-32 ${
+        className={`flex fixed z-50 top-0 w-full text-white items-center justify-between py-1 px-10 md:px-32 ${
           scroll > 0
             ? "bg-gray-900 z-50 transition duration-1000"
             : "bg-transparent duration-500"
@@ -51,17 +56,57 @@ const Navbar = () => {
 
         <div>
           <div className="hidden md:flex items-center gap-5">
-            {navItems.map((item, index) => (
-              <Link
-                key={index}
-                href={item.location}
-                className="cursor-pointer hover:text-red-400 rounded-xl"
-              >
-                {item.name}
-              </Link>
-            ))}
+            {navItems.map((item, index) =>
+              item.lists ? (
+                <div className="relative">
+                  <div onClick={() => setDropdown(!dropdown)}>
+                    <div className="flex gap-2 items-center hover:text-red-400 cursor-pointer ">
+                      <h1>About Us</h1>
+
+                      {dropdown ? (
+                        <AiOutlineArrowUp className="w-5 h-5" />
+                      ) : (
+                        <AiOutlineArrowDown className="w-5 h-5" />
+                      )}
+                    </div>
+                  </div>
+
+                  {dropdown && (
+                    <div className="absolute flex flex-col gap-5 bg-[#111827]  mt-11 px-7 rounded-md py-8 -z-10">
+                      <Link
+                        key={index}
+                        onClick={() => setDropdown(false)}
+                        href={item.location}
+                        className="cursor-pointer hover:text-red-400 rounded-xl"
+                      >
+                        {item.name}
+                      </Link>
+
+                      <Link
+                        key={index}
+                        onClick={() => setDropdown(false)}
+                        href={item.lists.location}
+                        className="cursor-pointer hover:text-red-400 rounded-xl"
+                      >
+                        {item.lists.name}
+                      </Link>
+                    </div>
+                  )}
+                </div>
+              ) : (
+                <Link
+                  key={index}
+                  onClick={() => setDropdown(false)}
+                  href={item.location}
+                  className="cursor-pointer hover:text-red-400 rounded-xl"
+                >
+                  {item.name}
+                </Link>
+              )
+            )}
             <Link
               href="/login"
+              onClick={() => setDropdown(false)}
               className=" cursor-pointer py-2 hover:text-red-400 rounded-xl"
             >
               Membership
@@ -82,7 +127,8 @@ const Navbar = () => {
         </div>
       </nav>
 
-      <div
+      {/* Mobile Section */}
+      <nav
         className={`block space-y-6 md:hidden bg-[#111827] border-r border-slate-600 px-6 py-3 w-60 z-50 fixed top-0  h-screen duration-500  ${
           open ? "ml-0 duration-500" : "-ml-[999px] duration-500 "
         }`}
@@ -94,16 +140,57 @@ const Navbar = () => {
         />
 
         <div className="space-y-6 text-white px-2">
-          {navItems.map((nav, index) => (
-            <div key={index} onClick={() => setOpen(false)}>
-              <Link href={nav.location} className="text-lg font-semibold">
-                {nav.name}
-              </Link>
-            </div>
-          ))}
+          {navItems.map((item, index) =>
+            item.lists ? (
+              <div
+                key={index}
+                className="space-y-3"
+                onClick={() => setDropdown(!dropdown)}
+              >
+                <div
+                  className={`flex gap-2 items-center ${
+                    dropdown && "border-b-2 pb-2"
+                  }`}
+                >
+                  <h1 className="text-lg font-semibold">About Us</h1>
+                  {dropdown ? (
+                    <AiOutlineArrowUp className="w-5 h-5" />
+                  ) : (
+                    <AiOutlineArrowDown className="w-5 h-5" />
+                  )}
+                </div>
+
+                {dropdown && (
+                  <div className="flex flex-col space-y-4">
+                    <Link
+                      onClick={() => [setDropdown(false), setOpen(false)]}
+                      href={item.lists.location}
+                      className="font-semibold"
+                    >
+                      {item.lists.name}
+                    </Link>
+
+                    <Link
+                      onClick={() => [setDropdown(false), setOpen(false)]}
+                      href={item.location}
+                      className="font-semibold"
+                    >
+                      {item.name}
+                    </Link>
+                  </div>
+                )}
+              </div>
+            ) : (
+              <div key={index} onClick={() => setOpen(false)}>
+                <Link href={item.location} className="text-lg font-semibold">
+                  {item.name}
+                </Link>
+              </div>
+            )
+          )}
         </div>
-      </div>
-    </>
+      </nav>
+    </div>
   );
 };
 
