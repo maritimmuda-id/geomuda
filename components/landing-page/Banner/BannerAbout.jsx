@@ -25,7 +25,7 @@ const BannerAbout = () => {
             profesional, berjiwa kepemimpinan, cinta tanah air, berdaya -saing
             global, dan memiliki kepedulian sosial.
           </p>
-
+    
           <div className="py-5 text-center md:text-left">
             <Link href="/">
               <button className="border font-medium border-white px-16 md:px-32 rounded-full py-3">

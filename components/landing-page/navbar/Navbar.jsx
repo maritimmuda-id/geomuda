@@ -10,6 +10,7 @@ import {
   AiOutlineArrowDown,
   AiOutlineArrowUp,
 } from "react-icons/ai";
+import { IoIosArrowDown, IoIosArrowUp } from "react-icons/io";
 
 // ** Import Constans
 import { navItems } from "@/constanst/navItems";
@@ -64,9 +65,9 @@ const Navbar = () => {
                       <h1>About Us</h1>
 
                       {dropdown ? (
-                        <AiOutlineArrowUp className="w-5 h-5" />
+                        <IoIosArrowUp className="w-5 h-5" />
                       ) : (
-                        <AiOutlineArrowDown className="w-5 h-5" />
+                        <IoIosArrowDown className="w-5 h-5" />
                       )}
                     </div>
                   </div>
@@ -154,9 +155,9 @@ const Navbar = () => {
                 >
                   <h1 className="text-lg font-semibold">About Us</h1>
                   {dropdown ? (
-                    <AiOutlineArrowUp className="w-5 h-5" />
+                    <IoIosArrowUp className="w-5 h-5" />
                   ) : (
-                    <AiOutlineArrowDown className="w-5 h-5" />
+                    <IoIosArrowDown className="w-5 h-5" />
                   )}
                 </div>
 
