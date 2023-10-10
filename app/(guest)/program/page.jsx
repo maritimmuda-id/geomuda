@@ -1,19 +1,25 @@
 // ** Import Components
-import BannerProgram from "@/components/landing-page/Banner/BannerProgram";
+import Banner from "@/components/landing-page/Banner/Banner";
 
-// ** Import Constans
+// ** Import Other
 import { contentActivity } from "@/constanst/content-activity";
-
-// ** Import Next
+import assets from "@/assets/assets";
 import Image from "next/image";
 
 const ActivityPage = () => {
   return (
     <main>
-      <BannerProgram />
+      <Banner
+        image={assets.banner2}
+        title="PROGRAM"
+        buttonTitle="Home"
+        to="/"
+      />
 
       <article className="p-8 md:p-20 space-y-20">
-        <h1 className="text-center text-3xl md:text-5xl font-medium py-8">Program</h1>
+        <h1 className="text-center text-3xl md:text-5xl font-medium py-8">
+          Program
+        </h1>
 
         <div className="space-y-20">
           {contentActivity.map((content, index) => (
@@ -22,10 +28,16 @@ const ActivityPage = () => {
                 index % 2 === 1 && "flex-row-reverse"
               } pb-10 lg:pb-20 border-b-0 lg:border-b-4 lg:last:border-b-0 border-black`}
             >
-              <Image src={content.image} alt={content.title} className="md:w-7/12 lg:w-auto"/>
+              <Image
+                src={content.image}
+                alt={content.title}
+                className="md:w-7/12 lg:w-auto"
+              />
 
               <div className="space-y-6">
-                <h1 className="text-center lg:text-left text-2xl max-w-md md:max-w-lg font-bold mx-auto lg:mx-0">{content.title}</h1>
+                <h1 className="text-center lg:text-left text-2xl max-w-md md:max-w-lg font-bold mx-auto lg:mx-0">
+                  {content.title}
+                </h1>
 
                 {typeof content.desc === "string" ? (
                   <p className="max-w-sm md:max-w-lg lg:max-w-sm text-base md:text-lg text-center lg:text-justify mx-auto lg:mx-0">

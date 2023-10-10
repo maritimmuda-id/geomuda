@@ -40,7 +40,7 @@ const Navbar = () => {
   }, []);
 
   return (
-    <div>
+    <>
       <nav
         className={`flex fixed z-50 top-0 w-full text-white items-center justify-between py-1 px-10 md:px-32 ${
           scroll > 0
@@ -76,19 +76,19 @@ const Navbar = () => {
                       <Link
                         key={index}
                         onClick={() => setDropdown(false)}
-                        href={item.location}
+                        href={item.lists.location}
                         className="cursor-pointer hover:text-red-400 rounded-xl"
                       >
-                        {item.name}
+                        {item.lists.name}
                       </Link>
 
                       <Link
                         key={index}
                         onClick={() => setDropdown(false)}
-                        href={item.lists.location}
+                        href={item.location}
                         className="cursor-pointer hover:text-red-400 rounded-xl"
                       >
-                        {item.lists.name}
+                        {item.name}
                       </Link>
                     </div>
                   )}
@@ -190,7 +190,7 @@ const Navbar = () => {
           )}
         </div>
       </nav>
-    </div>
+    </>
   );
 };
 
