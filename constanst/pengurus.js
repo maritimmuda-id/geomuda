@@ -2,17 +2,17 @@ import assets from "@/assets/assets";
 
 export const administrators = [
   {
-    image: assets.maleProfile,
+    image: assets.khalifImage,
     name: "Khalif Al Aziz",
     position: "Ketua Umum",
   },
   {
-    image: assets.maleProfile,
+    image: assets.kaisarImage,
     name: "Kaisar Akhir",
     position: "Wakil Ketua Umum",
   },
   {
-    image: assets.maleProfile,
+    image: assets.redondoPngImage,
     name: "Redondo Asprilla",
     position: "Sekertaris Jendral",
   },
@@ -20,5 +20,10 @@ export const administrators = [
     image: assets.maleProfile,
     name: "Aditya Maulana B",
     position: "Bendahara Umum",
+  },
+  {
+    image: assets.naufalImage,
+    name: "Muhammad Naufal Syafrun",
+    position: "Pengawas",
   },
 ];
