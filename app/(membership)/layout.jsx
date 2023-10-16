@@ -15,8 +15,8 @@ export default function DashboardLayout({ children }) {
       <NavMember />
 
       <div className="flex mt-10">
-        <div className=" mt-6">
-          <div className={` fixed ${open ? "w-[18rem]" : "hidden"}`}>
+        <div className="mt-6">
+          <div className={`fixed ${open ? "w-[18rem]" : "hidden"}`}>
             <NavLeft />
           </div>
         </div>
