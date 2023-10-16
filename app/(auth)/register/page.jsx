@@ -50,7 +50,7 @@ const RegisterPage = () => {
         </form>
         <div className="text-center my-4">
           <p className="text-sm">
-            Back to
+            Back to {" "}
             <span className="font-semibold">
               <Link href="/login">Login</Link>
             </span>
