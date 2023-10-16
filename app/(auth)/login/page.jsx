@@ -36,13 +36,13 @@ const LoginPage = () => {
         </form>
         <div className="text-center my-5">
           <p className="text-sm">
-            Don't have account?
+            Don't have account? {" "}
             <span className="font-semibold">
               <Link href="/register">Register</Link>
             </span>
           </p>
           <p className="text-sm">
-            Forgot password?
+            Forgot password? {" "}
             <span className="font-semibold">Reset</span>
           </p>
         </div>
