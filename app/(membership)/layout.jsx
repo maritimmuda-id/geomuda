@@ -21,7 +21,7 @@ export default function DashboardLayout({ children }) {
           </div>
         </div>
 
-        <div className={`${open ? "pl-72" : ""}`}>{children}</div>
+        <div className={`${open ? "pl-72" : ""} w-full`}>{children}</div>
       </div>
     </main>
   );
