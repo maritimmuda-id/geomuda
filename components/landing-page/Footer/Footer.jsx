@@ -7,11 +7,11 @@ import Image from "next/image";
 const Footer = () => {
   return (
     <div className="bg-gray-900 py-16 md:py-20 px-10 text-white md:space-y-16">
-      <div className="hidden md:grid grid-cols-3 gap-10 text-center">
+      <div className="hidden md:grid grid-cols-3  gap-10 text-center">
         <div>
           <Image
             src={assets.logoGmiTextWhite}
-            className="w-10 mx-auto"
+            className="w-24 mx-auto -mt-9"
             alt="logo geomuda indonesia text white"
           />
 
@@ -55,6 +55,7 @@ const Footer = () => {
         </div>
       </div>
 
+      {/* Mobile */}
       <div className="md:hidden flex flex-wrap items-end justify-center gap-10 text-center">
         <div>
           <Image

@@ -7,6 +7,7 @@ const ProfilePage = () => {
       <div className="mb-10">
         <h1 className="text-3xl">Profile</h1>
       </div>
+
       <ContentProfile />
     </div>
   );

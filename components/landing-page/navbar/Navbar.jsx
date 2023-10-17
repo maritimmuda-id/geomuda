@@ -59,7 +59,7 @@ const Navbar = () => {
           <div className="hidden md:flex items-center gap-5">
             {navItems.map((item, index) =>
               item.lists ? (
-                <div className="relative">
+                <div key={item.name} className="relative">
                   <div onClick={() => setDropdown(!dropdown)}>
                     <div className="flex gap-2 items-center hover:text-red-400 cursor-pointer ">
                       <h1>About Us</h1>
@@ -73,7 +73,10 @@ const Navbar = () => {
                   </div>
 
                   {dropdown && (
-                    <div className="absolute flex flex-col gap-5 bg-[#111827]  mt-11 px-7 rounded-md py-8 -z-10">
+                    <div
+                      key={item.lists.name}
+                      className="absolute flex flex-col gap-5 bg-[#111827]  mt-11 px-7 rounded-md py-8 -z-10"
+                    >
                       <Link
                         key={index}
                         onClick={() => setDropdown(false)}
