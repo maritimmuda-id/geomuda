@@ -4,16 +4,23 @@ import Image from "next/image";
 
 // ** Import Compnents
 import ChangePassword from "../ChangePassword/ChangePassword";
+import { IoIosAdd } from "react-icons/io";
 
 export default function Umum() {
   return (
     <>
       <div className="max-w-full rounded-xl bg-[#f8f8f8] p-10 min-h-full border-2 -mt-[2px] rounded-tl-none">
-        <div className="flex gap-10">
-          <Image
-            className="w-56 rounded-xl border-2"
-            src={assets.kaisarImage}
-          />
+        <div className="flex gap-6">
+          <div className="flex flex-col space-y-4">  
+            <div className="relative z-[1]">
+              <Image
+                className="w-48 aspect-[3/4] rounded-xl border-2"
+                src={assets.kaisarImage}
+                />
+              <button className="w-9 aspect-square bg-white border-2 rounded-full absolute -bottom-3 -right-4"><IoIosAdd className="text-green-500 text-3xl mx-auto"/></button>
+              {/* <button className="text-xs border border-slate-200 p-2 rounded-md bg-slate-50">Ubah Foto</button> */}
+            </div>
+          </div>
           <div>
             <h2 className="text-2xl font-semibold">Kaisar Akhir</h2>
             <p className="text-lg text-[#7B2418] font-medium">
