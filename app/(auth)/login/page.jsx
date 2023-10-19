@@ -10,8 +10,8 @@ import Link from "next/link";
 
 const LoginPage = () => {
   return (
-    <div className="lg:basis-8/12">
-      <div className="p-6 md:p-10 max-w-lg shadow-2xl rounded-xl bg-slate-50 mx-auto">
+    <div className="lg:basis-8/12 w-full px-10 lg:p-0">
+      <div className="p-6 md:p-10 max-w-xl shadow-2xl rounded-xl bg-slate-50 mx-auto">
         <Image
           src={assets.logoGmiDefault}
           className="w-32 mx-auto"
