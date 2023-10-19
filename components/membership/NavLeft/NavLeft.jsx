@@ -1,3 +1,5 @@
+"use client";
+
 // ** Import Next
 import Image from "next/image";
 import Link from "next/link";
@@ -9,8 +11,26 @@ import assets from "@/assets/assets";
 import { MdMonitor } from "react-icons/md";
 import { HiOutlineUser } from "react-icons/hi";
 import { TbLogout2 } from "react-icons/tb";
+import { useFakeLogin } from "@/zustand/useFakeLogin";
+import Swal from "sweetalert2";
+import { useRouter } from "next/navigation";
 
 const NavLeft = () => {
+  const { setAccount } = useFakeLogin();
+
+  const router = useRouter();
+
+  const handleLogout = () => {
+    setAccount(null);
+    Swal.fire({
+      icon: "success",
+      title: "Berhasil",
+      text: "Anda Telah Berhasil Logout",
+      showConfirmButton: false,
+      timer: 1500,
+    }).then(() => router.push("/login"));
+  };
+
   return (
     <div className="basis-1/6 bg-[#F1F1F1] py-4 h-screen space-y-10">
       <div className="py-8 space-y-4">
@@ -35,13 +55,13 @@ const NavLeft = () => {
           <p>Profile</p>
         </Link>
 
-        <Link
-          href="/login"
-          className="p-4 flex justify-center items-center gap-4 hover:bg-[#7B2418] hover:text-white"
+        <div
+          onClick={handleLogout}
+          className="p-4 flex cursor-pointer justify-center items-center gap-4 hover:bg-[#7B2418] hover:text-white"
         >
           <TbLogout2 className="text-2xl" />
           <p>Logout</p>
-        </Link>
+        </div>
       </div>
     </div>
   );

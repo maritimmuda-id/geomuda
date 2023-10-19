@@ -4,11 +4,20 @@
 import NavLeft from "@/components/membership/NavLeft/NavLeft";
 import NavMember from "@/components/membership/NavMember/NavMember";
 
-// ** Import Zustand
+// ** Import Other
+import { useFakeLogin } from "@/zustand/useFakeLogin";
 import { useSidebar } from "@/zustand/useSidebar";
+import { useRouter } from "next/navigation";
 
 export default function DashboardLayout({ children }) {
   const { open } = useSidebar();
+  const { data: user } = useFakeLogin();
+
+  const router = useRouter();
+
+  if (!user) {
+    router.push("/login");
+  }
 
   return (
     <main className="relative">

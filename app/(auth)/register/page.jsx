@@ -1,3 +1,6 @@
+// ** Import Components
+import FormRegister from "@/components/auth/form/FormRegister";
+
 // ** Import Assets
 import assets from "@/assets/assets";
 
@@ -7,7 +10,7 @@ import Link from "next/link";
 
 const RegisterPage = () => {
   return (
-    <div className="basis-8/12">
+    <div className="basis-8/12 overflow-hidden">
       <div className="p-6 md:p-10 max-w-lg shadow-2xl rounded-xl bg-slate-50 mx-auto">
         <Image
           src={assets.logoGmiDefault}
@@ -15,42 +18,12 @@ const RegisterPage = () => {
           alt="logo geomuda indonesia"
         />
         <h2 className="text-2xl text-center my-5 font-semibold">Register</h2>
-        <form className="flex justify-center flex-col mx-auto">
-          <label className="mb-1">Full Name</label>
-          <input
-            type="text"
-            placeholder="Enter your full name"
-            className="border-2 border-slate-300 rounded-xl p-2 mb-4 text-sm pl-3"
-            required
-          />
-          <label className="mb-1">Email</label>
-          <input
-            type="email"
-            placeholder="Enter your email"
-            className="border-2 border-slate-300 rounded-xl p-2 mb-4 text-sm pl-3"
-            required
-          />
-          <label className="mb-1">Password</label>
-          <input
-            type="password"
-            placeholder="Enter your password"
-            className="border-2 border-slate-300 rounded-xl p-2 mb-4 text-sm pl-3"
-            required
-          />
-          <label className="mb-1">Confirm Password</label>
-          <input
-            type="password"
-            placeholder="Enter your password again"
-            className="border-2 border-slate-300 rounded-xl p-2 mb-4 text-sm pl-3"
-            required
-          />
-          <button className="bg-[#7B2418] text-white rounded-xl p-2 mb-1">
-            Register
-          </button>
-        </form>
+
+        <FormRegister />
+
         <div className="text-center my-4">
           <p className="text-sm">
-            Back to {" "}
+            Back to{" "}
             <span className="font-semibold">
               <Link href="/login">Login</Link>
             </span>

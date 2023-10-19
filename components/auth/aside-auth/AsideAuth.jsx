@@ -10,7 +10,7 @@ const AsideAuth = () => {
       <Image
         src={assets.sideImage}
         alt="side image"
-        className="h-screen w-full"
+        className="h-[100vh] w-full"
         priority={true}
       />
     </div>
