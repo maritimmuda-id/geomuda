@@ -61,7 +61,7 @@ export default function FormLogin() {
       className="flex justify-center flex-col mx-auto"
     >
       <label className="mb-1 flex items-center">
-        Full Name
+        Email
         {errors?.email && (
           <span className="text-red-600 text-sm ml-2">{`* ${errors.email.message}`}</span>
         )}
