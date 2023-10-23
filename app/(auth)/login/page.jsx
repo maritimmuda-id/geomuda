@@ -29,7 +29,12 @@ const LoginPage = () => {
             </span>
           </p>
           <p className="text-sm">
-            Forgot password? <span className="font-semibold">Reset</span>
+            Forgot password?{" "}
+            <span className="font-semibold">
+              <Link href="/reset-password">
+                Reset
+              </Link>
+            </span>
           </p>
         </div>
       </div>
