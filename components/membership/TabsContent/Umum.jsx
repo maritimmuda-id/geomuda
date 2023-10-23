@@ -14,8 +14,8 @@ export default function Umum() {
           <div className="flex flex-col space-y-4">  
             <div className="relative z-[1]">
               <Image
-                className="w-48 aspect-[3/4] rounded-xl border-2"
-                src={assets.kaisarImage}
+                className="w-48 aspect-[3/4] rounded-xl border-2 border-slate-200"
+                src={assets.defaultImage}
                 />
               <button className="w-9 aspect-square bg-white border-2 rounded-full absolute -bottom-3 -right-4"><IoIosAdd className="text-green-500 text-3xl mx-auto"/></button>
               {/* <button className="text-xs border border-slate-200 p-2 rounded-md bg-slate-50">Ubah Foto</button> */}

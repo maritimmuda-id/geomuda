@@ -23,6 +23,7 @@ import redondoPngImage from "./landing-page/redondo.png";
 import naufalImage from "./landing-page/naufal.jpg";
 import kaisarImage from "./landing-page/kaisar.png";
 import khalifImage from "./landing-page/khalif.jpg";
+import defaultImage from "./landing-page/default-image.jpg";
 
 export default {
   banner,
@@ -49,4 +50,5 @@ export default {
   naufalImage,
   kaisarImage,
   khalifImage,
+  defaultImage,
 };
