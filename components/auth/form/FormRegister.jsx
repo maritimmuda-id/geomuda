@@ -1,16 +1,18 @@
 "use client";
 
-// ** Import Zustan
-import { useFakeLogin } from "@/zustand/useFakeLogin";
+// ** Import Next
+import { useRouter } from "next/navigation";
 
 // ** Import Other
 import { useForm } from "react-hook-form";
 import { yupResolver } from "@hookform/resolvers/yup";
 import * as yup from "yup";
 import Swal from "sweetalert2";
-import { useRouter } from "next/navigation";
+import { createClientComponentClient } from "@supabase/auth-helpers-nextjs";
 
 export default function FormRegister() {
+  const supabase = createClientComponentClient();
+
   const schema = yup.object({
     fullname: yup
       .string()
@@ -32,8 +34,6 @@ export default function FormRegister() {
       .required("Harap Masukan Confirm Password Anda"),
   });
 
-  const { setAccount } = useFakeLogin();
-
   const router = useRouter();
 
   const {
@@ -45,16 +45,29 @@ export default function FormRegister() {
     resolver: yupResolver(schema),
   });
 
-  const onSubmit = (data) => {
-    setAccount(data);
+  const onSubmit = async (input) => {
+    const { error } = await supabase.auth.signUp({
+      email: input.email,
+      password: input.confirmPassword,
+      options: {
+        emailRedirectTo: `${location.origin}/api/auth/callback`,
+        data: {
+          fullname: input.fullname,
+        },
+      },
+    });
 
-    Swal.fire({
-      icon: "success",
-      title: "Berhasil",
-      text: "Registrasi Telah Berhasil",
-      showConfirmButton: false,
-      timer: 1500,
-    }).then(() => router.push("/login"));
+    if (!error) {
+      Swal.fire({
+        icon: "success",
+        title: "Berhasil",
+        text: "Registrasi Telah Berhasil",
+        showConfirmButton: false,
+        timer: 1500,
+      }).then(() => router.push("/login"));
+    }
+
+    router.refresh();
   };
 
   return (

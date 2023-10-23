@@ -11,24 +11,25 @@ import assets from "@/assets/assets";
 import { MdMonitor } from "react-icons/md";
 import { HiOutlineUser } from "react-icons/hi";
 import { TbLogout2 } from "react-icons/tb";
-import { useFakeLogin } from "@/zustand/useFakeLogin";
 import Swal from "sweetalert2";
 import { useRouter } from "next/navigation";
+import { createClientComponentClient } from "@supabase/auth-helpers-nextjs";
 
 const NavLeft = () => {
-  const { setAccount } = useFakeLogin();
+  const supabase = createClientComponentClient();
 
   const router = useRouter();
 
-  const handleLogout = () => {
-    setAccount(null);
-    Swal.fire({
-      icon: "success",
-      title: "Berhasil",
-      text: "Anda Telah Berhasil Logout",
-      showConfirmButton: false,
-      timer: 1500,
-    }).then(() => router.push("/login"));
+  const handleLogout = async () => {
+    await supabase.auth.signOut().then(() => {
+      Swal.fire({
+        icon: "success",
+        title: "Berhasil",
+        text: "Anda Telah Berhasil Logout",
+        showConfirmButton: false,
+        timer: 1500,
+      }).then(() => router.push("/login"));
+    });
   };
 
   return (

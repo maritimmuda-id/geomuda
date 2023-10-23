@@ -1,14 +1,17 @@
-"use client";
+import { createServerComponentClient } from "@supabase/auth-helpers-nextjs";
+import { cookies } from "next/headers";
 
-import { useFakeLogin } from "@/zustand/useFakeLogin";
+export default async function HeadDashboard() {
+  const supabase = createServerComponentClient({ cookies });
 
-export default function HeadDashboard() {
-  const { data: user } = useFakeLogin();
+  const { data } = await supabase.auth.getSession();
+
+  const user = data.session.user.user_metadata;
 
   return (
     <div className="space-y-2 mb-14">
       <h1 className="text-4xl mb-6">Dashboard</h1>
-      <p>Halo {user?.fullname},</p>
+      <p>Halo {user.fullname},</p>
       <p>Selamat datang di dashboard</p>
     </div>
   );

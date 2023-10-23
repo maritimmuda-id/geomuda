@@ -5,10 +5,12 @@ import { useForm } from "react-hook-form";
 import { yupResolver } from "@hookform/resolvers/yup";
 import * as yup from "yup";
 import Swal from "sweetalert2";
-import { useFakeLogin } from "@/zustand/useFakeLogin";
 import { useRouter } from "next/navigation";
+import { createClientComponentClient } from "@supabase/auth-helpers-nextjs";
 
 export default function FormLogin() {
+  const supabase = createClientComponentClient();
+
   const schema = yup.object({
     email: yup
       .string()
@@ -19,8 +21,6 @@ export default function FormLogin() {
       .min(8, "Minimal Password 8 Kata")
       .required("Harap Masukan Password Anda"),
   });
-
-  const { data: user } = useFakeLogin();
 
   const router = useRouter();
 
@@ -33,24 +33,27 @@ export default function FormLogin() {
     resolver: yupResolver(schema),
   });
 
-  const onSubmit = (data) => {
-    const { email, password } = data;
+  const onSubmit = async (input) => {
+    const { error } = await supabase.auth.signInWithPassword({
+      email: input.email,
+      password: input.password,
+    });
 
-    if (user?.email === email && user?.password === password) {
+    if (!error) {
       Swal.fire({
         icon: "success",
         title: "Berhasil",
         text: "Login Telah Berhasil",
         showConfirmButton: false,
         timer: 1500,
-      }).then(() => router.push("/dashboard"));
+      });
+
+      router.push("/dashboard");
     } else {
       Swal.fire({
         icon: "error",
-        title: "Gagal Login",
-        text: "Email Atau Password Salah",
-        showConfirmButton: false,
-        timer: 1500,
+        title: "Gagal",
+        text: error.status === 400 && "Email atau Password Salah",
       });
     }
   };

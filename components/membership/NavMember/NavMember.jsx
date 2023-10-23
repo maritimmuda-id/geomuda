@@ -6,11 +6,9 @@ import { BsChevronDoubleRight } from "react-icons/bs";
 
 // ** Import Zustand
 import { useSidebar } from "@/zustand/useSidebar";
-import { useFakeLogin } from "@/zustand/useFakeLogin";
 
-const NavMember = () => {
+const NavMember = ({ user }) => {
   const { open, setOpen } = useSidebar();
-  const { data: user } = useFakeLogin();
 
   return (
     <div className="bg-[#7B2418] fixed top-0 w-full border-b border-gray-300  p-5 flex justify-between items-center px-10 z-10">
@@ -26,7 +24,7 @@ const NavMember = () => {
         />
       )}
 
-      <button className="text-white">{user?.fullname}</button>
+      <button className="text-white">{user.user_metadata.fullname}</button>
     </div>
   );
 };
