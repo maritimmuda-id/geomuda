@@ -1,15 +1,11 @@
-import ContentSidebar from "@/components/membership/ContentSidebar/ContentSidebar";
 // ** Import Components
+import ContentMember from "@/components/membership/ContentSidebar/ContentMember";
 import NavMember from "@/components/membership/NavMember/NavMember";
-import {
-  createClientComponentClient,
-  createServerActionClient,
-  createServerComponentClient,
-} from "@supabase/auth-helpers-nextjs";
-import { cookies } from "next/headers";
-import { redirect } from "next/navigation";
 
 // ** Import Other
+import { createServerComponentClient } from "@supabase/auth-helpers-nextjs";
+import { cookies } from "next/headers";
+import { redirect } from "next/navigation";
 
 export default async function DashboardLayout({ children }) {
   const supabase = createServerComponentClient({ cookies });
@@ -26,7 +22,7 @@ export default async function DashboardLayout({ children }) {
     <main className="relative">
       <NavMember user={user} />
 
-      <ContentSidebar>{children}</ContentSidebar>
+      <ContentMember>{children}</ContentMember>
     </main>
   );
 }

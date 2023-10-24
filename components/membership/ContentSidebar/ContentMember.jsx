@@ -6,7 +6,7 @@ import NavLeft from "../NavLeft/NavLeft";
 // ** Import Zustand
 import { useSidebar } from "@/zustand/useSidebar";
 
-export default function ({ children }) {
+export default function ContentMember({ children }) {
   const { open } = useSidebar();
 
   return (
