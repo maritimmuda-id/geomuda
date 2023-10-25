@@ -26,6 +26,12 @@ export default function VerifikasiPassword() {
         text: "Password berhasil direset",
         icon: "success",
       }).then(() => router.push("/dashboard"));
+    } else {
+      Swal.fire({
+        title: "Gagal",
+        text: error.message,
+        icon: "error",
+      });
     }
   };
 

@@ -1,5 +1,8 @@
 "use client";
 
+// ** Import React
+import { useState } from "react";
+
 // ** Import Other
 import { useForm } from "react-hook-form";
 import { yupResolver } from "@hookform/resolvers/yup";
@@ -9,6 +12,7 @@ import { useRouter } from "next/navigation";
 import { createClientComponentClient } from "@supabase/auth-helpers-nextjs";
 
 export default function FormLogin() {
+  const [loading, setLoading] = useState(false);
   const supabase = createClientComponentClient();
 
   const schema = yup.object({
@@ -34,6 +38,7 @@ export default function FormLogin() {
   });
 
   const onSubmit = async (input) => {
+    setLoading(true);
     const { error } = await supabase.auth.signInWithPassword({
       email: input.email,
       password: input.password,
@@ -46,15 +51,17 @@ export default function FormLogin() {
         text: "Login Telah Berhasil",
         showConfirmButton: false,
         timer: 1500,
-      });
+      }).then(() => {
+        router.push("/dashboard");
 
-      router.push("/dashboard");
+        setLoading(false);
+      });
     } else {
       Swal.fire({
         icon: "error",
         title: "Gagal",
-        text: error.status === 400 && "Email atau Password Salah",
-      });
+        text: error.message,
+      }).then(() => setLoading(false));
     }
   };
 
@@ -96,7 +103,7 @@ export default function FormLogin() {
         type="submit"
         className="bg-[#7B2418] text-white rounded-xl p-2 mb-4"
       >
-        Login
+        {loading ? "loading..." : "Login"}
       </button>
     </form>
   );

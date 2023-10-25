@@ -1,5 +1,8 @@
 "use client";
 
+// ** Import React
+import { useState } from "react";
+
 // ** Import Next
 import { useRouter } from "next/navigation";
 
@@ -11,6 +14,8 @@ import Swal from "sweetalert2";
 import { createClientComponentClient } from "@supabase/auth-helpers-nextjs";
 
 export default function FormRegister() {
+  const [loading, setLoading] = useState(false);
+
   const supabase = createClientComponentClient();
 
   const schema = yup.object({
@@ -46,6 +51,8 @@ export default function FormRegister() {
   });
 
   const onSubmit = async (input) => {
+    setLoading(true);
+
     const { error } = await supabase.auth.signUp({
       email: input.email,
       password: input.confirmPassword,
@@ -64,7 +71,18 @@ export default function FormRegister() {
         text: "Registrasi Telah Berhasil",
         showConfirmButton: false,
         timer: 1500,
-      }).then(() => router.push("/login"));
+      }).then(() => {
+        router.push("/login");
+
+        setLoading(false);
+      });
+    } else {
+      Swal.fire({
+        icon: "error",
+        title: "Gagal",
+        text: error.message,
+        showConfirmButton: false,
+      }).then(() => setLoading(false));
     }
 
     router.refresh();
@@ -138,7 +156,7 @@ export default function FormRegister() {
         type="submit"
         className="bg-[#7B2418] text-white rounded-xl p-2 mb-1"
       >
-        Register
+        {loading ? "Loading..." : "Register"}
       </button>
     </form>
   );
