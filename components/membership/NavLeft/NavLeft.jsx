@@ -21,15 +21,27 @@ const NavLeft = () => {
   const router = useRouter();
 
   const handleLogout = async () => {
-    await supabase.auth.signOut().then(() => {
-      Swal.fire({
-        icon: "success",
-        title: "Berhasil",
-        text: "Anda Telah Berhasil Logout",
-        showConfirmButton: false,
-        timer: 1500,
-      }).then(() => router.push("/login"));
-    });
+    Swal.fire({
+      icon: "warning",
+      text: "Apakah anda yakin ingin keluar?",
+      showCancelButton: true,
+      confirmButtonColor: '#C93233',
+      confirmButtonText: 'Ya',
+      cancelButtonText: "Tidak",
+    }).then((result) => {
+      if(result.isConfirmed){
+        supabase.auth.signOut().then(() => {
+          Swal.fire({
+            icon: "success",
+            title: "Berhasil",
+            text: "Anda Telah Berhasil Logout",
+            showConfirmButton: false,
+            timer: 1000,
+          }).then(() => router.push("/login"));
+        });
+      }
+    })
+
   };
 
   return (
