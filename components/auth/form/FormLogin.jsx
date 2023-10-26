@@ -10,6 +10,7 @@ import * as yup from "yup";
 import Swal from "sweetalert2";
 import { useRouter } from "next/navigation";
 import { createClientComponentClient } from "@supabase/auth-helpers-nextjs";
+import Loading from "@/components/membership/LoadingSpinner/LoadingSpinner";
 
 export default function FormLogin() {
   const [loading, setLoading] = useState(false);
@@ -44,6 +45,8 @@ export default function FormLogin() {
       password: input.password,
     });
 
+    console.log(error)
+
     if (!error) {
       Swal.fire({
         icon: "success",
@@ -56,6 +59,12 @@ export default function FormLogin() {
 
         setLoading(false);
       });
+    } else if(error.message === "Invalid login credentials"){
+      Swal.fire({
+        icon: "error",
+        title: "Gagal",
+        text: "Email atau kata sandi salah",
+      }).then(() => setLoading(false));
     } else {
       Swal.fire({
         icon: "error",
@@ -103,7 +112,7 @@ export default function FormLogin() {
         type="submit"
         className="bg-[#7B2418] text-white rounded-xl p-2 mb-4"
       >
-        {loading ? "loading..." : "Login"}
+        {loading ? <Loading /> : "Login"}
       </button>
     </form>
   );

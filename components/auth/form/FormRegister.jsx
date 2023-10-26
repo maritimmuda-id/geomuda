@@ -12,6 +12,7 @@ import { yupResolver } from "@hookform/resolvers/yup";
 import * as yup from "yup";
 import Swal from "sweetalert2";
 import { createClientComponentClient } from "@supabase/auth-helpers-nextjs";
+import Loading from "@/components/membership/LoadingSpinner/LoadingSpinner";
 
 export default function FormRegister() {
   const [loading, setLoading] = useState(false);
@@ -156,7 +157,7 @@ export default function FormRegister() {
         type="submit"
         className="bg-[#7B2418] text-white rounded-xl p-2 mb-1"
       >
-        {loading ? "Loading..." : "Register"}
+        {loading ? <Loading /> : "Register"}
       </button>
     </form>
   );
