@@ -26,6 +26,7 @@ const NavLeft = () => {
       text: "Apakah anda yakin ingin keluar?",
       showCancelButton: true,
       confirmButtonColor: '#C93233',
+      cancelButtonColor: '#D9D9D9',
       confirmButtonText: 'Ya',
       cancelButtonText: "Tidak",
     }).then((result) => {
