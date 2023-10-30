@@ -21,7 +21,7 @@ export default function Umum() {
             </div>
           </div>
           <div>
-            <h2 className="text-2xl font-semibold">Kaisar Akhir</h2>
+            <h2 className="text-2xl font-semibold">Pengguna</h2>
             <p className="text-lg text-[#7B2418] font-medium">
               Anggota Biasa Geomuda Indonesia
             </p>

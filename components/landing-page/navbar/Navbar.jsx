@@ -62,7 +62,10 @@ const Navbar = () => {
                 <div key={item.name} className="relative">
                   <div onClick={() => setDropdown(!dropdown)}>
                     <div className="flex gap-2 items-center hover:text-red-400 cursor-pointer ">
-                      <h1>About Us</h1>
+                      <h1>
+                        {/* About Us */}
+                        Tentang
+                      </h1>
 
                       {dropdown ? (
                         <IoIosArrowUp className="w-5 h-5" />
@@ -75,7 +78,7 @@ const Navbar = () => {
                   {dropdown && (
                     <div
                       key={item.lists.name}
-                      className="absolute flex flex-col gap-5 bg-[#111827]  mt-11 px-7 rounded-md py-8 -z-10"
+                      className="absolute flex flex-col gap-5 bg-[#111827] mt-11 px-8 rounded-md py-8 -z-10 text-sm"
                     >
                       <Link
                         key={index}

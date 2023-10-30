@@ -25,32 +25,29 @@ const Footer = () => {
         </div>
 
         <div>
-          <h4 className="font-bold text-xl">ADDRESS</h4>
+          <h4 className="font-bold text-xl">
+            {/* ADDRESS */}
+            ALAMAT
+          </h4>
 
           <div className="py-[1px] bg-white my-4"></div>
           <p>
-            Head Office:Indonesia Blue Economy Center Kampus C STIE Indonesia
-            Jakarta, Jalan Pratekan No. 9AKel. Rawamangun, Kec. Pulo Gadung,
+            Head Office : Indonesia Blue Economy Center Kampus C STIE Indonesia
+            Jakarta, Jalan Pratekan No. 9A Kel. Rawamangun, Kec. Pulo Gadung,
             Jakarta 13220
-          </p>
-
-          <div className="py-[1.25px] bg-white my-4"></div>
-
-          <p>
-            National Secretariat:Jalan Pulau Bintan No. 12, Desa Semoi Dua, Kec.
-            Sepaku, Kab. Penajam Paser Utara, IKN Nusantara.
           </p>
         </div>
 
         <div>
-          <h4 className="font-bold text-xl">CONTACT</h4>
+          <h4 className="font-bold text-xl">
+            {/* CONTACT */}
+            KONTAK
+          </h4>
 
           <div className="py-[1px] bg-white my-4"></div>
           <ul>
             <li>+62-21-489-1137</li>
-            <li>+62 823-7099-6119</li>
-            <li>+62-812-9694-7244 </li>
-            <li>admin@maritimmuda.id</li>
+            <li>admin@geomuda.id</li>
           </ul>
         </div>
       </div>

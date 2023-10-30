@@ -1,6 +1,6 @@
 export const navItems = [
   {
-    name: "Home",
+    name: "Beranda",
     location: "/",
   },
   {
@@ -8,7 +8,7 @@ export const navItems = [
     location: "/program",
   },
   {
-    name: "About",
+    name: "Visi dan Misi",
     lists: { name: "Pengurus", location: "/pengurus" },
     location: "/about",
   },

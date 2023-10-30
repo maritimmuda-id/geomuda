@@ -36,7 +36,7 @@ const Banner = (props) => {
         ) : (
           <div className="flex justify-start flex-col items-center gap-10">
             <Link href={to}>
-              <button className="border border-white px-24 md:px-32 rounded-lg py-2 md:py-3">
+              <button className="border border-white px-24 md:px-28 rounded-2xl py-2 md:py-3">
                 {buttonTitle}
               </button>
             </Link>

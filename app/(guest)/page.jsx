@@ -13,7 +13,7 @@ const LandingPage = () => {
       <Banner
         image={assets.banner}
         title="Asosiasi Geomuda Indonesia"
-        buttonTitle="Join Us"
+        buttonTitle="Bergabung Dengan Kami"
         to="/login"
       />
 

@@ -9,7 +9,7 @@ export const programs = [
   {
     image: assets.program2,
     title:
-      "Sosial kebencanaan, pendidikan kebumian dan kebudayaan ramah lingkungan",
+      "Sosial Kebencanaan, Pendidikan Kebumian dan Kebudayaan Ramah Lingkungan",
     alt: "cleaning beach",
   },
   {
