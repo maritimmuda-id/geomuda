@@ -18,11 +18,11 @@ import banner3 from "./landing-page/aboutus.svg";
 import banner4 from "./landing-page/pengurus.svg";
 import maleProfile from "./landing-page/male-profile.jpg";
 import femaleProfile from "./landing-page/female-profile.jpg";
-import redondoImage from "./landing-page/redondo.jpg";
-import redondoPngImage from "./landing-page/redondo.png";
+import redondoImage from "./landing-page/redondo.png";
 import naufalImage from "./landing-page/naufal.jpg";
 import kaisarImage from "./landing-page/kaisar.png";
 import khalifImage from "./landing-page/khalif.jpg";
+import adityaImage from "./landing-page/aditya.jpg";
 import defaultImage from "./landing-page/default-image.jpg";
 
 export default {
@@ -46,9 +46,9 @@ export default {
   maleProfile,
   femaleProfile,
   redondoImage,
-  redondoPngImage,
-  naufalImage,
   kaisarImage,
+  naufalImage,
   khalifImage,
+  adityaImage,
   defaultImage,
 };

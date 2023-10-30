@@ -12,12 +12,12 @@ export const administrators = [
     position: "Wakil Ketua Umum",
   },
   {
-    image: assets.redondoPngImage,
+    image: assets.redondoImage,
     name: "Redondo Asprilla",
     position: "Sekertaris Jendral",
   },
   {
-    image: assets.maleProfile,
+    image: assets.adityaImage,
     name: "Aditya Maulana B",
     position: "Bendahara Umum",
   },
