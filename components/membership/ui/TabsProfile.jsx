@@ -18,7 +18,7 @@ export default function TabsProfile() {
           className={`p-3 cursor-pointer px-6 border-2  ${
             position === index ? "bg-[#7B2418] text-white" : "bg-[#f8f8f8]"
           }  hover:bg-[#7B2418] hover:text-white ${
-            index === 2 && "rounded-tr-xl"
+            index === 4 && "rounded-tr-xl"
           } ${index === 0 && "rounded-tl-xl"}`}
         >
           {tab.name}

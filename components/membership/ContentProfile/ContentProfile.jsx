@@ -8,6 +8,8 @@ import PengalamanKerja from "../TabsContent/PengalamanKerja";
 
 // ** Import Zustand
 import { useTabsProfile } from "@/zustand/useTabsProfile";
+import Akun from "../TabsContent/Akun";
+import KTA from "../TabsContent/KTA";
 
 export default function ContentProfile() {
   const { position } = useTabsProfile();
@@ -17,6 +19,10 @@ export default function ContentProfile() {
   if (position === 0) {
     content = <Umum />;
   } else if (position === 1) {
+    content = <Akun />
+  } else if(position === 2) {
+    content = <KTA />
+  } else if(position === 3) {
     content = <Pendidikan />;
   } else {
     content = <PengalamanKerja />;
