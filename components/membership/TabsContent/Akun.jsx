@@ -1,6 +1,5 @@
 import React from 'react'
 import ChangePassword from '../ChangePassword/ChangePassword'
-import ChangeEmail from '../ChangeEmail/ChangeEmail'
 
 const Akun = () => {
   return (
