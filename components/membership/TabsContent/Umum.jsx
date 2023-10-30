@@ -3,7 +3,6 @@ import assets from "@/assets/assets";
 import Image from "next/image";
 
 // ** Import Compnents
-import ChangePassword from "../ChangePassword/ChangePassword";
 import { IoIosAdd } from "react-icons/io";
 
 export default function Umum() {
@@ -34,42 +33,42 @@ export default function Umum() {
             <label>Nomor ID</label>
             <input
               type="text"
-              className="border-2 border-gray-500 active:border-[#7B2418] p-1 rounded-lg w-full"
-            />
-          </div>
-          <div className="flex flex-col space-y-2">
-            <label>Email</label>
-            <input
-              type="text"
-              className="border-2 border-gray-500 active:border-[#7B2418] p-1 rounded-lg w-full"
+              className="border-2 border-[#00000066] px-3 py-[6px] rounded-lg w-full"
             />
           </div>
           <div className="flex flex-col space-y-2">
             <label>Alamat</label>
             <input
               type="text"
-              className="border-2 border-gray-500 active:border-[#7B2418] p-1 rounded-lg w-full"
+              className="border-2 border-[#00000066] px-3 py-[6px] rounded-lg w-full"
+            />
+          </div>
+          <div className="flex flex-col space-y-2">
+            <label>Tempat Lahir</label>
+            <input
+              type="text"
+              className="border-2 border-[#00000066] px-3 py-[6px] rounded-lg w-full"
             />
           </div>
           <div className="flex flex-col space-y-2">
             <label>Tanggal Lahir</label>
             <input
               type="text"
-              className="border-2 border-gray-500 active:border-[#7B2418] p-1 rounded-lg w-full"
+              className="border-2 border-[#00000066] px-3 py-[6px] rounded-lg w-full"
             />
           </div>
           <div className="flex flex-col space-y-2">
             <label>Jenis Kelamin</label>
             <input
               type="text"
-              className="border-2 border-gray-500 active:border-[#7B2418] p-1 rounded-lg w-full"
+              className="border-2 border-[#00000066] px-3 py-[6px] p-1 rounded-lg w-full"
             />
           </div>
           <div className="flex flex-col space-y-2">
             <label>Negara</label>
             <input
               type="text"
-              className="border-2 border-gray-500 active:border-[#7B2418] p-1 rounded-lg w-full"
+              className="border-2 border-[#00000066] px-3 py-[6px] p-1 rounded-lg w-full"
             />
           </div>
           <button className="col-start-1 col-end-3 bg-[#7B2418] text-white p-2 rounded-lg">
@@ -78,8 +77,6 @@ export default function Umum() {
         </form>
         {/* </div> */}
       </div>
-
-      <ChangePassword />
     </>
   );
 }
