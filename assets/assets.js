@@ -22,8 +22,11 @@ import redondoImage from "./landing-page/redondo.png";
 import naufalImage from "./landing-page/naufal.jpg";
 import kaisarImage from "./landing-page/kaisar.png";
 import khalifImage from "./landing-page/khalif.jpg";
+import khalifRemoveBg from "./landing-page/khalif-removebg.png";
 import adityaImage from "./landing-page/aditya.jpg";
 import defaultImage from "./landing-page/default-image.jpg";
+import sejarah1 from "./landing-page/sejarah1.svg";
+import sejarah2 from "./landing-page/sejarah2.svg";
 
 export default {
   banner,
@@ -49,6 +52,9 @@ export default {
   kaisarImage,
   naufalImage,
   khalifImage,
+  khalifRemoveBg,
   adityaImage,
   defaultImage,
+  sejarah1,
+  sejarah2,
 };
