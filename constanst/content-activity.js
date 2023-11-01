@@ -8,7 +8,7 @@ export const contentActivity = [
   },
   {
     title:
-      "Sosial kebencanaan, pendidikan kebumian dan kebudayaan ramah  lingkungan ",
+      "Sosial Kebencanaan, Pendidikan Kebumian dan Kebudayaan Ramah Lingkungan ",
     desc: [
       "Bakti sosial dan pelayanan kesehatan masyarakat daerah rawan bencana.",
       "Kemitraan dengan pemerintah, organisasi kemasyarakatan, badan usaha, dan perguruan tinggi baik dalam negeri maupun luar negeri, adaptasi dan mitigasi bencana.",
