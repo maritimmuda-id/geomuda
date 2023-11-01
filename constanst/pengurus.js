@@ -21,9 +21,4 @@ export const administrators = [
     name: "Aditya Maulana B",
     position: "Bendahara Umum",
   },
-  {
-    image: assets.naufalImage,
-    name: "Muhammad Naufal Syafrun",
-    position: "Pengawas",
-  },
 ];
