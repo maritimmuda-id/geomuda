@@ -12,8 +12,8 @@ import {
 } from "react-icons/ai";
 import { IoIosArrowDown, IoIosArrowUp } from "react-icons/io";
 
-// ** Import Constans
-import { navItems } from "@/constanst/navItems";
+// ** Import Constanst
+import { navItemsLeft, navItemsRight } from "@/constanst/navItems";
 
 // ** Import Next
 import Image from "next/image";
@@ -43,25 +43,19 @@ const Navbar = () => {
   return (
     <>
       <nav
-        className={`flex fixed z-50 top-0 w-full text-white items-center justify-between py-1 px-10 md:px-32 ${
+        className={`flex fixed z-50 top-0 w-full text-white items-center justify-between flex-row-reverse md:flex-row md:justify-center py-2 px-10 md:gap-12 xl:gap-28 ${
           scroll > 0
             ? "bg-gray-900 z-50 transition duration-1000"
             : "bg-transparent duration-500"
         }`}
       >
-        <Image
-          src={assets.logoGmiWhite}
-          className="w-24 md:w-32"
-          alt="logo geomuda indonesia white"
-        ></Image>
-
-        <div>
-          <div className="hidden md:flex items-center gap-5">
-            {navItems.map((item, index) =>
+        <div className="md:basis-5/12">
+          <div className="hidden md:flex items-center justify-end gap-[10%]">
+            {navItemsLeft.map((item, index) =>
               item.lists ? (
                 <div key={item.name} className="relative">
                   <div onClick={() => setDropdown(!dropdown)}>
-                    <div className="flex gap-2 items-center hover:text-red-400 cursor-pointer ">
+                    <div className="flex gap-2 items-center hover:text-red-400 cursor-pointer md:text-sm lg:text-base">
                       <h1>
                         {/* About Us */}
                         Tentang
@@ -78,16 +72,27 @@ const Navbar = () => {
                   {dropdown && (
                     <div
                       key={item.lists.name}
-                      className="absolute flex flex-col gap-5 bg-[#111827] mt-11 px-8 rounded-md py-8 -z-10 text-sm"
+                      className="absolute flex flex-col gap-4 bg-[#111827] mt-11 w-56 rounded-md px-5 py-8 -z-10 text-sm"
                     >
-                      <Link
+                      {item.lists.map((dropdownItem, index) => 
+                        <Link
+                          key={index}
+                          onClick={() => setDropdown(false)}
+                          href={dropdownItem.location}
+                          className="cursor-pointer hover:text-red-400 rounded-xl"
+                        >
+                          {dropdownItem.name}
+                        </Link>
+                      )}
+
+                      {/* <Link
                         key={index}
                         onClick={() => setDropdown(false)}
                         href={item.lists.location}
                         className="cursor-pointer hover:text-red-400 rounded-xl"
                       >
                         {item.lists.name}
-                      </Link>
+                      </Link> */}
 
                       <Link
                         key={index}
@@ -105,19 +110,12 @@ const Navbar = () => {
                   key={index}
                   onClick={() => setDropdown(false)}
                   href={item.location}
-                  className="cursor-pointer hover:text-red-400 rounded-xl"
+                  className="cursor-pointer hover:text-red-400 rounded-xl md:text-sm lg:text-base"
                 >
                   {item.name}
                 </Link>
               )
             )}
-            <Link
-              href="/login"
-              onClick={() => setDropdown(false)}
-              className=" cursor-pointer py-2 hover:text-red-400 rounded-xl"
-            >
-              Membership
-            </Link>
           </div>
 
           {!open ? (
@@ -132,6 +130,26 @@ const Navbar = () => {
             />
           )}
         </div>
+        
+        <Image
+          src={scroll > 0 ? assets.logoGmiTextWhite : assets.logoGmiWhite}
+          className="md:block w-24 md:w-28 md:px-2 lg;:px-1 basis-1/12 ease-in duration-150 transition"
+          alt="logo geomuda indonesia white"
+        />
+        
+        <div className="hidden md:flex items-center justify-start gap-[10%] basis-5/12">
+          {navItemsRight.map((item, index) => 
+            <Link
+              href={item.location}
+              key={index}
+              onClick={() => setDropdown(false)}
+              className=" cursor-pointer py-2 hover:text-red-400 rounded-xl md:text-sm lg:text-base"
+            >
+              {item.name}
+            </Link>
+          )}
+        </div>
+        
       </nav>
 
       {/* Mobile Section */}
@@ -147,7 +165,7 @@ const Navbar = () => {
         />
 
         <div className="space-y-6 text-white px-2">
-          {navItems.map((item, index) =>
+          {navItemsLeft.map((item, index) =>
             item.lists ? (
               <div
                 key={index}
@@ -159,7 +177,7 @@ const Navbar = () => {
                     dropdown && "border-b-2 pb-2"
                   }`}
                 >
-                  <h1 className="text-lg font-semibold">About Us</h1>
+                  <h1 className="text-lg font-semibold">Tentang</h1>
                   {dropdown ? (
                     <IoIosArrowUp className="w-5 h-5" />
                   ) : (
@@ -169,13 +187,23 @@ const Navbar = () => {
 
                 {dropdown && (
                   <div className="flex flex-col space-y-4">
-                    <Link
+                    { item.lists.map((dropdownItem, index) => {
+                      <Link
+                        key={index}
+                        onClick={() => [setDropdown(false), setOpen(false)]}
+                        href={dropdownItem.location}
+                        className="font-semibold"
+                      >
+                        {dropdownItem.name}
+                      </Link>
+                    }) }
+                    {/* <Link
                       onClick={() => [setDropdown(false), setOpen(false)]}
                       href={item.lists.location}
                       className="font-semibold"
                     >
                       {item.lists.name}
-                    </Link>
+                    </Link> */}
 
                     <Link
                       onClick={() => [setDropdown(false), setOpen(false)]}
@@ -194,6 +222,15 @@ const Navbar = () => {
                 </Link>
               </div>
             )
+          )}
+          {navItemsRight.map((item,index) => 
+            <div>
+                <div key={index} onClick={() => setOpen(false)}>
+                <Link href={item.location} className="text-lg font-semibold">
+                  {item.name}
+                </Link>
+              </div>
+            </div>
           )}
         </div>
       </nav>
