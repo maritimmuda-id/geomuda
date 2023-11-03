@@ -1,4 +1,4 @@
-export const navItems = [
+export const navItemsLeft = [
   {
     name: "Beranda",
     location: "/",
@@ -8,8 +8,75 @@ export const navItems = [
     location: "/program",
   },
   {
-    name: "Visi dan Misi",
-    lists: { name: "Pengurus", location: "/pengurus" },
-    location: "/about",
+    name: "Lambang Organisasi",
+    lists: [
+      {
+        name: "Sambutan Ketua Umum",
+        location: "/sambutan",
+      },
+      {
+        name: "Sejarah Pendirian",
+        location: "/sejarah",
+      },
+      {
+        name: "Visi dan Misi",
+        location: "/about",
+      },
+      {
+        name: "Pengurus",
+        location: "/pengurus",
+      },
+      {
+        name: "Dewan Pengawas",
+        location: "/penasihat",
+      },
+      {
+        name: "Nawa Satya",
+        location: "/nawasatya",
+      },
+      // {
+      //   name: "Lambang Organisasi",
+      //   location: "/lambang",
+      // },
+    ],
+    location: "/lambang",
+  },
+];
+
+// export const tentangItem = [
+//   {
+//     name: "Sambutan Ketua Umum",
+//     location: "/sambutan",
+//   },
+//   {
+//     name: "Sejarah Pendirian",
+//     location: "/sejarah",
+//   },
+//   {
+//     name: "Pengurus",
+//     location: "/pengurus",
+//   },
+//   {
+//     name: "Dewan Pengawas",
+//     location: "/penasihat",
+//   },
+//   {
+//     name: "Nawa Satya",
+//     location: "/nawasatya",
+//   },
+//   {
+//     name: "Lambang Organisasi",
+//     location: "/lambang",
+//   },
+// ];
+
+export const navItemsRight = [
+  {
+    name: "Media",
+    location: "/media",
+  },
+  {
+    name: "Keanggotaan",
+    location: "/login",
   },
 ];

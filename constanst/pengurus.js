@@ -14,7 +14,7 @@ export const administrators = [
   {
     image: assets.redondoImage,
     name: "Redondo Asprilla",
-    position: "Sekertaris Jendral",
+    position: "Sekretaris Jenderal",
   },
   {
     image: assets.adityaImage,
