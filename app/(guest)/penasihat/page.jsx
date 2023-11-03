@@ -10,7 +10,7 @@ const PenasihatPage = () => {
     <div>
       <Banner
         image={assets.banner4}
-        title="PENASIHAT PUSAT"
+        title="Dewan Pengawas"
         subtitle="Asosiasi Geomuda Indonesia"
       />
 
