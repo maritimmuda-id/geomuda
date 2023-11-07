@@ -11,21 +11,23 @@ import { useTabsProfile } from "@/zustand/useTabsProfile";
 import Akun from "../TabsContent/Akun";
 import KTA from "../TabsContent/KTA";
 
-export default function ContentProfile() {
+export default function ContentProfile(props) {
+  const { countryData, user, pendidikan, experience } = props;
+
   const { position } = useTabsProfile();
 
   let content;
 
   if (position === 0) {
-    content = <Umum />;
+    content = <Umum countryData={countryData} user={user} />;
   } else if (position === 1) {
-    content = <Akun />
-  } else if(position === 2) {
-    content = <KTA />
-  } else if(position === 3) {
-    content = <Pendidikan />;
+    content = <Akun user={user} />;
+  } else if (position === 2) {
+    content = <KTA />;
+  } else if (position === 3) {
+    content = <Pendidikan data={pendidikan} />;
   } else {
-    content = <PengalamanKerja />;
+    content = <PengalamanKerja data={experience} />;
   }
 
   return (

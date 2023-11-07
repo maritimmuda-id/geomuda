@@ -1,3 +1,5 @@
+"use client";
+
 // ** Import React
 import React from "react";
 
@@ -11,7 +13,7 @@ import { useRouter } from "next/navigation";
 import { createClientComponentClient } from "@supabase/auth-helpers-nextjs";
 import Swal from "sweetalert2";
 
-const ModalEducation = () => {
+const EditModalEducation = () => {
   const schema = yup.object({
     name: yup
       .string()
@@ -34,35 +36,42 @@ const ModalEducation = () => {
 
   const supabase = createClientComponentClient();
 
-  const { setEducation } = useModalEducation();
+  const { setIsEdit, data: edit } = useModalEducation();
 
   const {
     register,
     handleSubmit,
-    reset,
+    setValue,
+
     formState: { errors },
   } = useForm({
     resolver: yupResolver(schema),
   });
+
+  React.useEffect(() => {
+    setValue("name", edit.name);
+    setValue("education", edit.education);
+    setValue("study_program", edit.study_program);
+    setValue("graduate_date", edit.graduate_date);
+  }, [edit]);
 
   const onSubmit = async (input) => {
     setLoading(true);
 
     const { error } = await supabase
       .from("pendidikan")
-      .insert({ ...input })
+      .update({ ...input })
+      .eq("id", edit.id)
       .select();
 
     if (!error) {
       Swal.fire({
         title: "Berhasil",
         icon: "success",
-        text: "Data Berhasil Ditambahkan",
+        text: "Data Berhasil Diupdate",
       });
 
-      reset();
-
-      setEducation();
+      setIsEdit();
 
       setLoading(false);
     } else {
@@ -82,8 +91,8 @@ const ModalEducation = () => {
     <div className="flex flex-col justify-center items-center h-screen z-20">
       <div className="w-7/12 space-y-5 border-2 py-6 px-6 rounded-xl bg-white">
         <div className="border-b-2 pb-4 flex justify-between">
-          <h1 className="text-lg">Tambah Riwayat Pendidikan</h1>
-          <button className="text-xl" onClick={setEducation}>
+          <h1 className="text-lg">Edit Riwayat Pendidikan</h1>
+          <button className="text-xl" onClick={setIsEdit}>
             <IoMdClose />
           </button>
         </div>
@@ -131,7 +140,7 @@ const ModalEducation = () => {
               </label>
               <input
                 type="text"
-                name="education"
+                name="eduation"
                 {...register("education")}
                 className="border-2 border-[#00000053] bg-[#E7E7E7] p-2 rounded-lg w-full text-sm font-light "
               />
@@ -163,4 +172,4 @@ const ModalEducation = () => {
   );
 };
 
-export default ModalEducation;
+export default EditModalEducation;

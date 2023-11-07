@@ -1,7 +1,9 @@
-import React from 'react'
-import ChangePassword from '../ChangePassword/ChangePassword'
+import React from "react";
+import ChangePassword from "../ChangePassword/ChangePassword";
 
-const Akun = () => {
+const Akun = ({ user }) => {
+  console.log(user);
+
   return (
     <>
       <div className="max-w-full rounded-xl bg-[#f8f8f8] p-10 min-h-full border-2 -mt-[2px] rounded-tl-none">
@@ -13,14 +15,16 @@ const Akun = () => {
           <label>Email</label>
           <input
             type="text"
-            className="border-2 border-[#00000066] px-3 py-[6px] p-1 rounded-lg w-full"
+            value={user.email}
+            disabled
+            className="border-2 border-[#00000066] disabled:cursor-not-allowed disabled:bg-gray-200 px-3 py-[6px] p-1 rounded-lg w-full"
           />
         </div>
       </div>
 
       <ChangePassword />
     </>
-  )
-}
+  );
+};
 
-export default Akun
+export default Akun;

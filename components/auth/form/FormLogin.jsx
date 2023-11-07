@@ -45,8 +45,6 @@ export default function FormLogin() {
       password: input.password,
     });
 
-    console.log(error)
-
     if (!error) {
       Swal.fire({
         icon: "success",
@@ -54,12 +52,11 @@ export default function FormLogin() {
         text: "Login Telah Berhasil",
         showConfirmButton: false,
         timer: 1500,
-      }).then(() => {
-        router.push("/dashboard");
-
-        setLoading(false);
       });
-    } else if(error.message === "Invalid login credentials"){
+      setLoading(false);
+
+      router.push("/dashboard");
+    } else if (error.message === "Invalid login credentials") {
       Swal.fire({
         icon: "error",
         title: "Gagal",
@@ -72,6 +69,8 @@ export default function FormLogin() {
         text: error.message,
       }).then(() => setLoading(false));
     }
+
+    router.refresh();
   };
 
   return (

@@ -10,13 +10,13 @@ import { redirect } from "next/navigation";
 export default async function DashboardLayout({ children }) {
   const supabase = createServerComponentClient({ cookies });
 
-  const { data } = await supabase.auth.getSession();
+  const {
+    data: { user },
+  } = await supabase.auth.getUser();
 
-  if (!data.session) {
+  if (!user) {
     redirect("/login");
   }
-
-  const user = data.session.user;
 
   return (
     <main className="relative">

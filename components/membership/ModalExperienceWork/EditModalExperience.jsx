@@ -13,7 +13,7 @@ import { yupResolver } from "@hookform/resolvers/yup";
 import { useForm } from "react-hook-form";
 import Swal from "sweetalert2";
 
-const ModalExperienceWork = () => {
+const EditModalExperience = () => {
   const schema = yup.object({
     position: yup
       .string()
@@ -33,35 +33,44 @@ const ModalExperienceWork = () => {
 
   const supabase = createClientComponentClient();
 
-  const { setExperience } = useModalExperience();
+  const { setIsEdit, data: edit } = useModalExperience();
 
   const {
     register,
     handleSubmit,
     reset,
+    setValue,
     formState: { errors },
   } = useForm({
     resolver: yupResolver(schema),
   });
+
+  React.useEffect(() => {
+    setValue("position", edit.position);
+    setValue("institution", edit.institution);
+    setValue("start_date", edit.start_date);
+    setValue("end_date", edit.end_date);
+  }, [edit]);
 
   const onSubmit = async (input) => {
     setLoading(true);
 
     const { error } = await supabase
       .from("experience")
-      .insert({ ...input })
+      .update({ ...input })
+      .eq("id", edit.id)
       .select();
 
     if (!error) {
       Swal.fire({
         title: "Berhasil",
         icon: "success",
-        text: "Data Berhasil Ditambahkan",
+        text: "Data Berhasil Diupdate",
       });
 
       reset();
 
-      setExperience();
+      setIsEdit();
 
       setLoading(false);
     } else {
@@ -81,8 +90,8 @@ const ModalExperienceWork = () => {
     <div className="flex flex-col justify-center items-center h-screen z-20">
       <div className="w-7/12 space-y-5 border-2 py-6 px-6 rounded-xl bg-white">
         <div className="border-b-2 pb-4 flex justify-between">
-          <h1 className="text-lg">Tambah Pengalaman Pekerjaan</h1>
-          <button className="text-xl" onClick={setExperience}>
+          <h1 className="text-lg">Edit Pengalaman Pekerjaan</h1>
+          <button className="text-xl" onClick={setIsEdit}>
             <IoMdClose />
           </button>
         </div>
@@ -182,4 +191,4 @@ const ModalExperienceWork = () => {
   );
 };
 
-export default ModalExperienceWork;
+export default EditModalExperience;

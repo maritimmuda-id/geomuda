@@ -2,32 +2,76 @@
 
 // ** Import Components
 import NavLeft from "../NavLeft/NavLeft";
+import EditModalEducation from "../ModalEducation/EditModalEducation";
+import ModalEducation from "../ModalEducation/ModalEducation";
+import ModalExperienceWork from "../ModalExperienceWork/ModalExperienceWork";
+import EditModalExperience from "../ModalExperienceWork/EditModalExperience";
 
 // ** Import Zustand
 import { useSidebar } from "@/zustand/useSidebar";
-import ModalEducation from "../ModalEducation/ModalEducation";
 import { useModalEducation } from "@/zustand/useModalEducation";
-import ModalExperienceWork from "../ModalExperienceWork/ModalExperienceWork";
 import { useModalExperience } from "@/zustand/useModalExperience";
+import { usePhotoProfile } from "@/zustand/usePhotoProfile";
 
 export default function ContentMember({ children }) {
   const { open } = useSidebar();
-  const { education } = useModalEducation();
-  const { experience } = useModalExperience();
+  const { open: openPhoto } = usePhotoProfile();
+  const { education, isEdit: isEditEducation } = useModalEducation();
+  const { experience, isEdit: isEditExperience } = useModalExperience();
 
   return (
-    <div className="flex mt-10">
+    <div className="relative flex mt-10">
       <div className="mt-6">
         <div className={`fixed ${open ? "w-[18rem]" : "hidden"}`}>
           <NavLeft />
         </div>
       </div>
-      <div className={`fixed ${education ? "hidden" : "w-screen" }`}>
+
+      {/* Photo Profile */}
+      <div
+        className={` ${
+          openPhoto ? "hidden" : "fixed -mt-10 w-screen bg-slate-900/75 z-20"
+        }`}
+      ></div>
+
+      {/* Education */}
+      <div
+        className={` ${
+          !education ? "hidden" : "fixed -mt-10 w-screen bg-slate-900/75 z-20"
+        }`}
+      >
         <ModalEducation />
       </div>
-      <div className={`fixed ${experience ? "hidden" : "w-screen" }`}>
+
+      <div
+        className={` ${
+          !isEditEducation
+            ? "hidden"
+            : "fixed -mt-10 w-screen bg-slate-900/75 z-20"
+        }`}
+      >
+        <EditModalEducation />
+      </div>
+
+      {/* Experience */}
+      <div
+        className={`${
+          !experience ? "hidden" : "fixed -mt-10 w-screen bg-slate-900/75 z-20"
+        }`}
+      >
         <ModalExperienceWork />
       </div>
+
+      <div
+        className={`${
+          !isEditExperience
+            ? "hidden"
+            : "fixed -mt-10 w-screen bg-slate-900/75 z-20"
+        }`}
+      >
+        <EditModalExperience />
+      </div>
+
       <div className={`${open ? "pl-72" : ""} w-full`}>{children}</div>
     </div>
   );

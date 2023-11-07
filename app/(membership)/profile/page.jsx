@@ -1,14 +1,39 @@
 // ** Import Components
 import ContentProfile from "@/components/membership/ContentProfile/ContentProfile";
+import { createServerComponentClient } from "@supabase/auth-helpers-nextjs";
+import { cookies } from "next/headers";
 
-const ProfilePage = () => {
+async function getData() {
+  const res = await fetch("https://api.first.org/data/v1/countries");
+
+  return res.json();
+}
+
+const ProfilePage = async () => {
+  const supabase = createServerComponentClient({ cookies });
+
+  const {
+    data: { user },
+  } = await supabase.auth.getUser();
+
+  const { data: pendidikan } = await supabase.from("pendidikan").select("*");
+
+  let { data: experience } = await supabase.from("experience").select("*");
+
+  const countryData = await getData();
+
   return (
     <div className="px-10 py-16 w-full h-full">
       <div className="mb-10">
         <h1 className="text-3xl">Profile</h1>
       </div>
 
-      <ContentProfile />
+      <ContentProfile
+        countryData={countryData}
+        user={user}
+        pendidikan={pendidikan}
+        experience={experience}
+      />
     </div>
   );
 };
