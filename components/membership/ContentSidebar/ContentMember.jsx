@@ -12,10 +12,11 @@ import { useSidebar } from "@/zustand/useSidebar";
 import { useModalEducation } from "@/zustand/useModalEducation";
 import { useModalExperience } from "@/zustand/useModalExperience";
 import { usePhotoProfile } from "@/zustand/usePhotoProfile";
+import ModalProfilePicture from "../ModalProfilePicture/ModalProfilePicture";
 
 export default function ContentMember({ children }) {
   const { open } = useSidebar();
-  const { open: openPhoto } = usePhotoProfile();
+  const { photo } = usePhotoProfile();
   const { education, isEdit: isEditEducation } = useModalEducation();
   const { experience, isEdit: isEditExperience } = useModalExperience();
 
@@ -30,9 +31,11 @@ export default function ContentMember({ children }) {
       {/* Photo Profile */}
       <div
         className={` ${
-          openPhoto ? "hidden" : "fixed -mt-10 w-screen bg-slate-900/75 z-20"
+          photo ? "hidden" : "fixed -mt-10 w-screen bg-slate-900/75 z-20"
         }`}
-      ></div>
+      >
+        <ModalProfilePicture />
+      </div>
 
       {/* Education */}
       <div

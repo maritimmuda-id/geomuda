@@ -13,9 +13,12 @@ import Select from "react-select";
 import { createClientComponentClient } from "@supabase/auth-helpers-nextjs";
 import Swal from "sweetalert2";
 import { useRouter } from "next/navigation";
+import { usePhotoProfile } from "@/zustand/usePhotoProfile";
 
 export default function Umum({ countryData, user }) {
   const { country, date, fullname, gender, live, place } = user.user_metadata;
+
+  const { setPhoto } = usePhotoProfile();
 
   const [input, setinput] = React.useState({
     country,
@@ -98,7 +101,7 @@ export default function Umum({ countryData, user }) {
                 src={assets.defaultImage}
               />
 
-              <button className="w-9 aspect-square bg-white border-2 rounded-full absolute -bottom-3 -right-4">
+              <button className="w-9 aspect-square bg-white border-2 rounded-full absolute -bottom-3 -right-4" onClick={setPhoto}>
                 <IoIosAdd className="text-green-500 text-3xl mx-auto" />
               </button>
               {/* <button className="text-xs border border-slate-200 p-2 rounded-md bg-slate-50">Ubah Foto</button> */}

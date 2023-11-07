@@ -1,6 +1,6 @@
 import { create } from "zustand";
 
 export const usePhotoProfile = create((set) => ({
-  open: false,
-  setAccount: () => set((state) => ({ open: !state.open })),
+  photo: false,
+  setPhoto: () => set((state) => ({ photo: !state.photo })),
 }));
