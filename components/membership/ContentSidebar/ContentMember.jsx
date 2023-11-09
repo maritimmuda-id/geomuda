@@ -31,7 +31,7 @@ export default function ContentMember({ children }) {
       {/* Photo Profile */}
       <div
         className={` ${
-          photo ? "hidden" : "fixed -mt-10 w-screen bg-slate-900/75 z-20"
+          !photo ? "hidden" : "fixed -mt-10 w-screen bg-slate-900/75 z-20"
         }`}
       >
         <ModalProfilePicture />

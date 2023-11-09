@@ -16,7 +16,8 @@ import { useRouter } from "next/navigation";
 import { usePhotoProfile } from "@/zustand/usePhotoProfile";
 
 export default function Umum({ countryData, user }) {
-  const { country, date, fullname, gender, live, place } = user.user_metadata;
+  const { country, date, fullname, gender, live, place, picture } =
+    user.user_metadata;
 
   const { setPhoto } = usePhotoProfile();
 
@@ -98,10 +99,15 @@ export default function Umum({ countryData, user }) {
             <div className="relative z-[1]">
               <Image
                 className="w-48 aspect-[3/4] rounded-xl border-2 border-slate-200"
-                src={assets.defaultImage}
+                src={picture ? picture : assets.defaultImage}
+                width={500}
+                height={500}
               />
 
-              <button className="w-9 aspect-square bg-white border-2 rounded-full absolute -bottom-3 -right-4" onClick={setPhoto}>
+              <button
+                className="w-9 aspect-square bg-white border-2 rounded-full absolute -bottom-3 -right-4"
+                onClick={setPhoto}
+              >
                 <IoIosAdd className="text-green-500 text-3xl mx-auto" />
               </button>
               {/* <button className="text-xs border border-slate-200 p-2 rounded-md bg-slate-50">Ubah Foto</button> */}
