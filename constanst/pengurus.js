@@ -3,7 +3,7 @@ import assets from "@/assets/assets";
 export const administrators = [
   {
     image: assets.khalifImage,
-    name: "Khalif Al Aziz",
+    name: "Khalif Al Faiz",
     position: "Ketua Umum",
   },
   {

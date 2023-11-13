@@ -28,7 +28,7 @@ export const navItemsLeft = [
       },
       {
         name: "Dewan Pengawas",
-        location: "/penasihat",
+        location: "/pengawas",
       },
       {
         name: "Nawa Satya",

@@ -51,7 +51,7 @@ const Footer = () => {
             </h4>
             <p className="text-sm">
               Indonesia Blue Economy Center Kampus C STIE Indonesia
-              Jakarta, Jalan Pratekan No. 9A Kel. Rawamangun, Kec. Pulo Gadung,
+              <br />Kel. Rawamangun, Kec. Pulo Gadung,
               Jakarta 13220
             </p>
           </div>
