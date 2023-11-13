@@ -1,51 +1,17 @@
 export const lambang = [
   {
-    title: "Lorem ipsum dolor sit amet",
+    title: "Ikon Orang Merah Berpegangan dan Melingkar",
     description: [
       {
-        list: "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.",
-      },
-      {
-        list: "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.",
-      },
-      {
-        list: "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.",
+        list: "Mencerminkan semangat pemuda yang berani dan bekerja sama dalam mengelola dan menjaga sumber daya alam secara berkelanjutan.",
       },
     ],
   },
   {
-    title: "Lorem ipsum dolor sit amet",
+    title: "Tulisan Geomuda Indonesia Berwarna Hitam",
     description: [
       {
-        list: "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.",
-      },
-      {
-        list: "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.",
-      },
-    ],
-  },
-  {
-    title: "Lorem ipsum dolor sit amet",
-    description: [
-      {
-        list: "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.",
-      },
-      {
-        list: "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.",
-      },
-    ],
-  },
-  {
-    title: "Lorem ipsum dolor sit amet",
-    description: [
-      {
-        list: "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.",
-      },
-      {
-        list: "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.",
-      },
-      {
-        list: "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.",
+        list: "Mencerminkan Geomuda Indonesia sebagai organisasi kepemudaan yang tegas dan kuat dalam membangun kebumian Indonesia.",
       },
     ],
   },

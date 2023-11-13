@@ -1,6 +1,6 @@
 // ** Import Components
 import Banner from "@/components/landing-page/Banner/Banner";
-import Penasihat from "@/components/landing-page/Penasihat/Penasihat";
+import Pengawas from "@/components/landing-page/Pengawas/Pengawas";
 
 // ** Import Other
 import assets from "@/assets/assets";
@@ -14,7 +14,7 @@ const PenasihatPage = () => {
         subtitle="Asosiasi Geomuda Indonesia"
       />
 
-      <Penasihat />
+      <Pengawas />
     </div>
   )
 }

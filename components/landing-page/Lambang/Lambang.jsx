@@ -5,8 +5,8 @@ import React from 'react'
 
 const Lambang = () => {
   return (
-    <div className='px-16 py-32 space-y-10'>
-      <Image src={assets.logoGmiDefault} alt='logo geomuda indonesia' className='mx-auto w-80'/>
+    <div className='px-16 pt-32 pb-44 space-y-10'>
+      <Image src={assets.logoGmiDefault} alt='logo geomuda indonesia' className='mx-auto w-72'/>
       <div>
         <h2 className='text-2xl font-semibold text-center text-[#c93233] tracking-wide'>Makna Lambang Geomuda Indonesia</h2>
         <div className="py-[1px] bg-[#c93233] my-4 w-2/6 mx-auto"></div>

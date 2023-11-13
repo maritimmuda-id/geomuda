@@ -1,47 +1,40 @@
 export const nawasatya = [
   {
     number: "01",
-    description:
-      "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. ",
+    description: "Bertakwa kepada Tuhan Yang Maha Esa",
   },
   {
     number: "02",
-    description:
-      "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. ",
+    description: "Menjaga kehormatan Tanah Air Indonesia",
   },
   {
     number: "03",
-    description:
-      "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. ",
+    description: "Berpikir dan bekerja untuk kemajuan Bangsa Indonesia",
   },
   {
     number: "04",
-    description:
-      "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. ",
+    description: "Berbagi dan memberi untuk kesejahteraan Rakyat Indonesia",
   },
   {
     number: "05",
-    description:
-      "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. ",
+    description: "Menjunjung tinggi kedaulatan sumber daya alam Indonesia",
   },
   {
     number: "06",
     description:
-      "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. ",
+      "Berkarya untuk kejayaan kebumian dan sumber daya alam Indonesia",
   },
   {
     number: "07",
     description:
-      "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. ",
+      "Memanfaatkan dan mengembangkan ilmu pengetahuan dan teknologi kebumian Indonesia",
   },
   {
     number: "08",
-    description:
-      "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. ",
+    description: "Memperkuat budaya kebumian Indonesia",
   },
   {
     number: "09",
-    description:
-      "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. ",
+    description: "Mengelola dan menjaga sumber daya alam Indonesia",
   },
 ];
