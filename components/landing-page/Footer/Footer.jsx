@@ -23,7 +23,7 @@ const Footer = () => {
               alt="logo geomuda indonesia text white"
               />
             <h4 className="font-semibold text-xl text-center md:text-left">Asosiasi Geomuda Indonesia</h4>
-            <p className="text-sm text-center md:text-left">Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.</p>
+            <p className="text-sm text-center md:text-left">Organisasi Peduli Kebumian</p>
           </div>
 
           <div className="space-y-5">
