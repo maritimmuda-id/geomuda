@@ -12,6 +12,11 @@ export const administrators = [
     position: "Wakil Ketua Umum",
   },
   {
+    image: assets.aliImage,
+    name: "Muhammad Ali Reza",
+    position: "Wakil Ketua Umum",
+  },
+  {
     image: assets.redondoImage,
     name: "Redondo Asprilla",
     position: "Sekretaris Jenderal",
