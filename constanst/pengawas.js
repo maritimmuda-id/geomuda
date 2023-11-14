@@ -4,6 +4,6 @@ export const advisor = [
   {
     image: assets.naufalImage,
     name: "Muhammad Naufal Syafrun",
-    position: "Pengawas",
+    position: "Ketua Dewan Pengawas",
   },
 ];

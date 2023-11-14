@@ -11,7 +11,7 @@ const Sambutan = () => {
           <Image 
             src={assets.khalifRemoveBg}
             className="w-[36em] mx-auto lg:mx-0"
-            alt="khalif al aziz remove background"
+            alt="khalif al faiz remove background"
           />
           <div className='bg-[#7B2418] rounded-full py-3'>
             <h2 className='text-white text-xl text-center uppercase'>Khalif Al Faiz</h2>
