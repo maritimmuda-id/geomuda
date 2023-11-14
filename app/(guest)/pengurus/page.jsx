@@ -9,7 +9,7 @@ const PengurusPage = () => {
   return (
     <div>
       <Banner
-        image={assets.banner4}
+        image={assets.banner7}
         title="PENGURUS PUSAT"
         subtitle="Asosiasi Geomuda Indonesia"
       />

@@ -15,7 +15,12 @@ import aboutContent2 from "./landing-page/aboutContent2.svg";
 import poweredBackground from "./landing-page/powered-bg.svg";
 import sideImage from "./auth/side-image.jpg";
 import banner3 from "./landing-page/aboutus.svg";
-import banner4 from "./landing-page/pengurus.svg";
+import banner4 from "./landing-page/banner4.svg";
+import banner5 from "./landing-page/nawa.svg";
+import banner6 from "./landing-page/lambang.svg";
+import banner7 from "./landing-page/tebing1.svg";
+import banner8 from "./landing-page/tebing2.svg";
+import banner9 from "./landing-page/tebing3.svg";
 import maleProfile from "./landing-page/male-profile.jpg";
 import femaleProfile from "./landing-page/female-profile.jpg";
 import redondoImage from "./landing-page/redondo.png";
@@ -57,4 +62,9 @@ export default {
   defaultImage,
   sejarah1,
   sejarah2,
+  banner5,
+  banner6,
+  banner7,
+  banner8,
+  banner9,
 };

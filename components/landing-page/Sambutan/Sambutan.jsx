@@ -14,7 +14,7 @@ const Sambutan = () => {
             alt="khalif al aziz remove background"
           />
           <div className='bg-[#7B2418] rounded-full py-3'>
-            <h2 className='text-white text-xl text-center uppercase'>Khalif Al Aziz</h2>
+            <h2 className='text-white text-xl text-center uppercase'>Khalif Al Faiz</h2>
           </div>
         </div>
 

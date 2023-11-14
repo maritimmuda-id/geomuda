@@ -6,7 +6,7 @@ const SejarahPage = () => {
   return (
     <div>
       <Banner 
-        image={assets.banner3}
+        image={assets.banner8}
         title="Sejarah Pendirian"
         subtitle="Asosiasi Geomuda Indonesia"
       />

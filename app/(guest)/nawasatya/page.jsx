@@ -9,7 +9,7 @@ const NawasatyaPage = () => {
   return (
     <div>
       <Banner 
-        image={assets.banner3}
+        image={assets.banner5}
         title="Nawa Satya"
         subtitle="Asosiasi Geomuda Indonesia"
       />

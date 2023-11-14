@@ -9,7 +9,7 @@ const LambangPage = () => {
   return (
     <div>
       <Banner 
-        image={assets.banner3}
+        image={assets.banner6}
         title="Lambang Organisasi"
         subtitle="Asosiasi Geomuda Indonesia"
       />
