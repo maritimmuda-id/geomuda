@@ -1,5 +1,5 @@
 // Landing Page
-import banner from "./landing-page/banner.svg";
+import banner from "./landing-page/coverbaru.svg";
 import banner2 from "./landing-page/banner2.svg";
 import program1 from "./landing-page/program1.svg";
 import program2 from "./landing-page/program2.svg";
@@ -33,6 +33,7 @@ import aliImage from "./landing-page/waketum2.png";
 import defaultImage from "./landing-page/default-image.jpg";
 import sejarah1 from "./landing-page/sejarah1.svg";
 import sejarah2 from "./landing-page/sejarah2.svg";
+import sejarah3 from "./landing-page/sejarah3.svg";
 
 export default {
   banner,
@@ -64,6 +65,7 @@ export default {
   defaultImage,
   sejarah1,
   sejarah2,
+  sejarah3,
   banner5,
   banner6,
   banner7,
