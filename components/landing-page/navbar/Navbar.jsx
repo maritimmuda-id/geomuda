@@ -187,16 +187,16 @@ const Navbar = () => {
 
                 {dropdown && (
                   <div className="flex flex-col space-y-4">
-                    { item.lists.map((dropdownItem, index) => {
+                    {item.lists.map((dropdownItem, index) => 
                       <Link
                         key={index}
-                        onClick={() => [setDropdown(false), setOpen(false)]}
+                        onClick={() => setDropdown(false)}
                         href={dropdownItem.location}
-                        className="font-semibold"
+                        className="cursor-pointer hover:text-red-400 rounded-xl"
                       >
                         {dropdownItem.name}
                       </Link>
-                    }) }
+                    )}
                     {/* <Link
                       onClick={() => [setDropdown(false), setOpen(false)]}
                       href={item.lists.location}

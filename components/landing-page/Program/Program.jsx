@@ -13,11 +13,11 @@ const Program = () => {
         Program Kami
       </h1>
 
-      <div className="grid grid-cols-1  md:grid-cols-4 gap-8">
+      <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-8 gap-y-14">
         {programs.map((program, index) => (
-          <div key={index} className="rounded-xl space-y-5 md:space-y-0">
-            <Image src={program.image} alt={program.alt} className="w-full" />
-            <p className="md:text-center md:p-5">{program.title}</p>
+          <div key={index} className="rounded-xl space-y-4 md:space-y-8">
+            <Image src={program.image} alt={program.alt} className="w-2/3 md:w-full mx-auto" />
+            <p className="text-center md:p-5">{program.title}</p>
           </div>
         ))}
       </div>

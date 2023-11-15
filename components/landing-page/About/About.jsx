@@ -12,24 +12,24 @@ const About = () => {
         Tentang Kami
       </h1>
 
-      <div className="block md:flex md:px-32 justify-center items-center gap-20">
+      <div className="flex flex-col md:flex-row md:px-32 justify-center items-center gap-10 md:gap-20">
         <Image
           src={assets.aboutContent}
           alt="tree"
-          className="w-[35%] mx-auto"
+          className="w-[60%] md:w-[35%] mx-auto"
         />
-        <p className="md:text-xl">
+        <p className="text-center md:text-left md:text-xl">
           Asosiasi Geomuda Indonesia dibentuk pada tanggal 22 Desember 2022 di Jakarta.
         </p>
       </div>
 
-      <div className="block md:flex md:flex-row-reverse md:px-32 justify-center items-center gap-20">
+      <div className="flex flex-col md:flex-row-reverse md:px-32 justify-center items-center gap-10 md:gap-20">
         <Image
           src={assets.aboutContent2}
           alt="tree"
-          className="w-[60%] mx-auto"
+          className="w-[75%] md:w-[60%] mx-auto"
         />
-        <p className="md:text-xl">
+        <p className="text-center md:text-left md:text-xl">
           Asosiasi ini bersifat mandiri, berwawasan kebangsaan sesuai
           Undang-Undang Dasar Negara Republik Indonesia Tahun 1945, dan tidak
           berafiliasi ke partai politik.
