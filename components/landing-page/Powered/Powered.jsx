@@ -17,7 +17,7 @@ const Powered = () => {
         <h1 className="text-center text-3xl md:text-4xl">Mitra</h1>
 
         <Image
-          className="flex mx-auto"
+          className="flex mx-auto w-5/12 sm:w-auto"
           src={assets.logoMaritim}
           alt="Logo maritim muda"
         />

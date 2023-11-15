@@ -21,7 +21,7 @@ const Banner = (props) => {
         } z-10`}
       >
         <div className="space-y-4">
-          <h5 className="text-4xl md:text-5xl text-center font-semibold uppercase">
+          <h5 className="text-3xl sm:text-4xl md:text-5xl text-center font-semibold uppercase">
             {title}
           </h5>
           <div
@@ -36,7 +36,7 @@ const Banner = (props) => {
         ) : (
           <div className="flex justify-start flex-col items-center gap-10">
             <Link href={to}>
-              <button className="border border-white px-24 md:px-28 rounded-2xl py-2 md:py-3">
+              <button className="border border-white px-16 sm:px-20 md:px-28 rounded-2xl py-2 md:py-3">
                 {buttonTitle}
               </button>
             </Link>
