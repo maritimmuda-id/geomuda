@@ -25,7 +25,7 @@ import maleProfile from "./landing-page/male-profile.jpg";
 import femaleProfile from "./landing-page/female-profile.jpg";
 import redondoImage from "./landing-page/redondo.png";
 import naufalImage from "./landing-page/naufal.jpg";
-import kaisarImage from "./landing-page/kaisar.png";
+import kaisarImage from "./landing-page/Kaisar1.png";
 import khalifImage from "./landing-page/khalif.jpg";
 import khalifRemoveBg from "./landing-page/khalif-removebg.png";
 import adityaImage from "./landing-page/aditya.jpg";
