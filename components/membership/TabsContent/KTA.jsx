@@ -31,7 +31,15 @@ const KTA = () => {
             </button>
           </div>
 
-          <div className='flex flex-col space-y-10 w-full'>
+          <div className='flex flex-col space-y-4 justify-between w-full'>
+            <div className="flex flex-col space-y-2 w-full">
+              <label>Nama</label>
+              <input
+                type="text"
+                disabled
+                className="border-2 border-[#00000066] px-3 py-[6px] p-1 rounded-lg w-full"
+              />
+            </div>
             <div className="flex flex-col space-y-2 w-full">
               <label>Nomor KTP</label>
               <div className='flex gap-x-6'>
@@ -44,7 +52,6 @@ const KTA = () => {
             </div>
             <button className='bg-[#7B2418] text-white p-2 rounded-lg w-full'>Buat KTA</button>
           </div>
-
         </div>
       </div>
     </>
