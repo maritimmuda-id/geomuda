@@ -13,10 +13,13 @@ import { useModalEducation } from "@/zustand/useModalEducation";
 import { useModalExperience } from "@/zustand/useModalExperience";
 import { usePhotoProfile } from "@/zustand/usePhotoProfile";
 import ModalProfilePicture from "../ModalProfilePicture/ModalProfilePicture";
+import ModalPictureKTA from "../ModalPictureKTA/ModalPictureKTA";
+import { usePhotoKTA } from "@/zustand/usePhotoKTA";
 
 export default function ContentMember({ children }) {
   const { open } = useSidebar();
   const { photo } = usePhotoProfile();
+  const { kta } = usePhotoKTA();
   const { education, isEdit: isEditEducation } = useModalEducation();
   const { experience, isEdit: isEditExperience } = useModalExperience();
 
@@ -35,6 +38,15 @@ export default function ContentMember({ children }) {
         }`}
       >
         <ModalProfilePicture />
+      </div>
+
+      {/* KTA */}
+      <div
+        className={` ${
+          !kta ? "hidden" : "fixed -mt-10 w-screen bg-slate-900/75 z-20"
+        }`}
+      >
+        <ModalPictureKTA />
       </div>
 
       {/* Education */}
