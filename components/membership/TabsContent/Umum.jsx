@@ -98,7 +98,7 @@ export default function Umum({ countryData, user }) {
           <div className="flex flex-col space-y-4">
             <div className="relative z-[1]">
               <Image
-                className="w-48 aspect-[3/4] rounded-xl border-2 border-slate-200"
+                className="w-48 aspect-[3/4] rounded-xl border-2 border-slate-200 object-cover object-center"
                 src={picture ? picture : assets.defaultImage}
                 width={500}
                 height={500}

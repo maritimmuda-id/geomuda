@@ -90,7 +90,7 @@ const ModalProfilePicture = () => {
               <Image
                 alt="No Picture"
                 src={image ?? assets.defaultImage}
-                className={`aspect-[3/4] border-2 rounded-md text-sm ${
+                className={`aspect-[3/4] border-2 rounded-md text-sm object-cover object-center ${
                   !image && "flex justify-center items-center"
                 }`}
                 fill
