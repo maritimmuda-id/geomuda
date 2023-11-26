@@ -35,6 +35,13 @@ import sejarah1 from "./landing-page/sejarah1.svg";
 import sejarah2 from "./landing-page/sejarah2.svg";
 import sejarah3 from "./landing-page/sejarah3.svg";
 
+// ** Import KTA
+import bannerKta from "./kta/banner-kta.svg";
+import logoKta from "./kta/logo-kta.svg";
+import qr from "./kta/qr.svg";
+import ttd from "./kta/ttd.svg";
+import peopleKta from "./kta/people-kta.svg";
+
 export default {
   banner,
   banner2,
@@ -71,4 +78,9 @@ export default {
   banner7,
   banner8,
   banner9,
+  bannerKta,
+  logoKta,
+  qr,
+  ttd,
+  peopleKta,
 };

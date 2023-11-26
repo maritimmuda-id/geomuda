@@ -10,14 +10,20 @@ import assets from "@/assets/assets";
 import { usePhotoKTA } from "@/zustand/usePhotoKTA";
 
 const ModalPictureKTA = () => {
-  const { setKta } = usePhotoKTA();
+  const { setKta, setImageUpload } = usePhotoKTA();
 
   const [image, setImage] = useState();
+  const [readyImage, setReadyImage] = useState();
 
   const ImageChangeHandler = (e) => {
     const img = e.target.files[0];
-    // setImageUpload(img);
+    setReadyImage(img);
     setImage(URL.createObjectURL(img));
+  };
+
+  const handleSave = () => {
+    setImageUpload(readyImage);
+    setKta();
   };
 
   return (
@@ -30,43 +36,40 @@ const ModalPictureKTA = () => {
           </button>
         </div>
 
-        <form className="space-y-5">
-          <div className="flex space-x-5 gap-2">
-            <div className="relative w-36 aspect-[3/4]">
-              <Image
-                alt="No Picture"
-                src={image ?? assets.defaultImage}
-                className={`aspect-[3/4] border-2 rounded-md text-sm object-cover object-center ${
-                  !image && "flex justify-center items-center"
-                }`}
-                fill
-              />
-            </div>
-            <div className="text-red-800 text-xs">
-              <h2 className="text-base font-medium text-black">Syarat :</h2>
-              <ul>
-                <li>Ukuran gambar harus di bawah 500kb</li>
-                <li>Gambar harus 3 x 4</li>
-              </ul>
-            </div>
+        <div className="flex space-x-5 gap-2">
+          <div className="relative w-36 aspect-[3/4]">
+            <Image
+              alt="No Picture"
+              src={image ?? assets.defaultImage}
+              className={`aspect-[3/4] border-2 rounded-md text-sm object-cover object-center ${
+                !image && "flex justify-center items-center"
+              }`}
+              fill
+            />
           </div>
-          <input
-            name="position"
-            type="file"
-            accept="image/*"
-            onChange={ImageChangeHandler}
-            className={`border-2 bg-[#E7E7E7] p-2 rounded-lg w-full text-sm font-light`}
-          />
+          <div className="text-red-800 text-xs">
+            <h2 className="text-base font-medium text-black">Syarat :</h2>
+            <ul>
+              <li>Ukuran gambar harus di bawah 500kb</li>
+              <li>Gambar harus 3 x 4</li>
+            </ul>
+          </div>
+        </div>
+        <input
+          name="position"
+          type="file"
+          accept="image/*"
+          onChange={ImageChangeHandler}
+          className={`border-2 bg-[#E7E7E7] p-2 rounded-lg w-full text-sm font-light`}
+        />
 
-          <button
-            type="submit"
-            // onClick={handleUpload}
-            className="flex justify-between items-center gap-x-2 border-2 bg-[#7B2418] text-white p-2 rounded-lg"
-          >
-            <IoMdSave />
-            <p className="text-sm">{"Simpan"}</p>
-          </button>
-        </form>
+        <button
+          onClick={handleSave}
+          className="flex justify-between items-center gap-x-2 border-2 bg-[#7B2418] text-white p-2 rounded-lg"
+        >
+          <IoMdSave />
+          <p className="text-sm">{"Simpan"}</p>
+        </button>
       </div>
     </div>
   );

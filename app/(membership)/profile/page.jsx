@@ -18,7 +18,9 @@ const ProfilePage = async () => {
 
   const { data: pendidikan } = await supabase.from("pendidikan").select("*");
 
-  let { data: experience } = await supabase.from("experience").select("*");
+  const { data: experience } = await supabase.from("experience").select("*");
+
+  const { data: kta } = await supabase.from("kta").select("*");
 
   const countryData = await getData();
 
@@ -31,6 +33,7 @@ const ProfilePage = async () => {
       <ContentProfile
         countryData={countryData}
         user={user}
+        kta={kta}
         pendidikan={pendidikan}
         experience={experience}
       />

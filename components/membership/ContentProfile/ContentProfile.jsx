@@ -12,7 +12,7 @@ import Akun from "../TabsContent/Akun";
 import KTA from "../TabsContent/KTA";
 
 export default function ContentProfile(props) {
-  const { countryData, user, pendidikan, experience } = props;
+  const { countryData, user, pendidikan, experience, kta } = props;
 
   const { position } = useTabsProfile();
 
@@ -23,7 +23,7 @@ export default function ContentProfile(props) {
   } else if (position === 1) {
     content = <Akun user={user} />;
   } else if (position === 2) {
-    content = <KTA />;
+    content = <KTA user={user} kta={kta} />;
   } else if (position === 3) {
     content = <Pendidikan data={pendidikan} />;
   } else {

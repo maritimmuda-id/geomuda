@@ -6,7 +6,7 @@ export default async function HeadDashboard() {
 
   const { data } = await supabase.auth.getSession();
 
-  const user = data.session.user.user_metadata;
+  const user = data.session?.user.user_metadata;
 
   return (
     <div className="space-y-2 mb-14">
