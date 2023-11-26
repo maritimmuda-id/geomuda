@@ -74,7 +74,7 @@ const Navbar = () => {
                       key={item.lists.name}
                       className="absolute flex flex-col gap-4 bg-[#111827] mt-11 w-56 rounded-md px-5 py-8 -z-10 text-sm"
                     >
-                      {item.lists.map((dropdownItem, index) => 
+                      {item.lists.map((dropdownItem, index) => (
                         <Link
                           key={index}
                           onClick={() => setDropdown(false)}
@@ -83,7 +83,7 @@ const Navbar = () => {
                         >
                           {dropdownItem.name}
                         </Link>
-                      )}
+                      ))}
 
                       {/* <Link
                         key={index}
@@ -107,7 +107,7 @@ const Navbar = () => {
                 </div>
               ) : (
                 <Link
-                  key={index}
+                  key={item.name}
                   onClick={() => setDropdown(false)}
                   href={item.location}
                   className="cursor-pointer hover:text-red-400 rounded-xl md:text-sm lg:text-base"
@@ -130,26 +130,25 @@ const Navbar = () => {
             />
           )}
         </div>
-        
+
         <Image
           src={scroll > 0 ? assets.logoGmiTextWhite : assets.logoGmiWhite}
           className="md:block w-24 md:w-28 md:px-2 lg;:px-1 basis-1/12 ease-in duration-150 transition"
           alt="logo geomuda indonesia white"
         />
-        
+
         <div className="hidden md:flex items-center justify-start gap-[10%] basis-5/12">
-          {navItemsRight.map((item, index) => 
+          {navItemsRight.map((item, index) => (
             <Link
               href={item.location}
-              key={index}
+              key={item.name}
               onClick={() => setDropdown(false)}
               className=" cursor-pointer py-2 hover:text-red-400 rounded-xl md:text-sm lg:text-base"
             >
               {item.name}
             </Link>
-          )}
+          ))}
         </div>
-        
       </nav>
 
       {/* Mobile Section */}
@@ -187,7 +186,7 @@ const Navbar = () => {
 
                 {dropdown && (
                   <div className="flex flex-col space-y-4">
-                    {item.lists.map((dropdownItem, index) => 
+                    {item.lists.map((dropdownItem, index) => (
                       <Link
                         key={index}
                         onClick={() => setDropdown(false)}
@@ -196,7 +195,7 @@ const Navbar = () => {
                       >
                         {dropdownItem.name}
                       </Link>
-                    )}
+                    ))}
                     {/* <Link
                       onClick={() => [setDropdown(false), setOpen(false)]}
                       href={item.lists.location}
@@ -223,15 +222,15 @@ const Navbar = () => {
               </div>
             )
           )}
-          {navItemsRight.map((item,index) => 
+          {navItemsRight.map((item, index) => (
             <div>
-                <div key={index} onClick={() => setOpen(false)}>
+              <div key={index} onClick={() => setOpen(false)}>
                 <Link href={item.location} className="text-lg font-semibold">
                   {item.name}
                 </Link>
               </div>
             </div>
-          )}
+          ))}
         </div>
       </nav>
     </>

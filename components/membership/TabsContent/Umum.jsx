@@ -15,14 +15,14 @@ import Swal from "sweetalert2";
 import { useRouter } from "next/navigation";
 import { usePhotoProfile } from "@/zustand/usePhotoProfile";
 
-export default function Umum({ countryData, user }) {
-  const { country, date, fullname, gender, live, place, picture } =
+export default function Umum({ countryData, user, provinceData }) {
+  const { province, date, fullname, gender, live, place, picture } =
     user.user_metadata;
 
   const { setPhoto } = usePhotoProfile();
 
   const [input, setinput] = React.useState({
-    country,
+    province,
     date,
     fullname,
     gender,
@@ -75,9 +75,9 @@ export default function Umum({ countryData, user }) {
     router.refresh();
   };
 
-  const optionsCountry = Object.values(countryData.data).map((country) => ({
-    value: country.country,
-    label: country.country,
+  const optionsProvince = provinceData.map((province) => ({
+    value: province.name,
+    label: province.name,
   }));
 
   const optionsGender = [
@@ -189,13 +189,13 @@ export default function Umum({ countryData, user }) {
             </div>
 
             <div className="flex flex-col space-y-2">
-              <label>Negara</label>
+              <label>Provinsi</label>
 
               <Select
-                options={optionsCountry}
-                value={{ label: input.country }}
-                onChange={(e) => setinput({ ...input, country: e.value })}
-                placeholder="Pilih Negara"
+                options={optionsProvince}
+                value={{ label: input.province }}
+                onChange={(e) => setinput({ ...input, province: e.value })}
+                placeholder="Pilih Provinsi"
                 isClearable
                 theme={(theme) => ({
                   ...theme,

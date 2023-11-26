@@ -8,12 +8,21 @@ import Image from "next/image";
 import { IoMdClose, IoMdSave } from "react-icons/io";
 import assets from "@/assets/assets";
 import { usePhotoKTA } from "@/zustand/usePhotoKTA";
+import { createClientComponentClient } from "@supabase/auth-helpers-nextjs";
+import { useRouter } from "next/navigation";
+import Swal from "sweetalert2";
 
 const ModalPictureKTA = () => {
-  const { setKta, setImageUpload } = usePhotoKTA();
+  const { setKta, setImageUpload, setLinkImage } = usePhotoKTA();
 
   const [image, setImage] = useState();
   const [readyImage, setReadyImage] = useState();
+
+  const [loading, setLoading] = useState(false);
+
+  const supabase = createClientComponentClient();
+
+  const router = useRouter();
 
   const ImageChangeHandler = (e) => {
     const img = e.target.files[0];
@@ -21,9 +30,45 @@ const ModalPictureKTA = () => {
     setImage(URL.createObjectURL(img));
   };
 
-  const handleSave = () => {
-    setImageUpload(readyImage);
-    setKta();
+  const handleSave = async (e) => {
+    e.preventDefault();
+
+    setLoading(true);
+
+    const { data, error } = await supabase.storage
+      .from("photos")
+      .upload(`kta/${readyImage.name}`, readyImage, {
+        upsert: true,
+      });
+
+    if (!error) {
+      const getImages = supabase.storage.from("photos").getPublicUrl(data.path);
+
+      setImage(null);
+      setKta();
+      setImageUpload(readyImage);
+      setLinkImage(getImages.data.publicUrl);
+
+      Swal.fire({
+        title: "Berhasil",
+        text: "Berhasil Mengupload Gambar",
+        icon: "success",
+        showConfirmButton: false,
+        timer: 1500,
+      });
+
+      setLoading(false);
+    } else {
+      Swal.fire({
+        title: "Gagal",
+        text: error.message,
+        icon: "error",
+      });
+
+      setLoading(false);
+    }
+
+    router.refresh();
   };
 
   return (
@@ -68,7 +113,7 @@ const ModalPictureKTA = () => {
           className="flex justify-between items-center gap-x-2 border-2 bg-[#7B2418] text-white p-2 rounded-lg"
         >
           <IoMdSave />
-          <p className="text-sm">{"Simpan"}</p>
+          <p className="text-sm">{loading ? "Loading..." : "Simpan"}</p>
         </button>
       </div>
     </div>

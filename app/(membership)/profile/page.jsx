@@ -9,6 +9,13 @@ async function getData() {
   return res.json();
 }
 
+async function getProvince() {
+  const res = await fetch(
+    "https://www.emsifa.com/api-wilayah-indonesia/api/provinces.json"
+  );
+
+  return res.json();
+}
 const ProfilePage = async () => {
   const supabase = createServerComponentClient({ cookies });
 
@@ -24,6 +31,8 @@ const ProfilePage = async () => {
 
   const countryData = await getData();
 
+  const provinceData = await getProvince();
+
   return (
     <div className="px-10 py-16 w-full h-full">
       <div className="mb-10">
@@ -32,6 +41,7 @@ const ProfilePage = async () => {
 
       <ContentProfile
         countryData={countryData}
+        provinceData={provinceData}
         user={user}
         kta={kta}
         pendidikan={pendidikan}
