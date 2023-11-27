@@ -73,46 +73,56 @@ export default function Pendidikan({ data }) {
       </div>
 
       <div className="space-y-5">
-        {data.map((pendidikan) => (
-          <div
-            key={pendidikan.id}
-            className="rounded-xl py-6 px-8 w-full bg-[#f1f1f1] shadow-md border-2 flex justify-between"
-          >
-            <div className="grid grid-cols-2 justify-between w-full items-center">
-              <div className="flex flex-col gap-5">
-                <h4 className="text-lg">{pendidikan.name}</h4>
-
-                <div className="flex items-center gap-2 text-[#5c5c5c]">
-                  <PiGraduationCap />
-                  <p>{pendidikan.study_program}</p>
+        {
+          data && data.length > 0 ? (
+            <section>
+              {data.map((pendidikan) => (
+            <div
+              key={pendidikan.id}
+              className="rounded-xl py-6 px-8 w-full bg-[#f1f1f1] shadow-md border-2 flex justify-between"
+            >
+              <div className="grid grid-cols-2 justify-between w-full items-center">
+                <div className="flex flex-col gap-5">
+                  <h4 className="text-lg">{pendidikan.name}</h4>
+  
+                  <div className="flex items-center gap-2 text-[#5c5c5c]">
+                    <PiGraduationCap />
+                    <p>{pendidikan.study_program}</p>
+                  </div>
+                </div>
+  
+                <div className="flex flex-col gap-5">
+                  <p className="text-md text-slate-800">{pendidikan.education}</p>
+                  <p className="text-sm text-[#5c5c5c]">
+                    {pendidikan.graduate_date}
+                  </p>
                 </div>
               </div>
-
-              <div className="flex flex-col gap-5">
-                <p className="text-md text-slate-800">{pendidikan.education}</p>
-                <p className="text-sm text-[#5c5c5c]">
-                  {pendidikan.graduate_date}
-                </p>
+  
+              <div className="flex flex-col items-end  gap-y-2">
+                <div className="cursor-pointer  bg-[#b9b9b9] p-2 rounded-md">
+                  <HiOutlinePencil
+                    onClick={() => handleEdit(pendidikan)}
+                    className="text-lg"
+                  />
+                </div>
+  
+                <div
+                  onClick={() => handleDelete(pendidikan.id)}
+                  className="cursor-pointer self-center bg-[#b9b9b9] p-2 rounded-md"
+                >
+                  <HiOutlineTrash className="text-lg" />
+                </div>
               </div>
             </div>
+          ))}
+            </section>
+          )
 
-            <div className="flex flex-col items-end  gap-y-2">
-              <div className="cursor-pointer  bg-[#b9b9b9] p-2 rounded-md">
-                <HiOutlinePencil
-                  onClick={() => handleEdit(pendidikan)}
-                  className="text-lg"
-                />
-              </div>
-
-              <div
-                onClick={() => handleDelete(pendidikan.id)}
-                className="cursor-pointer self-center bg-[#b9b9b9] p-2 rounded-md"
-              >
-                <HiOutlineTrash className="text-lg" />
-              </div>
-            </div>
-          </div>
-        ))}
+          : (
+            <p className="text-center italic text-gray-500 p-4">Tidak ada riwayat pendidikan</p>
+          )
+        }
       </div>
     </div>
   );

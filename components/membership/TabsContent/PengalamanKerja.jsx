@@ -73,43 +73,51 @@ export default function PengalamanKerja({ data }) {
       </div>
 
       <div className="space-y-5">
-        {data.map((experience) => (
-          <div
-            key={experience.id}
-            className="rounded-xl py-6 px-8 w-full bg-[#f1f1f1] shadow-md border-2 flex justify-between"
-          >
-            <div className="grid grid-cols-2 items-center">
-              <div className="space-y-3">
-                <h4 className="text-lg">{experience.position}</h4>
+        {
+          data && data.length > 0 ? (
+            <section>
+              {data.map((experience) => (
+                <div
+                  key={experience.id}
+                  className="rounded-xl py-6 px-8 w-full bg-[#f1f1f1] shadow-md border-2 flex justify-between"
+                >
+                  <div className="grid grid-cols-2 items-center">
+                    <div className="space-y-3">
+                      <h4 className="text-lg">{experience.position}</h4>
 
-                <div className="flex items-center gap-2 text-[#5c5c5c]">
-                  <GrOrganization />
-                  <p>{experience.institution}</p>
+                      <div className="flex items-center gap-2 text-[#5c5c5c]">
+                        <GrOrganization />
+                        <p>{experience.institution}</p>
+                      </div>
+                    </div>
+
+                    <p className="text-sm text-[#5c5c5c] justify-self-end">
+                      {experience.start_date} - {experience.end_date}
+                    </p>
+                  </div>
+
+                  <div className="grid justify-items-center gap-y-2">
+                    <div
+                      onClick={() => handleEdit(experience)}
+                      className="w-full cursor-pointer self-center bg-[#b9b9b9] p-2 rounded-md"
+                    >
+                      <HiOutlinePencil className="text-lg" />
+                    </div>
+
+                    <div
+                      onClick={() => handleDelete(experience.id)}
+                      className="w-full self-center bg-[#b9b9b9] cursor-pointer p-2 rounded-md"
+                    >
+                      <HiOutlineTrash className="text-lg" />
+                    </div>
+                  </div>
                 </div>
-              </div>
-
-              <p className="text-sm text-[#5c5c5c] justify-self-end">
-                {experience.start_date} - {experience.end_date}
-              </p>
-            </div>
-
-            <div className="grid justify-items-center gap-y-2">
-              <div
-                onClick={() => handleEdit(experience)}
-                className="w-full cursor-pointer self-center bg-[#b9b9b9] p-2 rounded-md"
-              >
-                <HiOutlinePencil className="text-lg" />
-              </div>
-
-              <div
-                onClick={() => handleDelete(experience.id)}
-                className="w-full self-center bg-[#b9b9b9] cursor-pointer p-2 rounded-md"
-              >
-                <HiOutlineTrash className="text-lg" />
-              </div>
-            </div>
-          </div>
-        ))}
+              ))}
+            </section>
+          ) : (
+            <p className="text-center italic text-gray-500 p-4">Tidak ada pengalaman kerja</p>
+          )
+        }
       </div>
     </div>
   );
