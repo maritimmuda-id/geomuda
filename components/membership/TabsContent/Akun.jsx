@@ -8,7 +8,7 @@ const Akun = ({ user }) => {
     <>
       <div className="max-w-full rounded-xl bg-[#f8f8f8] p-10 min-h-full border-2 -mt-[2px] rounded-tl-none">
         <div className="mb-10">
-          <h2 className="text-xl font-semibold">Akun Anda</h2>
+          <h2 className="text-xl font-medium">Akun Anda</h2>
         </div>
 
         <div className="flex flex-col space-y-2">

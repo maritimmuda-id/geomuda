@@ -145,7 +145,7 @@ const KTA = ({ user, kta }) => {
     <>
       <div className="max-w-full rounded-b-xl bg-[#f8f8f8] p-10 min-h-full border-2 -mt-[2px]">
         <div className="mb-10">
-          <h2 className="text-xl font-semibold">Kartu Tanda Anggota</h2>
+          <h2 className="text-xl font-medium">Kartu Tanda Anggota</h2>
         </div>
 
         <div className="flex gap-x-10 justify-between w-full">
