@@ -101,7 +101,7 @@ const EditModalEducation = () => {
           <div className="grid grid-cols-1 lg:grid-cols-2 gap-x-10 gap-y-6 py-5">
             <div className="flex flex-col space-y-3">
               <label className="">
-                Nama Institusi{" "}
+                Nama Institusi Pendidikan{" "}
                 {errors.name && (
                   <span className="text-red-600">{`*${errors.name.message}`}</span>
                 )}
@@ -138,12 +138,19 @@ const EditModalEducation = () => {
                   <span className="text-red-600">{`*${errors.education.message}`}</span>
                 )}
               </label>
-              <input
+              <select
                 type="text"
-                name="eduation"
-                {...register("education")}
+                name="education"
+                {...register("education", { required: true })}
                 className="border-2 border-[#00000053] bg-[#E7E7E7] p-2 rounded-lg w-full text-sm font-light "
-              />
+              >
+                <option value={""}>Pilih Tingkat Pendidikan</option>
+                <option value={"SMA/Sederajat"}>SMA/Sederajat</option>
+                <option value={"D3 - Diploma 3"}>D3 - Diploma 3</option>
+                <option value={"S1 - Sarjana"}>S1 - Sarjana</option>
+                <option value={"S2 - Magister"}>S2 - Magister</option>
+                <option value={"S3 - Doktor"}>S3 - Doktor</option>
+              </select>
             </div>
 
             <div className="flex flex-col space-y-3">
