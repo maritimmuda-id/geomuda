@@ -39,7 +39,7 @@ const Footer = () => {
                   Tentang
                 </Link>
                 <Link href="/login">
-                  Membership
+                  Keanggotaan
                 </Link>
               </div>
           </div>
