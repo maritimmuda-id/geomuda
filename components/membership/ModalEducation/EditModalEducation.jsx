@@ -30,13 +30,16 @@ const EditModalEducation = () => {
     graduate_date: yup.string().required("Harap Masukan Tanggal Lulus"),
   });
 
+  
   const [loading, setLoading] = React.useState(false);
-
+  
   const router = useRouter();
-
+  
   const supabase = createClientComponentClient();
-
+  
   const { setIsEdit, data: edit } = useModalEducation();
+
+  const [isChecked, setisChecked] = React.useState(false);
 
   const {
     register,
@@ -53,6 +56,7 @@ const EditModalEducation = () => {
     setValue("education", edit.education);
     setValue("study_program", edit.study_program);
     setValue("graduate_date", edit.graduate_date);
+    setisChecked(edit.is_study)
   }, [edit]);
 
   const onSubmit = async (input) => {
@@ -60,7 +64,7 @@ const EditModalEducation = () => {
 
     const { error } = await supabase
       .from("pendidikan")
-      .update({ ...input })
+      .update({ ...input, is_study: isChecked  })
       .eq("id", edit.id)
       .select();
 
@@ -166,6 +170,15 @@ const EditModalEducation = () => {
                 type="date"
                 className="border-2 border-[#00000053] bg-[#E7E7E7] p-2 rounded-lg w-full text-sm font-light "
               />
+              <div className="space-x-2 flex flex-row items-center">
+                <input
+                  type="checkbox"
+                  checked={isChecked}
+                  defaultChecked={isChecked}
+                  onChange={(e)=> setisChecked(e.target.checked)}
+                />
+                <label className="text-sm">Masih menempuh pendidikan</label>
+              </div>
             </div>
           </div>
 

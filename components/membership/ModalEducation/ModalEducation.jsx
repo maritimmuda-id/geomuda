@@ -23,10 +23,12 @@ const ModalEducation = () => {
       .required("Harap Masukan Studi Program"),
     education: yup
       .string()
-      .min(2, "Minimal 2 Kata")
       .required("Harap Masukan Tingkat Pendidikan"),
+    entry_date: yup.string().required("Harap Masukan Tanggal Masuk"),
     graduate_date: yup.string().required("Harap Masukan Tanggal Lulus"),
   });
+
+  const [isChecked, setisChecked] = React.useState(false);
 
   const [loading, setLoading] = React.useState(false);
 
@@ -50,7 +52,7 @@ const ModalEducation = () => {
 
     const { error } = await supabase
       .from("pendidikan")
-      .insert({ ...input })
+      .insert({ ...input, is_study: isChecked })
       .select();
 
     if (!error) {
@@ -94,7 +96,7 @@ const ModalEducation = () => {
               <label className="">
                 Nama Institusi Pendidikan{" "}
                 {errors.name && (
-                  <span className="text-red-600">{`*${errors.name.message}`}</span>
+                  <span className="text-sm text-red-600">{`*${errors.name.message}`}</span>
                 )}
               </label>
               <input
@@ -111,7 +113,7 @@ const ModalEducation = () => {
               <label className="">
                 Program Studi{" "}
                 {errors.study_program && (
-                  <span className="text-red-600">{`*${errors.study_program.message}`}</span>
+                  <span className="text-sm text-red-600">{`*${errors.study_program.message}`}</span>
                 )}
               </label>
               <input
@@ -126,7 +128,7 @@ const ModalEducation = () => {
               <label className="">
                 Tingkat Pendidikan{" "}
                 {errors.education && (
-                  <span className="text-red-600">{`*${errors.education.message}`}</span>
+                  <span className="text-sm text-red-600">{`*${errors.education.message}`}</span>
                 )}
               </label>
               <select
@@ -146,9 +148,24 @@ const ModalEducation = () => {
 
             <div className="flex flex-col space-y-3">
               <label className="">
+                Tanggal Masuk{" "}
+                {errors.entry_date && (
+                  <span className="text-sm text-red-600">{`*${errors.entry_date.message}`}</span>
+                )}
+              </label>
+              <input
+                name="entry_date"
+                {...register("entry_date")}
+                type="date"
+                className="border-2 border-[#00000053] bg-[#E7E7E7] p-2 rounded-lg w-full text-sm font-light "
+              />
+            </div>
+
+            <div className="flex flex-col space-y-3">
+              <label className="">
                 Tanggal Lulus{" "}
                 {errors.graduate_date && (
-                  <span className="text-red-600">{`*${errors.graduate_date.message}`}</span>
+                  <span className="text-sm text-red-600">{`*${errors.graduate_date.message}`}</span>
                 )}
               </label>
               <input
@@ -157,6 +174,14 @@ const ModalEducation = () => {
                 type="date"
                 className="border-2 border-[#00000053] bg-[#E7E7E7] p-2 rounded-lg w-full text-sm font-light "
               />
+              <div className="space-x-2 flex flex-row items-center">
+                <input
+                  type="checkbox"
+                  checked={isChecked}
+                  onChange={(e)=> setisChecked(e.target.checked)}
+                />
+                <label className="text-sm">Masih menempuh pendidikan</label>
+              </div>
             </div>
           </div>
 
