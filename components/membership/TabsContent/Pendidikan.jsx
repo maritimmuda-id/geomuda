@@ -75,7 +75,8 @@ export default function Pendidikan({ data }) {
       <div className="space-y-5">
         {
           data && data.length > 0 ? (
-            <section>
+            // <section>
+            <>
               {data.map((pendidikan) => (
             <div
               key={pendidikan.id}
@@ -116,7 +117,7 @@ export default function Pendidikan({ data }) {
               </div>
             </div>
           ))}
-            </section>
+            </>
           )
 
           : (

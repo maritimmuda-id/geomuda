@@ -75,7 +75,7 @@ export default function PengalamanKerja({ data }) {
       <div className="space-y-5">
         {
           data && data.length > 0 ? (
-            <section>
+            <>
               {data.map((experience) => (
                 <div
                   key={experience.id}
@@ -113,7 +113,7 @@ export default function PengalamanKerja({ data }) {
                   </div>
                 </div>
               ))}
-            </section>
+            </>
           ) : (
             <p className="text-center italic text-gray-500 p-4">Tidak ada pengalaman kerja</p>
           )
