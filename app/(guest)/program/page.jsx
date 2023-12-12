@@ -35,21 +35,14 @@ const ActivityPage = () => {
               />
 
               <div className="space-y-6">
-                <h1 className="text-center lg:text-left text-2xl max-w-md md:max-w-lg font-bold mx-auto lg:mx-0">
+                <h1 className="text-center lg:text-left text-2xl max-w-md md:max-w-full font-bold mx-auto lg:mx-0">
                   {content.title}
                 </h1>
-
-                {typeof content.desc === "string" ? (
-                  <p className="max-w-sm md:max-w-lg lg:max-w-sm text-base md:text-lg text-center lg:text-justify mx-auto lg:mx-0">
-                    {content.desc}
-                  </p>
-                ) : (
-                  <ul className="list-disc space-y-2 pl-5 mx-6 lg:mx-0">
-                    {content.desc.map((desc, index) => (
-                      <li key={index}>{desc}</li>
-                    ))}
-                  </ul>
-                )}
+                <ul className="list-disc space-y-2 pl-5 mx-6 lg:mx-0">
+                  {content.desc.map((desc, index) => (
+                    <li key={index}>{desc}</li>
+                  ))}
+                </ul>
               </div>
             </div>
           ))}

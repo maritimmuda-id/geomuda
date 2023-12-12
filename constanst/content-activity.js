@@ -3,7 +3,10 @@ import assets from "@/assets/assets";
 export const contentActivity = [
   {
     title: "Data, Riset, dan Advokasi Kebumian",
-    desc: "Penelitian, survei, dan pengelolaan data sumber daya alam, bumi, air, energi dan kebencanaan dan Advokasi aspirasi pemuda dan masyarakat terkait kebijakan bidang sumber daya alam dan kebencanaan berbasis ilmu pengetahuan kepada pemerintah daerah dan pemerintah pusat.",
+    desc: [
+      "Penelitian, survei, dan pengelolaan data sumber daya alam, bumi, air, energi dan kebencanaan",
+      "Advokasi aspirasi pemuda dan masyarakat terkait kebijakan bidang sumber daya alam dan kebencanaan berbasis ilmu pengetahuan kepada pemerintah daerah dan pemerintah pusat.",
+    ],
     image: assets.program1,
   },
   {
@@ -21,12 +24,21 @@ export const contentActivity = [
   },
   {
     title: "Konservasi dan Pariwisata Kebumian",
-    desc: "Pelestarian ekosistem, Konservasi sumber daya alam, Adaptasi dan mitigasi perubahan iklim, Pengembangan kegiatan olahraga dan cinta alam, Pengembangan pariwisata kebumian berkelanjutan.",
+    desc: [
+      "Pelestarian ekosistem",
+      "Konservasi sumber daya alam",
+      "Adaptasi dan mitigasi perubahan iklim",
+      "Pengembangan kegiatan olahraga dan cinta alam",
+      "Pengembangan pariwisata kebumian berkelanjutan.",
+    ],
     image: assets.program3,
   },
   {
     title: "Kewirausahaan dan Inovasi Teknologi Kebumian",
-    desc: "Pengembangan kewirausahaan kebumian pemuda dan usaha kebumian masyarakat dan Pengembangan inovasi teknologi kebumian.",
+    desc: [
+      "Pengembangan kewirausahaan kebumian pemuda dan usaha kebumian masyarakat",
+      "Pengembangan inovasi teknologi kebumian",
+    ],
     image: assets.program4,
   },
 ];
