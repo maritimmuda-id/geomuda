@@ -17,12 +17,11 @@ import Swal from "sweetalert2";
 import { createClientComponentClient } from "@supabase/auth-helpers-nextjs";
 import { useRouter } from "next/navigation";
 import dayjs from "dayjs";
+import localize from 'dayjs/plugin/localizedFormat'
 
 const KTA = ({ user, kta }) => {
   const { user_metadata, id } = user;
   const { setKta, imageUpload, linkImage } = usePhotoKTA();
-
-  console.log(user_metadata);
 
   const [loadingGenerate, setLoadingGenerate] = useState(false);
 
@@ -61,9 +60,10 @@ const KTA = ({ user, kta }) => {
     }
   };
 
+
   const handleSubmit = async () => {
     setLoadingGenerate(true);
-
+    
     if (valid) {
       const dateNow = dayjs();
       const nextDate = dateNow.add(3, "year");
@@ -72,10 +72,10 @@ const KTA = ({ user, kta }) => {
         .from("kta")
         .upsert({
           nama: user_metadata.fullname,
-          no_anggota: id.substring(0, 8),
+          no_anggota: Math.round(Math.random() * 9999999999).toString(),
           organisasi_daerah: user_metadata.province,
-          start_date: dateNow.format("DD-MM-YYYY"),
-          end_date: nextDate.format("DD-MM-YYYY"),
+          start_date: dateNow.format("YYYY-MM-DD"),
+          end_date: nextDate.format("YYYY-MM-DD"),
           photo: linkImage,
           no_ktp: nik,
         })
@@ -140,6 +140,8 @@ const KTA = ({ user, kta }) => {
       setloading(false);
     });
   };
+  
+  dayjs.extend(localize)
 
   return (
     <>
@@ -278,12 +280,12 @@ const KTA = ({ user, kta }) => {
                 <div className="flex flex-col gap-8">
                   <div className="space-y-1">
                     <h1>Tanggal Berlaku</h1>
-                    <p>{dataKta.start_date}</p>
+                    <p>{dayjs(dataKta.start_date).format('LL')}</p>
                   </div>
 
                   <div className="space-y-1">
                     <h1>Tanggal Berakhir</h1>
-                    <p>{dataKta.end_date}</p>
+                    <p>{dayjs(dataKta.end_date).format('LL')}</p>
                   </div>
                 </div>
               </div>

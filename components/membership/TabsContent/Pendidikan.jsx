@@ -11,6 +11,8 @@ import { useModalEducation } from "@/zustand/useModalEducation";
 import { createClientComponentClient } from "@supabase/auth-helpers-nextjs";
 import { useRouter } from "next/navigation";
 import Swal from "sweetalert2";
+import dayjs from "dayjs";
+import localize from 'dayjs/plugin/localizedFormat'
 
 export default function Pendidikan({ data }) {
   const { setEducation, setData, setIsEdit } = useModalEducation();
@@ -59,6 +61,9 @@ export default function Pendidikan({ data }) {
     setIsEdit();
   };
 
+
+  dayjs.extend(localize)
+
   return (
     <div className="shadow-xl max-w-full rounded-xl rounded-tl-none bg-[#f8f8f8] p-10 min-h-full border-2 -mt-[2px]">
       <div className="flex justify-between items-center mb-10">
@@ -79,9 +84,9 @@ export default function Pendidikan({ data }) {
               {data.map((pendidikan) => (
               <div
                 key={pendidikan.id}
-                className="rounded-xl py-6 px-8 w-full bg-[#f1f1f1] shadow-md border-2 flex justify-between"
+                className="rounded-xl py-6 px-8 w-full bg-[#f1f1f1] shadow-md border-2 flex gap-x-10 justify-between"
               >
-                <div className="grid grid-cols-2 justify-between w-full items-center">
+                <div className="grid grid-cols-2 gap-2 w-full items-center">
                   <div className="flex flex-col gap-5">
                     <h4 className="text-lg">{pendidikan.name}</h4>
     
@@ -91,16 +96,18 @@ export default function Pendidikan({ data }) {
                     </div>
                   </div>
     
-                  <div className="flex flex-col gap-5">
+                  <div className="flex flex-col items-end gap-5">
                     <p className="text-md text-slate-800">{pendidikan.education}</p>
-                    <p className="text-sm text-[#5c5c5c]">
-                      {pendidikan.graduate_date}
-                    </p>
+                    <div className="flex items-center space-x-2">
+                      <p className="text-sm text-[#5c5c5c]">{dayjs(pendidikan.entry_date).format('LL')}</p>
+                      <p className="text-sm">s/d</p>
+                      <p className="text-sm text-[#5c5c5c]">{dayjs(pendidikan.graduate_date).locale('idn').format('LL')}</p>
+                    </div>
                   </div>
                 </div>
     
-                <div className="flex flex-col items-end  gap-y-2">
-                  <div className="cursor-pointer  bg-[#b9b9b9] p-2 rounded-md">
+                <div className="flex flex-col items-end gap-y-2">
+                  <div className="cursor-pointer bg-[#b9b9b9] p-2 rounded-md">
                     <HiOutlinePencil
                       onClick={() => handleEdit(pendidikan)}
                       className="text-lg"

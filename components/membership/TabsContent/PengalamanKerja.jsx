@@ -6,6 +6,8 @@ import { AiOutlinePlus } from "react-icons/ai";
 import { GrOrganization } from "react-icons/gr";
 import { HiOutlinePencil, HiOutlineTrash } from "react-icons/hi";
 import Swal from "sweetalert2";
+import dayjs from "dayjs";
+import localize from 'dayjs/plugin/localizedFormat'
 
 export default function PengalamanKerja({ data }) {
   const {
@@ -59,6 +61,8 @@ export default function PengalamanKerja({ data }) {
     setIsEdit();
   };
 
+  dayjs.extend(localize);
+
   return (
     <div className="shadow-xl max-w-full rounded-xl rounded-tl-none bg-[#f8f8f8] p-10 min-h-full border-2 -mt-[2px]">
       <div className="flex justify-between items-center mb-10">
@@ -79,10 +83,10 @@ export default function PengalamanKerja({ data }) {
               {data.map((experience) => (
                 <div
                   key={experience.id}
-                  className="rounded-xl py-6 px-8 w-full bg-[#f1f1f1] shadow-md border-2 flex justify-between"
+                  className="rounded-xl py-6 px-8 w-full bg-[#f1f1f1] shadow-md border-2 flex gap-x-10 justify-between"
                 >
-                  <div className="grid grid-cols-2 items-center">
-                    <div className="space-y-3">
+                  <div className="grid grid-cols-2 gap-2 w-full items-center">
+                    <div className="flex flex-col gap-5">
                       <h4 className="text-lg">{experience.position}</h4>
 
                       <div className="flex items-center gap-2 text-[#5c5c5c]">
@@ -91,9 +95,11 @@ export default function PengalamanKerja({ data }) {
                       </div>
                     </div>
 
-                    <p className="text-sm text-[#5c5c5c] justify-self-end">
-                      {experience.start_date} - {experience.end_date}
-                    </p>
+                    <div className="flex flex-col items-end gap-5">
+                      <p className="text-sm text-[#5c5c5c] justify-self-end">{dayjs(experience.start_date).format('LL')}</p>
+                      {/* <p className="text-center text-sm flex justify-center">s/d</p> */}
+                      <p className="text-sm text-[#5c5c5c] justify-self-end">{dayjs(experience.end_date).format('LL')}</p>
+                    </div>
                   </div>
 
                   <div className="grid justify-items-center gap-y-2">
