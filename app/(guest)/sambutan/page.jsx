@@ -1,20 +1,19 @@
-import assets from '@/assets/assets'
-import Banner from '@/components/landing-page/Banner/Banner'
-import Sambutan from '@/components/landing-page/Sambutan/Sambutan'
-import React from 'react'
+// ** Import Components
+import Banner from "@/components/landing-page/Banner/Banner";
+import Sambutan from "@/components/landing-page/Sambutan/Sambutan";
 
 const SambutanPage = () => {
   return (
     <div>
-      <Banner 
-        image={assets.banner3}
+      <Banner
+        image={"/images/sambutan.png"}
         title="SAMBUTAN KETUA UMUM"
         subtitle="Asosiasi Geomuda Indonesia"
       />
 
       <Sambutan />
     </div>
-  )
-}
+  );
+};
 
-export default SambutanPage
+export default SambutanPage;

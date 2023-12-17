@@ -3,14 +3,13 @@ import Banner from "@/components/landing-page/Banner/Banner";
 
 // ** Import Other
 import { contentActivity } from "@/constanst/content-activity";
-import assets from "@/assets/assets";
 import Image from "next/image";
 
 const ActivityPage = () => {
   return (
     <main>
       <Banner
-        image={assets.banner2}
+        image={"/images/program.png"}
         title="PROGRAM"
         buttonTitle="Home"
         to="/"

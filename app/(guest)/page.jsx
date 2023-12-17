@@ -4,14 +4,11 @@ import Banner from "@/components/landing-page/Banner/Banner";
 import Powered from "@/components/landing-page/Powered/Powered";
 import Program from "@/components/landing-page/Program/Program";
 
-// ** Import Other
-import assets from "@/assets/assets";
-
 const LandingPage = () => {
   return (
     <main>
       <Banner
-        image={assets.banner}
+        image={"/images/beranda.png"}
         title="Asosiasi Geomuda Indonesia"
         buttonTitle="Bergabung Dengan Kami"
         to="/login"

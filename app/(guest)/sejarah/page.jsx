@@ -1,19 +1,18 @@
-import assets from '@/assets/assets'
-import Banner from '@/components/landing-page/Banner/Banner'
-import Sejarah from '@/components/landing-page/Sejarah/Sejarah'
+import Banner from "@/components/landing-page/Banner/Banner";
+import Sejarah from "@/components/landing-page/Sejarah/Sejarah";
 
 const SejarahPage = () => {
   return (
     <div>
-      <Banner 
-        image={assets.banner8}
+      <Banner
+        image={"/images/sejarah.png"}
         title="Sejarah Pendirian"
         subtitle="Asosiasi Geomuda Indonesia"
       />
 
       <Sejarah />
     </div>
-  )
-}
+  );
+};
 
-export default SejarahPage
+export default SejarahPage;

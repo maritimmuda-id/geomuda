@@ -12,6 +12,8 @@ const Banner = (props) => {
       <Image
         src={image}
         alt="banner"
+        width={1502}
+        height={734}
         className="w-full h-screen object-cover object-center"
         priority
       />

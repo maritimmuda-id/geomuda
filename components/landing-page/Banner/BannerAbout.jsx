@@ -1,6 +1,3 @@
-// ** Import Asset
-import assets from "@/assets/assets";
-
 // ** Import Next
 import Image from "next/image";
 import Link from "next/link";
@@ -9,7 +6,9 @@ const BannerAbout = () => {
   return (
     <div>
       <Image
-        src={assets.banner9}
+        src={"/images/visimisi.png"}
+        width={1502}
+        height={734}
         alt="banner"
         className="w-full  h-screen object-cover object-center"
       />
@@ -25,7 +24,7 @@ const BannerAbout = () => {
             profesional, berjiwa kepemimpinan, cinta tanah air, berdaya -saing
             global, dan memiliki kepedulian sosial.
           </p>
-    
+
           <div className="py-5 text-center md:text-left">
             <Link href="/">
               <button className="border font-medium border-white px-16 md:px-32 rounded-full py-3">
