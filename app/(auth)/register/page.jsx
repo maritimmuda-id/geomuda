@@ -13,11 +13,11 @@ const RegisterPage = () => {
     <div className="lg:basis-8/12 w-full px-10 lg:p-0">
       <div className="p-6 md:p-10 max-w-2xl shadow-2xl rounded-xl bg-slate-50 mx-auto">
         <Image
-          src={assets.logoGmiDefault}
-          className="w-32 mx-auto"
+          src={assets.gmiGlobalNetworks}
+          className="w-40 mx-auto"
           alt="logo geomuda indonesia"
         />
-        <h2 className="text-2xl text-center my-5 font-semibold">Register</h2>
+        <h2 className="text-xl text-center my-5 font-semibold py-4">Register</h2>
 
         <FormRegister />
 

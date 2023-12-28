@@ -34,6 +34,7 @@ import defaultImage from "./landing-page/default-image.jpg";
 import sejarah1 from "./landing-page/sejarah1.svg";
 import sejarah2 from "./landing-page/sejarah2.svg";
 import sejarah3 from "./landing-page/sejarah3.svg";
+import gmiGlobalNetworks from "./auth/gmi-global-network.png";
 
 // ** Import KTA
 import bannerKta from "./kta/banner-kta.svg";
@@ -83,4 +84,5 @@ export default {
   qr,
   ttd,
   peopleKta,
+  gmiGlobalNetworks,
 };
