@@ -19,7 +19,7 @@ const ResetPassword = () => {
 
     await supabase.auth
       .resetPasswordForEmail(input, {
-        redirectTo: "http://localhost:3000/verifikasi-password",
+        redirectTo: "https://geomuda.id/verifikasi-password",
       })
       .then(() => {
         Swal.fire({
