@@ -38,6 +38,7 @@ import gmiGlobalNetworks from "./auth/gmi-global-network.png";
 
 // ** Import KTA
 import bannerKta from "./kta/banner-kta.svg";
+import backKta from "./kta/back-kta.svg";
 import logoKta from "./kta/logo-kta.svg";
 import qr from "./kta/qr.svg";
 import ttd from "./kta/ttd.svg";
@@ -80,6 +81,7 @@ export default {
   banner8,
   banner9,
   bannerKta,
+  backKta,
   logoKta,
   qr,
   ttd,
