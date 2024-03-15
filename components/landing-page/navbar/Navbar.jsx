@@ -5,11 +5,7 @@ import assets from "@/assets/assets";
 
 // ** Import Icons
 import { GiHamburgerMenu } from "react-icons/gi";
-import {
-  AiOutlineClose,
-  AiOutlineArrowDown,
-  AiOutlineArrowUp,
-} from "react-icons/ai";
+import { AiOutlineClose, AiOutlineArrowDown, AiOutlineArrowUp } from "react-icons/ai";
 import { IoIosArrowDown, IoIosArrowUp } from "react-icons/io";
 
 // ** Import Constanst
@@ -20,23 +16,38 @@ import Image from "next/image";
 import Link from "next/link";
 
 // ** Import React
-import { useEffect, useState } from "react";
+import { useEffect, useRef, useState } from "react";
 
 const Navbar = () => {
   // ** Local State
   const [scroll, setScroll] = useState(0);
   const [open, setOpen] = useState(false);
   const [dropdown, setDropdown] = useState(false);
+  const buttonRef = useRef();
+  const menuRef = useRef();
 
   const handleScroll = () => {
     setScroll(window.scrollY);
   };
 
+  const handleCloseDropdown = (event) => {
+    if (
+      buttonRef.current &&
+      !buttonRef.current.contains(event.target) &&
+      menuRef.current &&
+      !menuRef.current.contains(event.target)
+    ) {
+      setDropdown(false);
+    }
+  };
+
   useEffect(() => {
     window.addEventListener("scroll", handleScroll);
+    document.addEventListener("mousedown", handleCloseDropdown);
 
     return () => {
       window.removeEventListener("scroll", handleScroll);
+      document.removeEventListener("mousedown", handleCloseDropdown);
     };
   }, []);
 
@@ -44,9 +55,7 @@ const Navbar = () => {
     <>
       <nav
         className={`flex fixed z-50 top-0 w-full text-white items-center justify-between flex-row-reverse md:flex-row md:justify-center py-2 px-10 md:gap-12 xl:gap-28 ${
-          scroll > 0
-            ? "bg-gray-900 z-50 transition duration-1000"
-            : "bg-transparent duration-500"
+          scroll > 0 ? "bg-gray-900 z-50 transition duration-1000" : "bg-transparent duration-500"
         }`}
       >
         <div className="md:basis-5/12">
@@ -54,24 +63,21 @@ const Navbar = () => {
             {navItemsLeft.map((item, index) =>
               item.lists ? (
                 <div key={item.name} className="relative">
-                  <div onClick={() => setDropdown(!dropdown)}>
-                    <div className="flex gap-2 items-center hover:text-red-400 cursor-pointer md:text-sm lg:text-base">
+                  <div onClick={() => setDropdown(!dropdown)} ref={buttonRef}>
+                    <div className="flex gap-2 items-center hover:text-red-400 duration-200 cursor-pointer md:text-sm lg:text-base">
                       <h1>
                         {/* About Us */}
                         Tentang
                       </h1>
 
-                      {dropdown ? (
-                        <IoIosArrowUp className="w-5 h-5" />
-                      ) : (
-                        <IoIosArrowDown className="w-5 h-5" />
-                      )}
+                      {dropdown ? <IoIosArrowUp className="w-5 h-5" /> : <IoIosArrowDown className="w-5 h-5" />}
                     </div>
                   </div>
 
                   {dropdown && (
                     <div
                       key={item.lists.name}
+                      ref={menuRef}
                       className="absolute flex flex-col gap-4 bg-[#111827] mt-11 w-56 rounded-md px-5 py-8 -z-10 text-sm"
                     >
                       {item.lists.map((dropdownItem, index) => (
@@ -79,26 +85,17 @@ const Navbar = () => {
                           key={index}
                           onClick={() => setDropdown(false)}
                           href={dropdownItem.location}
-                          className="cursor-pointer hover:text-red-400 rounded-xl"
+                          className="cursor-pointer hover:text-red-400 duration-200 rounded-xl"
                         >
                           {dropdownItem.name}
                         </Link>
                       ))}
 
-                      {/* <Link
-                        key={index}
-                        onClick={() => setDropdown(false)}
-                        href={item.lists.location}
-                        className="cursor-pointer hover:text-red-400 rounded-xl"
-                      >
-                        {item.lists.name}
-                      </Link> */}
-
                       <Link
                         key={index}
                         onClick={() => setDropdown(false)}
                         href={item.location}
-                        className="cursor-pointer hover:text-red-400 rounded-xl"
+                        className="cursor-pointer hover:text-red-400 duration-200 rounded-xl"
                       >
                         {item.name}
                       </Link>
@@ -110,7 +107,7 @@ const Navbar = () => {
                   key={item.name}
                   onClick={() => setDropdown(false)}
                   href={item.location}
-                  className="cursor-pointer hover:text-red-400 rounded-xl md:text-sm lg:text-base"
+                  className="cursor-pointer hover:text-red-400 duration-200 rounded-xl md:text-sm lg:text-base"
                 >
                   {item.name}
                 </Link>
@@ -119,15 +116,9 @@ const Navbar = () => {
           </div>
 
           {!open ? (
-            <GiHamburgerMenu
-              onClick={() => setOpen(true)}
-              className="w-7 h-10 md:hidden cursor-pointer"
-            />
+            <GiHamburgerMenu onClick={() => setOpen(true)} className="w-7 h-10 md:hidden cursor-pointer" />
           ) : (
-            <AiOutlineClose
-              onClick={() => setOpen(false)}
-              className="w-7 h-10 md:hidden cursor-pointer"
-            />
+            <AiOutlineClose onClick={() => setOpen(false)} className="w-7 h-10 md:hidden cursor-pointer" />
           )}
         </div>
 
@@ -157,31 +148,15 @@ const Navbar = () => {
           open ? "ml-0 duration-500" : "-ml-[999px] duration-500 "
         }`}
       >
-        <Image
-          src={assets.logoGmiWhite}
-          className="w-24"
-          alt="logo geomuda indonesia white"
-        />
+        <Image src={assets.logoGmiWhite} className="w-24" alt="logo geomuda indonesia white" />
 
         <div className="space-y-6 text-white px-2">
           {navItemsLeft.map((item, index) =>
             item.lists ? (
-              <div
-                key={index}
-                className="space-y-3"
-                onClick={() => setDropdown(!dropdown)}
-              >
-                <div
-                  className={`flex gap-2 items-center ${
-                    dropdown && "border-b-2 pb-2"
-                  }`}
-                >
+              <div key={index} className="space-y-3" onClick={() => setDropdown(!dropdown)}>
+                <div className={`flex gap-2 items-center ${dropdown && "border-b-2 pb-2"}`}>
                   <h1 className="text-lg font-semibold">Tentang</h1>
-                  {dropdown ? (
-                    <IoIosArrowUp className="w-5 h-5" />
-                  ) : (
-                    <IoIosArrowDown className="w-5 h-5" />
-                  )}
+                  {dropdown ? <IoIosArrowUp className="w-5 h-5" /> : <IoIosArrowDown className="w-5 h-5" />}
                 </div>
 
                 {dropdown && (
@@ -196,13 +171,6 @@ const Navbar = () => {
                         {dropdownItem.name}
                       </Link>
                     ))}
-                    {/* <Link
-                      onClick={() => [setDropdown(false), setOpen(false)]}
-                      href={item.lists.location}
-                      className="font-semibold"
-                    >
-                      {item.lists.name}
-                    </Link> */}
 
                     <Link
                       onClick={() => [setDropdown(false), setOpen(false)]}
