@@ -3,8 +3,8 @@ import assets from "@/assets/assets";
 export const produk = [
   {
     image: assets.katalog1,
-    name: "Souvenir 1",
-    desc: "Souvenir Produk Menarik",
+    name: "Totebag Maritim Muda",
+    desc: "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam.",
   },
   {
     image: assets.katalog2,

@@ -22,6 +22,9 @@ const KatalogProduk = () => {
             <div className="text-center py-6 space-y-2">
               <h6 className="text-lg md:text-xl font-semibold mx-3">{data.name}</h6>
               <p className="py-1 mx-2">{data.desc}</p>
+              <button className="border border-white px-16 sm:px-20 md:px-28 rounded-2xl py-2 md:py-3">
+                Detail
+              </button>
             </div>
           </div>
         ))}

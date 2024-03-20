@@ -43,7 +43,7 @@ import katalog4 from "./landing-page/katalog4.png"
 import bannerKta from "./kta/banner-kta.svg";
 import logoKta from "./kta/logo-kta.svg";
 import qr from "./kta/qr.svg";
-import ttd from "./kta/ttd.svg";
+import ttdKetuaUmum from "./kta/ttd-ketua-umum.png";
 import peopleKta from "./kta/people-kta.svg";
 
 export default {
@@ -84,7 +84,7 @@ export default {
   bannerKta,
   logoKta,
   qr,
-  ttd,
+  ttdKetuaUmum,
   peopleKta,
   gmiGlobalNetworks,
   katalog1,
