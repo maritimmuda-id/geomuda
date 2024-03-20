@@ -17,7 +17,7 @@ import Swal from "sweetalert2";
 import { createClientComponentClient } from "@supabase/auth-helpers-nextjs";
 import { useRouter } from "next/navigation";
 import dayjs from "dayjs";
-import localize from 'dayjs/plugin/localizedFormat'
+import localize from "dayjs/plugin/localizedFormat";
 
 const KTA = ({ user, kta }) => {
   const { user_metadata, id } = user;
@@ -60,10 +60,9 @@ const KTA = ({ user, kta }) => {
     }
   };
 
-
   const handleSubmit = async () => {
     setLoadingGenerate(true);
-    
+
     if (valid) {
       const dateNow = dayjs();
       const nextDate = dateNow.add(3, "year");
@@ -155,8 +154,8 @@ const KTA = ({ user, kta }) => {
       setloading(false);
     });
   };
-  
-  dayjs.extend(localize)
+
+  dayjs.extend(localize);
 
   return (
     <>
@@ -247,14 +246,14 @@ const KTA = ({ user, kta }) => {
               <Image src={assets.bannerKta} />
 
               <div className="absolute top-10 right-7 space-y-2">
-                <p className="text-white text-2xl text-center">
+                <p className="text-white font-bold text-2xl text-center">
                   KARTU TANDA ANGGOTA
                 </p>
 
                 <Image src={assets.logoKta} className="w-96 " />
               </div>
 
-              <div className="bg-white w-60 rounded-full h-60 border-8 border-white  absolute -bottom-28 left-10">
+              <div className="bg-white w-56 rounded-full h-56 border-8 border-white absolute -bottom-28 left-10">
                 <Image
                   src={dataKta.photo}
                   className="overflow-hidden relative mx-auto rounded-full object-cover object-center"
@@ -264,49 +263,50 @@ const KTA = ({ user, kta }) => {
             </div>
 
             <div className="bg-white rounded-b-3xl">
-              <div className="pl-80 pr-10 flex justify-between py-10">
+              <div className="pl-72 pr-10 flex justify-between pt-5 pb-12">
                 <div>
                   <h1 className="font-bold text-4xl">{dataKta.nama}</h1>
-                  <h1 className="text-[#C93233] text-3xl">
-                    Anggota Biasa Geomuda
-                  </h1>
-                </div>
-
-                <div>
-                  <Image src={assets.qr} className="w-20" />
+                  <h1 className="text-[#C93233] text-2xl">Anggota Geomuda</h1>
                 </div>
               </div>
 
-              <div className="px-16 flex gap-10">
+              <div className="px-16 flex gap-10 pb-8">
+                <div>
+                  <Image src={assets.qr} className="w-32" />
+                </div>
                 <div className="flex flex-col gap-8">
                   <div className="space-y-1">
-                    <h1>No. Anggota</h1>
-                    <p>{dataKta.no_anggota}</p>
+                    <h1 className="font-semibold text-lg">No. Anggota</h1>
+                    <p className="text-lg">{dataKta.no_anggota}</p>
                   </div>
 
                   <div className="space-y-1">
-                    <h1>Organisasi Daerah</h1>
-                    <p>{dataKta.organisasi_daerah}</p>
+                    <h1 className="font-semibold text-lg">Organisasi Daerah</h1>
+                    <p className="text-lg">{dataKta.organisasi_daerah}</p>
                   </div>
                 </div>
 
                 <div className="border w-[0.1 px] h-44 border-slate-500 "></div>
 
-                <div className="flex flex-col gap-8">
+                <div className="flex flex-col gap-8 me-10">
                   <div className="space-y-1">
-                    <h1>Tanggal Berlaku</h1>
-                    <p>{dayjs(dataKta.start_date).format('LL')}</p>
+                    <h1 className="font-semibold text-lg">Tanggal Berlaku</h1>
+                    <p className="text-lg">
+                      {dayjs(dataKta.start_date).format("LL")}
+                    </p>
                   </div>
 
                   <div className="space-y-1">
-                    <h1>Tanggal Berakhir</h1>
-                    <p>{dayjs(dataKta.end_date).format('LL')}</p>
+                    <h1 className="font-semibold text-lg">Tanggal Berakhir</h1>
+                    <p className="text-lg">
+                      {dayjs(dataKta.end_date).format("LL")}
+                    </p>
                   </div>
                 </div>
-              </div>
 
-              <div className="flex justify-end -mt-16 pr-20 pb-5">
-                <Image src={assets.ttd} className="w-28" />
+                <div className="mt-[-20] me-30">
+                  <Image src={assets.ttdKetuaUmum} className="w-28" />
+                </div>
               </div>
             </div>
           </div>

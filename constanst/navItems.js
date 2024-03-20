@@ -79,4 +79,8 @@ export const navItemsRight = [
     name: "Keanggotaan",
     location: "/login",
   },
+  {
+    name: "Katalog",
+    location: "/katalog",
+  },
 ];
