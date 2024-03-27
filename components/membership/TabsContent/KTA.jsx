@@ -209,8 +209,8 @@ const KTA = ({ user, kta }) => {
                 </div>
 
                 <div>
-                  {/*  */}
-                  <QRCode value={`https://geomuda.id/user/${dataKta.no_anggota}/membership`} size={100} />
+                  {/* https://geomuda.id/user/${dataKta.no_anggota}/membership */}
+                  <QRCode value={`http://localhost:3000/viewprofile/${dataKta.no_anggota}/${dataKta.nama}/${dataKta.organisasi_daerah}/${encodeURIComponent(dataKta.photo)}`} size={100} />
                 </div>
               </div>
 
