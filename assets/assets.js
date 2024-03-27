@@ -41,6 +41,7 @@ import katalog4 from "./landing-page/katalog4.png"
 
 // ** Import KTA
 import bannerKta from "./kta/banner-kta.svg";
+import footerKta from "./kta/footer-kta.svg";
 import backKta from "./kta/back-kta.svg";
 import logoKta from "./kta/logo-kta.svg";
 import qr from "./kta/qr.svg";
@@ -83,6 +84,7 @@ export default {
   banner8,
   banner9,
   bannerKta,
+  footerKta,
   backKta,
   logoKta,
   qr,

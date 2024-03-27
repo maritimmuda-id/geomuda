@@ -262,7 +262,7 @@ const KTA = ({ user, kta }) => {
               </div>
             </div>
 
-            <div className="bg-white rounded-b-3xl">
+            <div className="bg-white">
               <div className="pl-72 pr-10 flex justify-between pt-5 pb-12">
                 <div>
                   <h1 className="font-bold text-4xl">{dataKta.nama}</h1>
@@ -304,10 +304,14 @@ const KTA = ({ user, kta }) => {
                   </div>
                 </div>
 
-                <div className="mt-[-20] me-30">
+                <div className="mt-10 me-30">
                   <Image src={assets.ttdKetuaUmum} className="w-28" />
                 </div>
               </div>
+            </div>
+
+            <div className="relative">
+              <Image src={assets.footerKta} />
             </div>
           </div>
           
