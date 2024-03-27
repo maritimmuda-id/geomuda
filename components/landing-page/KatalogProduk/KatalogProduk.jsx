@@ -1,7 +1,6 @@
 // ** Import Next
 import Image from "next/image";
 import Link from "next/link";
-// fix catalog
 // ** Import Constant
 import { produk } from "@/constanst/katalog-produk";
 
