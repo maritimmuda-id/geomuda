@@ -17,7 +17,7 @@ import Swal from 'sweetalert2';
 import { createClientComponentClient } from '@supabase/auth-helpers-nextjs';
 import { useRouter } from 'next/navigation';
 import dayjs from 'dayjs';
-import localize from 'dayjs/plugin/localizedFormat';
+import localize from "dayjs/plugin/localizedFormat";;
 import QRCode from 'qrcode.react';
 
 const KTA = ({ user, kta }) => {
@@ -63,6 +63,7 @@ const KTA = ({ user, kta }) => {
 
   const handleSubmit = async () => {
     setLoadingGenerate(true);
+
 
     if (valid) {
       const dateNow = dayjs();
@@ -111,23 +112,38 @@ const KTA = ({ user, kta }) => {
     router.refresh();
   };
 
-  const pdfRef = useRef();
+  const pdfRefFront = useRef();
+  const pdfRefBack = useRef();
 
   const downloadPdf = () => {
     setloading(true);
-    const input = pdfRef.current;
+    const input1 = pdfRefFront.current;
+    const input2 = pdfRefBack.current;
 
-    html2canvas(input).then((canvas) => {
-      const imgData = canvas.toDataURL('image/png');
-      const pdf = new jsPDF('portrait', 'mm', 'a4', true);
+    
+    Promise.all([
+      html2canvas(input1),
+      html2canvas(input2)
+    ]).then((canvas) => {
+      const pdf = new jsPDF("portrait", "mm", "a4", true);
       const pdfWidth = pdf.internal.pageSize.getWidth();
       const pdfHeight = pdf.internal.pageSize.getHeight();
       const imgWidth = canvas.width;
       const imgHeight = canvas.height;
       const ratio = Math.min(pdfWidth / imgWidth, pdfHeight / imgHeight);
-      const imgX = (pdfWidth - imgWidth * ratio) / 2;
-      const imgY = 60;
-      pdf.addImage(imgData, 'PNG', imgX, imgY, imgWidth * ratio, imgHeight * ratio);
+      const imgX1 = (pdfWidth - imgWidth * ratio) / 2;
+      const imgY1 = 10;
+      const imgX2 = imgX1;
+      const imgY2 = imgY1 + imgHeight * ratio + 5;
+      pdf.addImage(
+        canvas[0].toDataURL("image/png"),
+        "PNG",
+        imgX1,
+        imgY1,
+        imgWidth * ratio,
+        imgHeight * ratio
+      );
+      pdf.addImage(canvas[1].toDataURL("image/png"), 'PNG', imgX2, imgY2, imgWidth * ratio, imgHeight * ratio);
       pdf.save(`kta-${user_metadata.fullname}.pdf`);
 
       setloading(false);
@@ -186,70 +202,81 @@ const KTA = ({ user, kta }) => {
 
       {kta.length > 0 && (
         <div className="max-w-full rounded-xl bg-[#f8f8f8] p-10 min-h-full border-2 mt-6">
-          <div ref={pdfRef} className="absolute -mt-[9999px] md:relative md:-mt-0 w-[914px] h-[589px] mx-auto border-2">
+          <div
+            ref={pdfRefFront}
+            className="absolute -mt-[9999px] md:relative md:-mt-0 w-[914px] h-[589px] mx-auto border-2"
+          >
             <div className="relative">
               <Image src={assets.bannerKta} />
 
               <div className="absolute top-10 right-7 space-y-2">
-                <p className="text-white text-2xl text-center">KARTU TANDA ANGGOTA</p>
+                <p className="text-white font-bold text-2xl text-center">KARTU TANDA ANGGOTA</p>
 
                 <Image src={assets.logoKta} className="w-96 " />
               </div>
 
-              <div className="bg-white w-60 rounded-full h-60 border-8 border-white  absolute -bottom-28 left-10">
+              <div className="bg-white w-56 rounded-full h-56 border-8 border-white absolute -bottom-28 left-10">
                 <Image src={dataKta.photo} className="overflow-hidden relative mx-auto rounded-full object-cover object-center" fill />
               </div>
             </div>
 
-            <div className="bg-white rounded-b-3xl">
-              <div className="pl-80 pr-10 flex justify-between py-10">
+            <div className="bg-white">
+              <div className="pl-72 pr-10 flex justify-between pt-5 pb-12">
                 <div>
                   <h1 className="font-bold text-4xl">{dataKta.nama}</h1>
+                  <h1 className="text-[#C93233] text-2xl">Anggota Geomuda</h1>
+                </div>
+              </div>
                   <h1 className="text-[#C93233] text-3xl">Anggota Biasa Geomuda</h1>
                 </div>
 
+              <div className="px-16 flex gap-10 pb-8">
                 <div>
                   {/* https://geomuda.id/user/${dataKta.no_anggota}/membership */}
                   <QRCode value={`http://localhost:3000/viewprofile/${dataKta.no_anggota}/${dataKta.nama}/${dataKta.organisasi_daerah}/${encodeURIComponent(dataKta.photo)}`} size={100} />
                 </div>
-              </div>
-
-              <div className="px-16 flex gap-10">
                 <div className="flex flex-col gap-8">
                   <div className="space-y-1">
-                    <h1>No. Anggota</h1>
-                    <p>{dataKta.no_anggota}</p>
+                    <h1 className="font-semibold text-lg">No. Anggota</h1>
+                    <p className="text-lg">{dataKta.no_anggota}</p>
                   </div>
 
                   <div className="space-y-1">
-                    <h1>Organisasi Daerah</h1>
-                    <p>{dataKta.organisasi_daerah}</p>
+                    <h1 className="font-semibold text-lg">Organisasi Daerah</h1>
+                    <p className="text-lg">{dataKta.organisasi_daerah}</p>
                   </div>
                 </div>
 
                 <div className="border w-[0.1 px] h-44 border-slate-500 "></div>
 
-                <div className="flex flex-col gap-8">
+                <div className="flex flex-col gap-8 me-10">
                   <div className="space-y-1">
-                    <h1>Tanggal Berlaku</h1>
-                    <p>{dayjs(dataKta.start_date).format('LL')}</p>
+                    <h1 className="font-semibold text-lg">Tanggal Berlaku</h1>
+                    <p className="text-lg">
+                      {dayjs(dataKta.start_date).format("LL")}
+                    </p>
                   </div>
 
                   <div className="space-y-1">
-                    <h1>Tanggal Berakhir</h1>
-                    <p>{dayjs(dataKta.end_date).format('LL')}</p>
+                    <h1 className="font-semibold text-lg">Tanggal Berakhir</h1>
+                    <p className="text-lg">
+                      {dayjs(dataKta.end_date).format("LL")}
+                    </p>
                   </div>
                 </div>
-              </div>
 
-              <div className="flex justify-end -mt-16 pr-20 pb-5">
-                <Image src={assets.ttd} className="w-28" />
+                <div className="mt-10 me-30">
+                  <Image src={assets.ttdKetuaUmum} className="w-28" />
+                </div>
               </div>
             </div>
           </div>
 
-          <button className="w-full md:w-[914px] mx-auto md:flex md:justify-center bg-[#7B2418] text-white py-2" onClick={downloadPdf}>
-            {loading ? 'Loading...' : 'Simpan KTA'}
+          <button
+            className="w-full md:w-[914px] mx-auto md:flex md:justify-center bg-[#7B2418] text-white py-2"
+            onClick={downloadPdf}
+          >
+            {loading ? "Loading..." : "Simpan KTA"}
           </button>
         </div>
       )}

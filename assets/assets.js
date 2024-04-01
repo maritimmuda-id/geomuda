@@ -24,7 +24,6 @@ import banner9 from "./landing-page/tebing3.svg";
 import maleProfile from "./landing-page/male-profile.jpg";
 import femaleProfile from "./landing-page/female-profile.jpg";
 import redondoImage from "./landing-page/redondo.png";
-import naufalImage from "./landing-page/naufal.jpg";
 import kaisarImage from "./landing-page/Kaisar1.png";
 import khalifImage from "./landing-page/khalif.jpg";
 import khalifRemoveBg from "./landing-page/khalif-removebg.png";
@@ -35,12 +34,18 @@ import sejarah1 from "./landing-page/sejarah1.svg";
 import sejarah2 from "./landing-page/sejarah2.svg";
 import sejarah3 from "./landing-page/sejarah3.svg";
 import gmiGlobalNetworks from "./auth/gmi-global-network.png";
+import katalog1 from "./landing-page/katalog1.png"
+import katalog2 from "./landing-page/katalog2.png"
+import katalog3 from "./landing-page/katalog3.png"
+import katalog4 from "./landing-page/katalog4.png"
 
 // ** Import KTA
 import bannerKta from "./kta/banner-kta.svg";
+import footerKta from "./kta/footer-kta.svg";
+import backKta from "./kta/back-kta.svg";
 import logoKta from "./kta/logo-kta.svg";
 import qr from "./kta/qr.svg";
-import ttd from "./kta/ttd.svg";
+import ttdKetuaUmum from "./kta/ttd-ketua-umum.png";
 import peopleKta from "./kta/people-kta.svg";
 
 export default {
@@ -65,7 +70,6 @@ export default {
   femaleProfile,
   redondoImage,
   kaisarImage,
-  naufalImage,
   khalifImage,
   khalifRemoveBg,
   adityaImage,
@@ -80,9 +84,15 @@ export default {
   banner8,
   banner9,
   bannerKta,
+  footerKta,
+  backKta,
   logoKta,
   qr,
-  ttd,
+  ttdKetuaUmum,
   peopleKta,
   gmiGlobalNetworks,
+  katalog1,
+  katalog2,
+  katalog3,
+  katalog4,
 };

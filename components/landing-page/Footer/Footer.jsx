@@ -41,6 +41,9 @@ const Footer = () => {
                 <Link href="/login">
                   Keanggotaan
                 </Link>
+                <Link href="/katalog">
+                  Katalog
+                </Link>
               </div>
           </div>
 
