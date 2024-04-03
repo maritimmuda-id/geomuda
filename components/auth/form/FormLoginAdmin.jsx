@@ -1,9 +1,6 @@
 'use client';
 
-// ** Import React
 import { useState } from 'react';
-
-// ** Import Other
 import { useForm } from 'react-hook-form';
 import { yupResolver } from '@hookform/resolvers/yup';
 import * as yup from 'yup';
@@ -15,18 +12,16 @@ import Loading from '@/components/membership/LoadingSpinner/LoadingSpinner';
 export default function FormLogin() {
   const [loading, setLoading] = useState(false);
   const supabase = createClientComponentClient();
+  const router = useRouter();
 
   const schema = yup.object({
     email: yup.string().email('Masukan Email Yang Valid').required('Harap Masukan Email Anda'),
     password: yup.string().min(8, 'Minimal Password 8 Kata').required('Harap Masukan Password Anda'),
   });
 
-  const router = useRouter();
-
   const {
     register,
     handleSubmit,
-
     formState: { errors },
   } = useForm({
     resolver: yupResolver(schema),
@@ -39,32 +34,38 @@ export default function FormLogin() {
       password: input.password,
     });
 
-    if (!error) {
-      Swal.fire({
-        icon: 'success',
-        title: 'Berhasil',
-        text: 'Login Telah Berhasil',
-        showConfirmButton: false,
-        timer: 1500,
-      });
-      setLoading(false);
-
-      router.push('/dashboard');
-    } else if (error.message === 'Invalid login credentials') {
-      Swal.fire({
-        icon: 'error',
-        title: 'Gagal',
-        text: 'Email atau kata sandi salah',
-      }).then(() => setLoading(false));
-    } else {
+    if (error) {
       Swal.fire({
         icon: 'error',
         title: 'Gagal',
         text: error.message,
       }).then(() => setLoading(false));
+      return;
     }
 
-    router.refresh();
+    // Jika login berhasil, cek apakah pengguna adalah admin
+    const { data: adminData, error: adminError } = await supabase.from('kta').select('admin').single();
+
+    if (adminError) {
+      Swal.fire({
+        icon: 'error',
+        title: 'Gagal',
+        text: adminError.message,
+      }).then(() => setLoading(false));
+      return;
+    }
+
+    if (adminData && adminData.admin) {
+      // Jika admin === true, arahkan ke halaman admin
+      router.push('/dashboard-admin');
+    } else {
+      // Jika admin === false, beri pesan bahwa bukan admin
+      Swal.fire({
+        icon: 'error',
+        title: 'Gagal',
+        text: 'Anda bukan admin. Silakan login dengan akun admin.',
+      }).then(() => setLoading(false));
+    }
   };
 
   return (
