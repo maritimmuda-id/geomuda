@@ -5,11 +5,7 @@ import assets from "@/assets/assets";
 
 // ** Import Icons
 import { GiHamburgerMenu } from "react-icons/gi";
-import {
-  AiOutlineClose,
-  AiOutlineArrowDown,
-  AiOutlineArrowUp,
-} from "react-icons/ai";
+import { AiOutlineClose } from "react-icons/ai";
 import { IoIosArrowDown, IoIosArrowUp } from "react-icons/io";
 
 // ** Import Constanst

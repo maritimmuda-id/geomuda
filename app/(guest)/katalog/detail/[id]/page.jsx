@@ -3,7 +3,7 @@ import DetailProduk from "@/components/landing-page/DetailProduk/DetailProduk";
 
 const Detail = () => {
   return (
-    <div>
+    <div className="bg-gray-300">
       <DetailProduk />
     </div>
   );
