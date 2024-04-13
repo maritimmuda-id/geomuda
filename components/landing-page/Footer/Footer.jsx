@@ -13,49 +13,45 @@ import { RiInstagramFill, RiFacebookBoxFill, RiYoutubeFill } from "react-icons/r
 const Footer = () => {
   return (
     <div className="bg-gray-900 py-16 md:pt-20 pb-10 px-10 md:px-16 text-white md:space-y-16">
-      
       <div className="flex flex-col">
-        <div className="grid grid-cols-2 lg:grid-cols-[2fr_1fr_1fr_1fr] gap-6 space-y-3 text-center">
+        <div className="grid grid-cols-2 lg:grid-cols-[2fr_1fr_1fr_1fr] gap-6 space-y-3">
           <div className="md:flex md:flex-col justify-start items-start space-y-2 col-start-1 col-end-3 md:col-start-auto md:col-end-auto">
             <Image
               src={assets.logoGmiTextWhite}
               className="w-28 -mt-2 md:-mt-9 mx-auto md:mx-0"
               alt="logo geomuda indonesia text white"
-              />
+            />
             <h4 className="font-semibold text-xl text-center md:text-left">Asosiasi Geomuda Indonesia</h4>
             <p className="text-sm text-center md:text-left">Organisasi Kepemudaan Peduli Kebumian</p>
           </div>
 
           <div className="space-y-5">
             <h4 className="font-semibold text-lg">Website</h4>
-              <div className="space-y-1 text-sm flex flex-col">
-                <Link href="/">
-                  Beranda
-                </Link>
-                <Link href="/program">
-                  Program
-                </Link>
-                <Link href="/about">
-                  Tentang
-                </Link>
-                <Link href="/login">
-                  Keanggotaan
-                </Link>
-                <Link href="/katalog">
-                  Katalog
-                </Link>
-              </div>
+            <div className="space-y-1 text-sm flex flex-col">
+              <Link href="/">
+                <p className="hover:text-red-400 duration-200">Beranda</p>
+              </Link>
+              <Link href="/program">
+                <p className="hover:text-red-400 duration-200">Program</p>
+              </Link>
+              <Link href="/about">
+                <p className="hover:text-red-400 duration-200">Tentang</p>
+              </Link>
+              <Link href="/login">
+                <p className="hover:text-red-400 duration-200"> Keanggotaan</p>
+              </Link>
+            </div>
           </div>
 
-          <div className="space-y-5">
+          <div className="space-y-6">
             <h4 className="font-semibold text-lg">
               {/* ADDRESS */}
               Alamat
             </h4>
             <p className="text-sm">
               Indonesia Blue Economy Center Kampus C STIE Indonesia
-              <br />Kel. Rawamangun, Kec. Pulo Gadung,
-              Jakarta 13220
+              <br />
+              Kel. Rawamangun, Kec. Pulo Gadung, Jakarta 13220
             </p>
           </div>
 
@@ -65,22 +61,26 @@ const Footer = () => {
               Kontak
             </h4>
             <ul className="space-y-1 text-sm">
-              <li className="flex justify-center items-center gap-2">
+              <li className="flex gap-2 hover:text-red-400 cursor-pointer duration-200">
                 <BsFillTelephoneFill />
-                +62-21-489-1137
+                <a href="tel:021-489-1137">021-489-1137</a>
               </li>
-              <li className="flex justify-center items-center gap-2">
+              <li className="flex gap-2 hover:text-red-400 cursor-pointer duration-200">
                 <MdEmail />
-                admin@geomuda.id
+                <a href="mailto:admin@geomuda.id">admin@geomuda.id</a>
               </li>
-              <li className="flex justify-center items-center gap-3 text-2xl pt-2">
-                <Link href="https://www.instagram.com/geomuda.id/" target="_blank">
+              <li className="flex gap-3 text-2xl pt-2">
+                <Link
+                  href="https://www.instagram.com/geomuda.id/"
+                  target="_blank"
+                  className="hover:text-red-400 duration-200"
+                >
                   <RiInstagramFill />
                 </Link>
-                <Link href="#">
+                <Link href="#" className="hover:text-red-400 duration-200">
                   <RiFacebookBoxFill />
                 </Link>
-                <Link href="#">
+                <Link href="#" className="hover:text-red-400 duration-200">
                   <RiYoutubeFill />
                 </Link>
               </li>
