@@ -57,7 +57,7 @@ export default function FormLogin() {
 
     if (adminData && adminData.admin) {
       // Jika admin === true, arahkan ke halaman admin
-      router.push('/dashboard-admin');
+      router.push('/DashboardAdmin');
     } else {
       // Jika admin === false, beri pesan bahwa bukan admin
       Swal.fire({

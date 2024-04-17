@@ -1,16 +1,8 @@
 'use client';
-// ** Import Components
-import { useEffect, useState } from 'react';
-import { createClient } from '@supabase/supabase-js';
 
-export default function viewProfilePage(props) {
+export default async function viewProfilePage(props) {
   const { params } = props;
   const { slug } = params;
-
-  // const encode = decodeURI(slug);
-
-  // console.log(encode);
-  // console.log(encode[0]);
 
   // Style untuk halaman view profile
   const profileStyle = {
