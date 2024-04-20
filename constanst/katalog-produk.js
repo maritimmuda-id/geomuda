@@ -1,6 +1,6 @@
 import assets from "@/assets/assets";
 
-export const produk = [
+const produk = () => [
   {
     id: 1,
     image: assets.katalog1,
@@ -30,3 +30,5 @@ export const produk = [
     desc: "Tambahkan sentuhan keajaiban laut pada barang-barang Anda dengan stiker kreatif dari Maritim Muda! Dibuat dari bahan vinyl berkualitas tinggi yang tahan air dan tahan lama. Setiap stiker ini memiliki desain yang unik, mulai dari hewan laut yang lucu dan komponen laut yang menarik. Cocok untuk digunakan sebagai hiasan pada laptop, botol minum, atau bahkan sebagai hadiah untuk teman-teman Anda.",
   },
 ];
+
+export default produk;

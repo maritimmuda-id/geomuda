@@ -2,45 +2,35 @@
 
 import Link from "next/link";
 import Image from "next/image";
-import { useRouter } from "next/navigation";
+import { useParams } from "next/navigation";
 
-import assets from "@/assets/assets";
-import { produk } from "@/constanst/katalog-produk";
+import produk from "@/constanst/katalog-produk";
 import { FaWhatsapp } from "react-icons/fa";
 
 const DetailProduk = () => {
-  const router = useRouter();
-  const { id } = router.query || {};
+  const { id } = useParams();
+  const initialData = produk();
 
-  // if (!id) {
-  //   return <div>Cannot find the ID</div>;
-  // }
+  const selectedItem = initialData.find((item) => item.id === parseInt(id));
 
-  // const selectedProduk = produk.find((item) => item.id === id);
-
-  // if (!selectedProduk) {
-  //   return <div>Produk tidak ditemukan</div>;
-  // }
+  if (!selectedItem) {
+    return <div>Produk tidak ditemukan</div>;
+  }
 
   return (
     <>
-      <div className="px-16 py-32">
+      <div className="bg-gray-900 h-20"></div>
+      <div className="px-16 py-24">
         <div className="grid grid-cols-3 gap-4y">
           <div>
-            <Image src={assets.katalog1} priority alt="Image profile" className="mx-auto w-full px-5" />
+            <Image src={selectedItem.image} priority alt="Image profile" className="mx-auto w-full px-5" />
           </div>
           <div className="col-span-2 px-16">
-            <p className="text-sm text-red-700 mb-2">New Collection</p>
-            <h1 className="text-2xl font-bold mb-5">Tumblr Maritim Muda</h1>
-            <p className="font-normal">
-              Tumblr kaca Maritim Muda adalah teman minum Anda yang ramah lingkungan. Dengan kapasitas 300ml dan desain
-              yang ergonomis, tumblr ini nyaman untuk dibawa ke mana saja. Cocok untuk digunakan di kantor, sekolah,
-              atau saat piknik di alam terbuka. Dibuat dari kaca berkualitas tinggi yang aman digunakan untuk minuman
-              panas maupun dingin dan mudah dibersihkan, menjadikannya pilihan yang aman dan praktis untuk digunakan
-              setiap hari.
-            </p>
+            <p className="text-sm text-red-700 mb-1 font-semibold">New Collection</p>
+            <h1 className="text-2xl font-bold mb-5">{selectedItem.name}</h1>
+            <p className="font-normal">{selectedItem.desc}</p>
             <h2 className="text-xl font-semibold mt-8 mb-10">
-              Rp. 20.000,00 <span className="text-sm font-light">/pc</span>
+              {selectedItem.price} <span className="text-sm font-light">/pc</span>
             </h2>
             <Link href="#" target="_blank">
               <button
@@ -55,9 +45,6 @@ const DetailProduk = () => {
                 </div>
               </button>
             </Link>
-            {/* <h1>{selectedProduk.name}</h1>
-          <p>Harga: {selectedProduk.price}</p>
-          <p>Deskripsi: {selectedProduk.desc}</p> */}
           </div>
         </div>
       </div>
