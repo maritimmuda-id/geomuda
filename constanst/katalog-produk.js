@@ -1,12 +1,15 @@
 import assets from "@/assets/assets";
 
 const produk = () => [
+const produk = () => [
   {
     id: 1,
     image: assets.katalog1,
     name: "Totebag Maritim Muda",
     price: "Rp. 25.000,00",
     desc: " Totebag ini digunakan untuk belanja, kuliah, dan cocok untuk kegiatan sehari-hari anda. Size : 41x35 cm menggunakan bahan kanvas",
+    price: "Rp. 20.000,00",
+    desc: "Totebag Maritim Muda ini dibuat dari bahan kanvas berkualitas yang tahan lama. Kanvas ini dipilih secara khusus untuk memberikan kekuatan dan ketahanan ekstra, sehingga Anda dapat membawa barang-barang Anda dengan percaya diri dan nyaman. Dengan kombinasi desain yang terinspirasi dari keindahan alam laut Indonesia yang indah, totebag ini tidak hanya stylish tetapi juga kokoh, menjadikannya pilihan yang sempurna untuk menemani aktivitas sehari-hari Anda.",
   },
   {
     id: 2,

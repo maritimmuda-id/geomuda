@@ -15,9 +15,7 @@ const Sambutan = () => {
             priority
           />
           <div className="bg-[#7B2418] rounded-3xl md:rounded-full py-3">
-            <h2 className="text-white text-lg md:text-xl text-center uppercase">
-              Khalif Al Faiz
-            </h2>
+            <h2 className="text-white text-lg md:text-xl text-center uppercase">Khalif Al Faiz</h2>
           </div>
         </div>
 
@@ -35,8 +33,6 @@ const Sambutan = () => {
                   {description.text}
                 </p>
               ))}
-              {/* <p className='leading-7'>Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.</p>
-              <p className='leading-7'>Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.</p> */}
             </div>
           </div>
           <div className="flex justify-end">
