@@ -1,30 +1,40 @@
-// ** Import Next
 import Image from "next/image";
+import Link from "next/link";
 
-// ** Import Constant
-import { produk } from "@/constanst/katalog-produk";
+import produk from "@/constanst/katalog-produk";
 
 const KatalogProduk = () => {
+  const initialData = produk();
+
   return (
-    <div className="px-16 py-32">
-      <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-y-10 gap-x-8 md:gap-y-18 md:gap-x-16 px-2 lg:px-24">
-        {produk.map((data, index) => (
+    <div className="px-16 py-28">
+      <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-8 md:gap-8 lg:gap-5 xl:gap-8">
+        {initialData.map((data, index) => (
           <div
             key={index}
-            className={`rounded-xl shadow-lg border-2 overflow-hidden w-full mx-auto`}
+            className={`mx-auto w-full overflow-hidden rounded-xl border-2 shadow-lg`}
           >
             <Image
               src={data.image}
               priority
-              alt="Image profile"
-              className="mx-auto aspect-square w-full"
+              alt=""
+              className="mx-auto aspect-square w-full pt-5"
             />
-            <div className="text-center py-6 space-y-2">
-              <h6 className="text-lg md:text-xl font-semibold mx-3">{data.name}</h6>
-              <p className="py-1 mx-2">{data.desc}</p>
-              <button className="border border-white px-16 sm:px-20 md:px-28 rounded-2xl py-2 md:py-3">
-                Detail
-              </button>
+            <div className="space-y-2 px-5 py-6 text-center">
+              <h6 className="mx-3 text-lg font-semibold md:text-xl">
+                {data.name}
+              </h6>
+              <p className="pb-4">{data.price}</p>
+              <div className="mt-5">
+                <Link href={`/katalog/detail/${data.id}`}>
+                  <button
+                    type="button"
+                    className="w-full rounded-xl bg-gray-900 px-16 py-2 font-semibold text-white transition duration-0 hover:bg-gray-700 hover:duration-300"
+                  >
+                    LIHAT
+                  </button>
+                </Link>
+              </div>
             </div>
           </div>
         ))}
