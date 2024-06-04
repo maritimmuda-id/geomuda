@@ -118,21 +118,19 @@ const KTA = ({ user, kta }) => {
     const input1 = pdfRefFront.current;
     const input2 = pdfRefBack.current;
 
-    
-    Promise.all([
-      html2canvas(input1),
-      html2canvas(input2)
-    ]).then((canvas) => {
+    Promise.all([html2canvas(input1), html2canvas(input2)]).then((canvas) => {
       const pdf = new jsPDF("portrait", "mm", "a4", true);
       const pdfWidth = pdf.internal.pageSize.getWidth();
       const pdfHeight = pdf.internal.pageSize.getHeight();
-      const imgWidth = canvas.width;
-      const imgHeight = canvas.height;
+      const imgWidth = canvas[0].width;
+      const imgHeight = canvas[0].height;
       const ratio = Math.min(pdfWidth / imgWidth, pdfHeight / imgHeight);
       const imgX1 = (pdfWidth - imgWidth * ratio) / 2;
       const imgY1 = 10;
       const imgX2 = imgX1;
       const imgY2 = imgY1 + imgHeight * ratio + 5;
+
+      //save pdf
       pdf.addImage(
         canvas[0].toDataURL("image/png"),
         "PNG",
@@ -173,8 +171,8 @@ const KTA = ({ user, kta }) => {
                 dataKta?.photo
                   ? dataKta?.photo
                   : !imageUpload
-                  ? assets.defaultImage
-                  : URL.createObjectURL(imageUpload)
+                    ? assets.defaultImage
+                    : URL.createObjectURL(imageUpload)
               }
               width={500}
               height={500}
@@ -229,8 +227,8 @@ const KTA = ({ user, kta }) => {
               {loadingGenerate
                 ? "Loading..."
                 : validate
-                ? "KTA Telah Digenerate"
-                : "Buat KTA"}
+                  ? "KTA Telah Digenerate"
+                  : "Buat KTA"}
             </button>
           </div>
         </div>
@@ -314,10 +312,11 @@ const KTA = ({ user, kta }) => {
               <Image src={assets.footerKta} />
             </div>
           </div>
-          
+
           <div
             ref={pdfRefBack}
-            className="absolute -mt-[9999px] md:relative md:-mt-0 w-[914px] h-[589px] mx-auto border-2">
+            className="absolute -mt-[9999px] md:relative md:-mt-0 w-[914px] h-[589px] mx-auto border-2"
+          >
             <div className="relative">
               <Image src={assets.backKta} />
             </div>
