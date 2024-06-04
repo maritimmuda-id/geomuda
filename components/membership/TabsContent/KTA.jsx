@@ -110,27 +110,40 @@ const KTA = ({ user, kta }) => {
     router.refresh();
   };
 
-  const pdfRef = useRef();
+  const pdfRefFront = useRef();
+  const pdfRefBack = useRef();
 
   const downloadPdf = () => {
     setloading(true);
-    const input = pdfRef.current;
+    const input1 = pdfRefFront.current;
+    const input2 = pdfRefBack.current;
 
-    html2canvas(input).then((canvas) => {
-      const imgData = canvas.toDataURL("image/png");
+    Promise.all([html2canvas(input1), html2canvas(input2)]).then((canvas) => {
       const pdf = new jsPDF("portrait", "mm", "a4", true);
       const pdfWidth = pdf.internal.pageSize.getWidth();
       const pdfHeight = pdf.internal.pageSize.getHeight();
-      const imgWidth = canvas.width;
-      const imgHeight = canvas.height;
+      const imgWidth = canvas[0].width;
+      const imgHeight = canvas[0].height;
       const ratio = Math.min(pdfWidth / imgWidth, pdfHeight / imgHeight);
-      const imgX = (pdfWidth - imgWidth * ratio) / 2;
-      const imgY = 60;
+      const imgX1 = (pdfWidth - imgWidth * ratio) / 2;
+      const imgY1 = 10;
+      const imgX2 = imgX1;
+      const imgY2 = imgY1 + imgHeight * ratio + 5;
+
+      //save pdf
       pdf.addImage(
-        imgData,
+        canvas[0].toDataURL("image/png"),
         "PNG",
-        imgX,
-        imgY,
+        imgX1,
+        imgY1,
+        imgWidth * ratio,
+        imgHeight * ratio
+      );
+      pdf.addImage(
+        canvas[1].toDataURL("image/png"),
+        "PNG",
+        imgX2,
+        imgY2,
         imgWidth * ratio,
         imgHeight * ratio
       );
@@ -158,8 +171,8 @@ const KTA = ({ user, kta }) => {
                 dataKta?.photo
                   ? dataKta?.photo
                   : !imageUpload
-                  ? assets.defaultImage
-                  : URL.createObjectURL(imageUpload)
+                    ? assets.defaultImage
+                    : URL.createObjectURL(imageUpload)
               }
               width={500}
               height={500}
@@ -214,8 +227,8 @@ const KTA = ({ user, kta }) => {
               {loadingGenerate
                 ? "Loading..."
                 : validate
-                ? "KTA Telah Digenerate"
-                : "Buat KTA"}
+                  ? "KTA Telah Digenerate"
+                  : "Buat KTA"}
             </button>
           </div>
         </div>
@@ -224,7 +237,7 @@ const KTA = ({ user, kta }) => {
       {kta.length > 0 && (
         <div className="max-w-full rounded-xl bg-[#f8f8f8] p-10 min-h-full border-2 mt-6">
           <div
-            ref={pdfRef}
+            ref={pdfRefFront}
             className="absolute -mt-[9999px] md:relative md:-mt-0 w-[914px] h-[589px] mx-auto border-2"
           >
             <div className="relative">
@@ -247,7 +260,7 @@ const KTA = ({ user, kta }) => {
               </div>
             </div>
 
-            <div className="bg-white rounded-b-3xl">
+            <div className="bg-white">
               <div className="pl-72 pr-10 flex justify-between pt-5 pb-12">
                 <div>
                   <h1 className="font-bold text-4xl">{dataKta.nama}</h1>
@@ -289,10 +302,23 @@ const KTA = ({ user, kta }) => {
                   </div>
                 </div>
 
-                <div className="mt-[-20] me-30">
+                <div className="mt-10 me-30">
                   <Image src={assets.ttdKetuaUmum} className="w-28" />
                 </div>
               </div>
+            </div>
+
+            <div className="relative">
+              <Image src={assets.footerKta} />
+            </div>
+          </div>
+
+          <div
+            ref={pdfRefBack}
+            className="absolute -mt-[9999px] md:relative md:-mt-0 w-[914px] h-[589px] mx-auto border-2"
+          >
+            <div className="relative">
+              <Image src={assets.backKta} />
             </div>
           </div>
 
