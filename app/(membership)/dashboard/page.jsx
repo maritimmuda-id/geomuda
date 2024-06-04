@@ -1,5 +1,5 @@
 // ** Import Components
-import HeadDashboard from "@/components/membership/HeadDashbaord/HeadDashboard";
+import HeadDashboard from "@/components/membership/HeadDashboard/HeadDashboard";
 
 const DashboardPage = () => {
   return (
