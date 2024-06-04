@@ -40,7 +40,7 @@ const DetailProduk = () => {
               {selectedItem.price}{" "}
               <span className="text-sm font-light">/pc</span>
             </h2>
-            <Link href="#" target="_blank">
+            <Link href="https://wa.me/6285335079769" target="_blank">
               <button
                 type="button"
                 className="rounded-lg bg-green-600 px-12 py-3 font-medium text-white transition duration-0 hover:bg-green-800 hover:duration-300"
