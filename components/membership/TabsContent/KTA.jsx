@@ -18,6 +18,7 @@ import { createClientComponentClient } from "@supabase/auth-helpers-nextjs";
 import { useRouter } from "next/navigation";
 import dayjs from "dayjs";
 import localize from "dayjs/plugin/localizedFormat";
+import QRCode from "qrcode.react";
 
 const KTA = ({ user, kta }) => {
   const { user_metadata, id } = user;
@@ -267,44 +268,52 @@ const KTA = ({ user, kta }) => {
                   <h1 className="text-[#C93233] text-2xl">Anggota Geomuda</h1>
                 </div>
               </div>
+            </div>
 
-              <div className="px-16 flex gap-10 pb-8">
-                <div>
-                  <Image src={assets.qr} className="w-32" />
-                </div>
-                <div className="flex flex-col gap-8">
-                  <div className="space-y-1">
-                    <h1 className="font-semibold text-lg">No. Anggota</h1>
-                    <p className="text-lg">{dataKta.no_anggota}</p>
-                  </div>
-
-                  <div className="space-y-1">
-                    <h1 className="font-semibold text-lg">Organisasi Daerah</h1>
-                    <p className="text-lg">{dataKta.organisasi_daerah}</p>
-                  </div>
-                </div>
-
-                <div className="border w-[0.1 px] h-44 border-slate-500 "></div>
-
-                <div className="flex flex-col gap-8 me-10">
-                  <div className="space-y-1">
-                    <h1 className="font-semibold text-lg">Tanggal Berlaku</h1>
-                    <p className="text-lg">
-                      {dayjs(dataKta.start_date).format("LL")}
-                    </p>
-                  </div>
-
-                  <div className="space-y-1">
-                    <h1 className="font-semibold text-lg">Tanggal Berakhir</h1>
-                    <p className="text-lg">
-                      {dayjs(dataKta.end_date).format("LL")}
-                    </p>
-                  </div>
+            <div className="bg-white px-16 flex gap-10 pb-8">
+              <div>
+                {/* https://geomuda.id/user/${dataKta.no_anggota}/membership */}
+                <QRCode
+                  value={`http://localhost:3000/viewprofile/${
+                    dataKta.no_anggota
+                  }/${dataKta.nama}/${
+                    dataKta.organisasi_daerah
+                  }/${encodeURIComponent(dataKta.photo)}`}
+                  size={100}
+                />
+              </div>
+              <div className="flex flex-col gap-8">
+                <div className="space-y-1">
+                  <h1 className="font-semibold text-lg">No. Anggota</h1>
+                  <p className="text-lg">{dataKta.no_anggota}</p>
                 </div>
 
-                <div className="mt-10 me-30">
-                  <Image src={assets.ttdKetuaUmum} className="w-28" />
+                <div className="space-y-1">
+                  <h1 className="font-semibold text-lg">Organisasi Daerah</h1>
+                  <p className="text-lg">{dataKta.organisasi_daerah}</p>
                 </div>
+              </div>
+
+              <div className="border w-[0.1 px] h-44 border-slate-500 "></div>
+
+              <div className="flex flex-col gap-8 me-10">
+                <div className="space-y-1">
+                  <h1 className="font-semibold text-lg">Tanggal Berlaku</h1>
+                  <p className="text-lg">
+                    {dayjs(dataKta.start_date).format("LL")}
+                  </p>
+                </div>
+
+                <div className="space-y-1">
+                  <h1 className="font-semibold text-lg">Tanggal Berakhir</h1>
+                  <p className="text-lg">
+                    {dayjs(dataKta.end_date).format("LL")}
+                  </p>
+                </div>
+              </div>
+
+              <div className="mt-10 me-30">
+                <Image src={assets.ttdKetuaUmum} className="w-28" />
               </div>
             </div>
 
@@ -322,12 +331,14 @@ const KTA = ({ user, kta }) => {
             </div>
           </div>
 
-          <button
-            className="w-full md:w-[914px] mx-auto md:flex md:justify-center bg-[#7B2418] text-white py-2"
-            onClick={downloadPdf}
-          >
-            {loading ? "Loading..." : "Simpan KTA"}
-          </button>
+          <div className="mt-5">
+            <button
+              className="w-full md:w-[914px] mx-auto md:flex md:justify-center bg-[#7B2418] text-white py-2"
+              onClick={downloadPdf}
+            >
+              {loading ? "Loading..." : "Simpan KTA"}
+            </button>
+          </div>
         </div>
       )}
     </>
