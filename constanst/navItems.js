@@ -34,41 +34,10 @@ export const navItemsLeft = [
         name: "Nawa Satya",
         location: "/nawasatya",
       },
-      // {
-      //   name: "Lambang Organisasi",
-      //   location: "/lambang",
-      // },
     ],
     location: "/lambang",
   },
 ];
-
-// export const tentangItem = [
-//   {
-//     name: "Sambutan Ketua Umum",
-//     location: "/sambutan",
-//   },
-//   {
-//     name: "Sejarah Pendirian",
-//     location: "/sejarah",
-//   },
-//   {
-//     name: "Pengurus",
-//     location: "/pengurus",
-//   },
-//   {
-//     name: "Dewan Pengawas",
-//     location: "/penasihat",
-//   },
-//   {
-//     name: "Nawa Satya",
-//     location: "/nawasatya",
-//   },
-//   {
-//     name: "Lambang Organisasi",
-//     location: "/lambang",
-//   },
-// ];
 
 export const navItemsRight = [
   {
@@ -78,5 +47,9 @@ export const navItemsRight = [
   {
     name: "Keanggotaan",
     location: "/login",
+  },
+  {
+    name: "Katalog",
+    location: "/katalog",
   },
 ];
