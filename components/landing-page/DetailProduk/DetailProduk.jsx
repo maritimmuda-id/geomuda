@@ -26,24 +26,21 @@ const DetailProduk = () => {
             <Image
               src={selectedItem.image}
               priority
-              alt="Image profile"
-              className="mx-auto w-full px-5"
+              alt="product image"
+              className="mx-auto w-full px-5 transition-transform hover:scale-110 duration-300"
             />
           </div>
           <div className="col-span-2 px-16">
-            <p className="text-sm text-red-700 mb-1 font-semibold">
-              New Collection
-            </p>
+            <p className="text-sm text-red-700 mb-1 font-semibold">New Collection</p>
             <h1 className="text-2xl font-bold mb-5">{selectedItem.name}</h1>
             <p className="font-normal">{selectedItem.desc}</p>
             <h2 className="text-xl font-semibold mt-8 mb-10">
-              {selectedItem.price}{" "}
-              <span className="text-sm font-light">/pc</span>
+              {selectedItem.price} <span className="text-sm font-light">/pc</span>
             </h2>
             <Link href="https://wa.me/6285335079769" target="_blank">
               <button
                 type="button"
-                className="rounded-lg bg-green-600 px-12 py-3 font-medium text-white transition duration-0 hover:bg-green-800 hover:duration-300"
+                className="rounded-lg bg-green-600 px-12 py-3 font-medium text-white transition ease-in-out duration-300 hover:bg-green-700"
               >
                 <div className="me-1 flex">
                   <span className="text-xl me-2">
