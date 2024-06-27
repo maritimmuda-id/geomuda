@@ -14,7 +14,7 @@ const Footer = () => {
   return (
     <div className="bg-gray-900 py-16 md:pt-20 pb-10 px-10 md:px-16 text-white md:space-y-16">
       <div className="flex flex-col">
-        <div className="grid grid-cols-2 lg:grid-cols-[2fr_1fr_1fr_1fr] gap-6 space-y-3">
+        <div className="flex flex-col justify-evenly md:flex-row gap-10 lg:gap-24">
           <div className="md:flex md:flex-col justify-start items-start space-y-2 col-start-1 col-end-3 md:col-start-auto md:col-end-auto">
             <Image
               src={assets.logoGmiTextWhite}
@@ -94,53 +94,6 @@ const Footer = () => {
           <p className="font-medium text-sm text-center">© 2023 Asosiasi Geomuda Indonesia. All rights reserved</p>
         </div>
       </div>
-
-      {/* Mobile */}
-      {/* <div className="md:hidden flex flex-wrap items-end justify-center gap-10 text-center">
-        <div>
-          <Image
-            src={assets.logoGmiTextWhite}
-            className="w-20 mx-auto"
-            alt="logo geomuda indonesia text white"
-          />
-
-          <div className="py-[1px] bg-white my-4"></div>
-          <ul>
-            <li>Home</li>
-            <li>About Us</li>
-            <li>Program</li>
-            <li>Membership</li>
-          </ul>
-        </div>
-
-        <div className="mt-7">
-          <h4 className="font-bold text-xl">CONTACT</h4>
-
-          <div className="py-[1px] bg-white my-4"></div>
-          <ul>
-            <li>+62-21-489-1137</li>
-            <li>admin@geomuda.id</li>
-          </ul>
-        </div>
-
-        <div>
-          <h4 className="font-bold text-xl">ADDRESS</h4>
-
-          <div className="py-[1px] bg-white my-4"></div>
-          <p>
-            Head Office:Indonesia Blue Economy Center Kampus C STIE Indonesia
-            Jakarta, Jalan Pratekan No. 9AKel. Rawamangun, Kec. Pulo Gadung,
-            Jakarta 13220
-          </p>
-
-          <div className="py-[1.25px] bg-[#DADADA] my-4"></div>
-
-          <p>
-            National Secretariat:Jalan Pulau Bintan No. 12, Desa Semoi Dua, Kec.
-            Sepaku, Kab. Penajam Paser Utara, IKN Nusantara.
-          </p>
-        </div>
-      </div> */}
     </div>
   );
 };
